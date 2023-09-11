@@ -1,0 +1,71 @@
+<body>
+  <div>
+  <app-menu-customer></app-menu-customer>
+  </div>
+
+  <div class="content-profile">
+    <div class="container">
+      <div class="profile-header">
+        <div class="profile-img">
+          <img [src]="customer.image" width="200" alt="Profile Image">
+        </div>
+        <div class="profile-nav-info">
+          <h3 class="user-name">{{customer.firstName}} {{customer.lastName}}</h3>
+          <div class="address">
+            <p id="state" class="state">{{customer.city}},</p>
+            <span id="country" class="country">{{customer.country}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-bd">
+        <div class="left-side">
+          <div class="profile-side">
+            <div>
+              <label>Email:</label>
+              <p class="user-mail"><i class="fa fa-envelope"></i> {{customer.email}}</p>
+            </div>
+            <div>
+              <label>Number Phone</label>
+              <p class="mobile-no"><i class="fa fa-phone"></i> {{customer.numberPhone}}</p>
+            </div>
+            <div>
+              <label>Gender</label>
+              <p class="mobile-no"><i class="fa fa-phone"></i> {{customer.gender}}</p>
+            </div>
+            <div>
+              <label>Address</label>
+              <p class="mobile-no">
+                <i class="fa fa-phone"></i> {{customer.street}}, {{customer.ward}}, {{customer.district}}
+              </p>
+            </div>
+          </div>
+
+        </div>
+        <div class="right-side">
+
+          <div class="nav">
+            <ul>
+              <li onclick="tabs(0)" class="user-post active">Posts</li>
+              <li onclick="tabs(1)" class="user-review">Reviews</li>
+              <li onclick="tabs(2)" class="user-setting"> Settings</li>
+            </ul>
+          </div>
+          <div class="profile-body">
+            <div class="profile-posts tab">
+            </div>
+            <div class="profile-reviews tab">
+              <h1>User reviews</h1>
+            </div>
+            <div class="profile-settings tab">
+              <div class="account-setting">
+                <h1>Acount Setting</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+

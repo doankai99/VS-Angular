@@ -1,0 +1,17 @@
+<div class="content-wrapper package-filter-wrapper">
+  <div class="package-filter-button mt-2 mt-sm-0">
+    <span class="filter-button" [ngClass]="{'open': isOpen}" (click)="toggleDetailUser()">{{getDetailUser.lastname}}</span>
+  </div>
+
+  <div class="filter-backdrop" *ngIf="isOpen"></div>
+    <div class="laas-package-filter" *ngIf="isOpen" #filterPopup>
+      <div class="filter-header-icon">
+        <div class="filter-text">
+          User Profile {{getDetailUser.firstname}} {{getDetailUser.lastname}}
+        </div>
+        <div class="close-icon cursor-pointer" (click)="toggleDetailUser()">
+          <img src="../../assets/icons/icon_close.svg" alt="">
+        </div>
+      </div>
+    </div>
+</div>

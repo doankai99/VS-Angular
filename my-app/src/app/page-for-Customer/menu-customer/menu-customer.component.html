@@ -1,0 +1,31 @@
+<header>
+  <h1 class="logo" routerLink="/homeCustomer">Duccio</h1>
+  <input type="checkbox" class="nav-toggle" id="nav-toggle">
+  <nav>
+    <ul>
+      <li class="nav-item"><a routerLink="/crm-product">Product</a></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown">Services
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/new-order">In-store Order</a></li>
+            <li><a class="dropdown-item" routerLink="/quote-management">Online order</a></li>
+          </ul>
+        </a>
+      </li>
+      <li><a href="">About Us</a></li>
+      <li><a href="">Contact</a></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown">
+        <mat-icon>account_circle</mat-icon>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="/customer-profile">Profile</a></li>
+          <li><a class="dropdown-item" routerLink="/quote-management">Logout</a></li>
+        </ul>
+      </a>
+    </li>
+    </ul>
+  </nav>
+  <label for="nav-toggle" class="nav-toggle-label">
+    <span></span>
+  </label>
+</header>

@@ -1,0 +1,72 @@
+<div>
+  <app-menu></app-menu>
+</div>
+<div class="mt-5">
+  <div class="row navbar navbar-expand-lg navbar-light bg-light text-center">
+    <div class="col-md-12">
+      <div class="Title navbar-brand">
+        <h2>Price</h2>
+        <i>List Price of Products</i>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <app-add-price
+    (fetchData)="handleAddPriceforProduct($event)"
+    ></app-add-price>
+  </div>
+  <div class="table-users">
+    <div class="header">Product</div>
+    <table cellspacing="0">
+        <tr>
+          <td>id</td>
+          <td>images</td>
+          <td>Name Product</td>
+          <td>TypeCode</td>
+          <td>Original price</td>
+          <td>Discount</td>
+          <td>Tax rate</td>
+          <td>Start time discount</td>
+          <td>End time discount</td>
+          <td>Promotion</td>
+          <td>Promotion description</td>
+          <td>Price</td>
+          <td>Option</td>
+        </tr>
+        <tr *ngFor="let data of priceData, let i = index">
+          <td>{{i + 1}}</td>
+          <td>
+            <img *ngIf="!data.products[0]?.image" src="../../../assets/images/defaultthumbnail.jpg" alt="">
+            <img *ngIf="data.products[0]?.image" [src]="data.products[0]?.image" alt="">
+          </td>
+          <td>{{data.products[0]?.name}}</td>
+          <td>{{data._id}}</td>
+          <td>{{data.price}} $</td>
+          <td>{{data.discount}}%</td>
+          <td>{{data.taxRate}}</td>
+          <td>{{data.startDate}}</td>
+          <td>{{data.endDate}}</td>
+          <td>
+            <div class="form-check form-switch">
+              <input
+                mdbCheckbox
+                class="form-check-input"
+                type="checkbox"
+                [checked]="data.isPromotion"
+              />
+            </div>
+          </td>
+          <td>{{data.promotionDescription}}</td>
+          <td>{{data.price - data.price * data.discount / 100}}$</td>
+          <td>
+            <app-update-delete-price
+            [dataPrice] = "data"
+            [priceId] =  "data._id"
+            (data) = handleCallPrice()
+            ></app-update-delete-price>
+          </td>
+        </tr>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,83 @@
+<div class="content-wrapper package-filter-wrapper">
+  <div class="package-filter-button mt-2 mt-sm-0">
+    <button #filterButton class="filter-button" [ngClass]="{'open': isOpen}" (click)="openAddPrice()">
+      <i class='bx bx-layer-plus'></i>
+      <span> Add Price</span>
+    </button>
+  </div>
+</div>
+<div class="filter-backdrop" *ngIf="isOpen"></div>
+<div class="laas-package-filter" *ngIf="isOpen" #filterPopup>
+  <div class="filter-header-icon">
+    <div class="filter-text">
+      Add Price for Product
+    </div>
+    <div class="close-icon cursor-pointer" (click)="openAddPrice()">
+      <img src="../../assets/icons/icon_close.svg" alt="">
+    </div>
+  </div>
+  <div class="pop-up-body">
+    <form [formGroup]="form" (submit)="addPriceforProduct()">
+      <div class="row">
+        <div class="package-filter-content-wrapper">
+          <div class="filter-row">
+            <div class="package-filter-wrapper w-50">
+              <label>Product</label>
+              <select formControlName="productId" aria-label="Chọn sản phẩm">
+                <option *ngFor="let data of productData" [value]="data._id">{{data.name}}</option>
+              </select>
+            </div>
+            <div class="package-filter-wrapper w-50">
+              <label>Fabric</label>
+              <select formControlName="fabricId" aria-label="Chọn loại vải">
+                <option *ngFor="let item of materialData" [value]="item._id">{{item.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="package-filter-wrapper w-33">
+              <label>Discount</label>
+              <input type="text" formControlName="discount">
+            </div>
+            <div class="package-filter-wrapper w-33">
+              <label>Price product</label>
+              <input type="text" formControlName="price">
+            </div>
+            <div class="package-filter-wrapper w-33">
+              <label>Price Group</label>
+              <select formControlName="priceGroup" aria-label="Chọn nhóm giá">
+                <option>Giá Bình Thường</option>
+                <option>Giảm Giá</option>
+                <option>Khuyến Mãi Đặc Biệt</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="package-filter-wrapper w-50">
+              <label>Start Date</label>
+              <input type="Date" formControlName="startDate">
+            </div>
+            <div class="package-filter-wrapper w-50">
+              <label>End Date</label>
+              <input type="Date" formControlName="endDate">
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="package-filter-wrapper w-100">
+              <label>Promotion Description</label>
+              <textarea formControlName="promotionDescription"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="buttons pop-up-Edit">
+        <button type="button" class="buttons__reset" (click)="openAddPrice()">
+          Close
+        </button>
+        <button type="submit" class="buttons__apply">
+          Apply
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

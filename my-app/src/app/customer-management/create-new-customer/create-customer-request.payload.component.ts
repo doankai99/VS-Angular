@@ -1,0 +1,20 @@
+export interface createCustomerRequestPayload{
+  firstName: string,
+  lastName: string,
+  gender: string,
+  email: string,
+  numberPhone: number,
+  priceGroup: string,
+  deliveryStreet: string,
+  paymentWard: string,
+  paymentDistrict: string,
+  paymentCity: string,
+  paymentBang: string,
+  paymentCountry: string,
+  paymentStreet: string,
+  deliveryWard: string,
+  deliveryDistrict: string,
+  deliveryCity: string,
+  deliveryBang: string,
+  deliveryCountry: string
+}

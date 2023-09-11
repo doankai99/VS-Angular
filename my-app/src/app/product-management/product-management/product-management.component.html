@@ -1,0 +1,74 @@
+<div>
+  <app-menu></app-menu>
+</div>
+<div class="mt-5">
+  <div class="row navbar navbar-expand-lg navbar-light bg-light text-center">
+    <div class="col-md-12">
+      <div class="Title navbar-brand">
+        <h2>Management Product</h2>
+        <i>List Product</i>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <app-add-new-product
+    (fetchData)="handleAddProduct($event)"
+    ></app-add-new-product>
+  </div>
+  <div class="filter-backdrop" *ngIf="isLoading">
+    <div *ngIf="isLoading" class="loading"></div>
+  </div>
+    <div class="table-users">
+      <div class="header">Product</div>
+      <table cellspacing="0">
+          <tr>
+            <td>id</td>
+            <td>images</td>
+            <td>Name Product</td>
+            <td>TypeCode</td>
+            <td>product_type</td>
+            <td>Material</td>
+            <td>Status</td>
+            <td>created on</td>
+            <td>published_on</td>
+            <td>Option</td>
+          </tr>
+          <tr *ngFor="let data of dataProduct.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+            <td>{{i + 1}}</td>
+            <td>
+              <img *ngIf="!data.image" src="../../../assets/images/defaultthumbnail.jpg" alt="">
+              <img *ngIf="data.image" [src]="data.image" alt="">
+            </td>
+            <td>{{data.name}}</td>
+            <td>{{data._id}}</td>
+            <td>{{data.product_type}}</td>
+            <td>{{data.fabricId.name}}</td>
+            <td>
+              <div class="form-check form-switch">
+                <input
+                  mdbCheckbox
+                  class="form-check-input"
+                  type="checkbox"
+                  [checked]="data.status"
+                />
+              </div>
+            </td>
+            <td>{{data.createdAt | date: 'MM/dd/yyyy'}}</td>
+            <td>{{data.published_on | date: 'MM/dd/yyyy'}}</td>
+            <td>
+              <app-update-delete-product
+              [productData] = "data"
+              [productId] =  "data._id"
+              (data) = "handleEditProduct()"
+              ></app-update-delete-product>
+            </td>
+          </tr>
+      </table>
+      <div class="pagination">
+            <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
+            <button [disabled]="currentPage * pageSize >= dataProduct.length" (click)="nextPage()">Trang sau</button>
+          </div>
+    </div>
+</div>
+
+

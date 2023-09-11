@@ -1,0 +1,68 @@
+<div class="content-wrapper package-filter-wrapper">
+  <div class="package-filter-button mt-2 mt-sm-0">
+    <button #filterButton class="filter-button" [ngClass]="{'open': isOpen}" (click)="openAddProduct()">
+      <i class='bx bx-layer-plus'></i>
+      <span> Add Product </span>
+    </button>
+  </div>
+</div>
+
+<div class="filter-backdrop" *ngIf="isOpen"></div>
+<div class="laas-package-filter" *ngIf="isOpen" #filterPopup>
+  <div class="filter-header-icon">
+    <div class="filter-text">
+      Add new Product
+    </div>
+    <div class="close-icon cursor-pointer" (click)="openAddProduct()">
+      <img src="../../assets/icons/icon_close.svg" alt="">
+    </div>
+  </div>
+  <div class="pop-up-body">
+    <form [formGroup]="form" (submit)="addNewProduct()">
+        <div class="formAddProduct">
+          <div class="uploadimage w-50">
+              <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../assets/images/defaultthumbnail.jpg" >
+              <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
+              <label for="fileInput" class="file-label">
+                <i class='bx bx-image-add'></i><span>Upload Product</span>
+              </label>
+              <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
+          </div>
+          <div class="feildForm w-50%">
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>Name Product</label>
+                <input type="text" formControlName="name">
+              </div>
+                <div class="package-filter-wrapper w-50">
+                  <label>Product Type</label>
+                  <input type="text" formControlName="product_type">
+                </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-100">
+                <label>Material typecode</label>
+                <select formControlName="fabricId" aria-label="Chọn loại vải">
+                  <option *ngFor="let item of materialsData" [value]="item._id">{{ item.name }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-100">
+                <label>Summary</label>
+                <textarea formControlName="summary"></textarea>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="buttons pop-up-Edit">
+        <button type="button" class="buttons__reset" (click)="openAddProduct()">
+          Close
+        </button>
+        <button type="submit" class="buttons__apply">
+          Apply
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

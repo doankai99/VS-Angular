@@ -1,0 +1,78 @@
+<div class="content-wrapper package-filter-wrapper">
+  <div class="package-filter-button mt-2 mt-sm-0">
+    <div>
+    <button class="navbar-toggler" type="button"
+    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+    [ngClass]="{'open': isOpen}" (click)="openMenu()" style="background-color: white;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
+    </button>
+    <span> DUCCIO </span>
+    </div>
+    <div class="contact">
+      <span><i class='bx bxl-facebook-circle' ></i></span>
+      <span><i class='bx bxs-envelope'></i></span>
+      <span><i class='bx bxs-phone'></i></span>
+    </div>
+  </div>
+</div>
+<div class="filter-backdrop navbar navbar-expand-lg navbar-dark" *ngIf="isOpenMenu"></div>
+<div class="laas-package-filter" *ngIf="isOpenMenu" #filterPopup>
+  <div class="container-fluid">
+    <div class="filter-header-icon">
+      <div class="navbar-brand fw-bold filter-text">
+        DUCCIO
+      </div>
+      <div class="close-icon cursor-pointer" (click)="openMenu()">
+        <img src="../../assets/icons/icon_close.svg" alt="">
+      </div>
+    </div>
+    <hr>
+    <div class="pop-up-body">
+      <div class="navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/home"><i class='bx bx-home'></i> Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" appToggleDropdown>
+              <i class='bx bx-cart-add'></i> Order Process
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" routerLink="/new-order"><i class='bx bxs-cart-add'></i> New Order</a></li>
+                <li><a class="dropdown-item" routerLink="/quote-management"><i class='bx bx-folder-open'></i> Quote Management</a></li>
+              </ul>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/management-order"><i class='bx bxs-shopping-bags'></i> Management Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/customer-management"><i class='bx bxs-group'></i> Customer Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/product-management"><i class='bx bxs-archive' ></i> Product Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/price-of-products"><i class='bx bx-wallet'></i> Price of Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/material-management"><i class='bx bxs-bookmark'></i> Material Management</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" appToggleDropdown>
+              <i class='bx bxs-user-circle'></i> Profile Management
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" routerLink="/profile"><i class='bx bx-user-circle'></i> My Profile</a></li>
+                <li><a class="dropdown-item" routerLink="/list-account"><i class='bx bxs-user-account'></i> Management User</a></li>
+              </ul>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " (click)="logout()"><i class='bx bxs-log-out bx-rotate-180' ></i> Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

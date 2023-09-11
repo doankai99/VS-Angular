@@ -1,0 +1,49 @@
+<div>
+  <app-menu></app-menu>
+</div>
+<div class="flex">
+  <div class="col-md-12">
+    <div class="container-xl">
+      <div class="row navbar-expand-lg navbar-light bg-light">
+          <div class="Title navbar-brand">
+            <h2>Create Order</h2>
+            <p>Please provide complete information below</p>
+          </div>
+      </div>
+      <div class="row">
+        <div class="contentTab">
+          <form>
+            <div class="formCreateOrder">
+              <span (click)="isOpen = !isOpen"><p>1</p> information customer</span>
+              <div *ngIf="isOpen">
+                <input>
+              </div>
+            </div>
+            <div class="formCreateOrder">
+              <span><p>2</p>Product Option</span>
+              <div *ngIf="isOpen">
+                <input>
+              </div>
+            </div>
+            <div class="formCreateOrder">
+              <span><p>3</p>Types of services</span>
+            </div>
+            <div class="formCreateOrder">
+              <span><p>4</p>Shipping methods</span>
+            </div>
+            <div class="formCreateOrder">
+              <span><p>5</p>Payment methods</span>
+            </div>
+            <div class="formCreateOrder">
+              <span><p>6</p>Requirement Orther</span>
+            </div>
+            <div class="buttons">
+              <button class="button__quote">Create quote</button>
+              <button class="button__close">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

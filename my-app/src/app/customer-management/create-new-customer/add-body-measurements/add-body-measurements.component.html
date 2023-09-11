@@ -1,0 +1,14 @@
+<div class="package-filter-button mt-2 mt-sm-0">
+  <button class="filter-button" (click)="isOpen = !isOpen"><span>+ add body measurements</span></button>
+</div>
+
+<div class="filter-backdrop" *ngIf="isOpen"></div>
+<div class="laas-package-filter" *ngIf="isOpen">
+  <form [formGroup]="form" (submit)="addBodyMeasurements">
+    <div class="package-filter-content-wrapper static">
+      <div class="section">
+
+      </div>
+    </div>
+  </form>
+</div>

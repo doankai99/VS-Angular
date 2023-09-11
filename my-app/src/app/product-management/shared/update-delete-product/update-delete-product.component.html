@@ -1,0 +1,92 @@
+<div class="content-wrapper package-filter-wrapper">
+  <div class="package-filter-button mt-2 mt-sm-0">
+      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="popUpEdit()"><i class='bx bxs-edit' ></i></span>
+      <span class="filter-button" [ngClass]="{'open': isOpenDelete}" (click)="popUpDelete()"><i class='bx bxs-trash'></i></span>
+  </div>
+
+  <div class="filter-backdrop" *ngIf="isOpenDelete || isOpenEdit"></div>
+
+  <!-- pop-up delete -->
+  <div class="laas-package-filter" *ngIf="isOpenDelete" #filterPopup>
+    <div class="filter-header-icon">
+      <div class="filter-text">
+        Delete Product
+      </div>
+    </div>
+    <div class = "filter-body-content">
+      <div class="display-infor-User">
+        <img [src]="productData.image" alt="">
+        <p class="d-flex justify-content-center">Bạn có muốn xóa Product {{productData.name}}</p>
+      </div>
+      <div class="buttons pop-up-delete">
+        <button type="button" class="buttons__reset" (click)="popUpDelete()">
+          Close
+        </button>
+        <button type="submit" class="buttons__apply" (click)="deleteProduct()">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop-up edit -->
+
+  <div class="pop-up-edit" *ngIf="isOpenEdit" #filterPopup>
+    <div class="filter-header-icon">
+      <div class="filter-text">
+        Edit Product
+      </div>
+      <div class="close-icon cursor-pointer" (click)="popUpEdit()">
+        <img src="../../assets/icons/icon_close.svg" alt="">
+      </div>
+    </div>
+    <div class="pop-up-body">
+      <form [formGroup]="form" (submit)="popUpEdit()">
+        <div class="formAddProduct">
+          <div class="uploadimage w-50">
+            <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../assets/images/defaultthumbnail.jpg" >
+              <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
+              <label for="fileInput" class="file-label">
+                <i class='bx bx-image-add'></i><span>Upload Product</span>
+              </label>
+              <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
+          </div>
+          <div class="feildForm w-50%">
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>Name Product</label>
+                <input type="text" formControlName="name">
+              </div>
+                <div class="package-filter-wrapper w-50">
+                  <label>Product Type</label>
+                  <input type="text" formControlName="product_type">
+                </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-100">
+                <label>Material typecode</label>
+                <select formControlName="productId" aria-label="Chọn sản phẩm">
+                  <option *ngFor="let item of productData" [value]="item._id">{{ item.name }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-100">
+                <label>Summary</label>
+                <textarea formControlName="summary"></textarea>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="buttons pop-up-Edit">
+        <button type="button" class="buttons__reset" (click)="popUpEdit()">
+          Close
+        </button>
+        <button type="submit" class="buttons__apply">
+          Apply
+        </button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

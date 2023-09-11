@@ -1,0 +1,100 @@
+<div class="content-wrapper package-filter-wrapper">
+  <div class="package-filter-button mt-2 mt-sm-0">
+      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="popUpEdit()">Edit</span>
+      <span class="filter-button" [ngClass]="{'open': isOpenDelete}" (click)="toggleFilter()"> Delete </span>
+  </div>
+
+  <div class="filter-backdrop" *ngIf="isOpenDelete || isOpenEdit"></div>
+
+  <!-- pop-up delete -->
+  <div class="laas-package-filter" *ngIf="isOpenDelete" #filterPopup>
+    <div class="filter-header-icon">
+      <div class="filter-text">
+        Delete Material
+      </div>
+    </div>
+    <div class = "filter-body-content">
+      <div class="display-infor-User">
+        <p class="d-flex justify-content-center">Bạn có muốn xóa material {{materialData.name}}</p>
+      </div>
+      <div class="buttons pop-up-delete">
+        <button type="button" class="buttons__reset" (click)="toggleFilter()">
+          Close
+        </button>
+        <button type="submit" class="buttons__apply" (click)="deleteFabric()">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop-up edit -->
+
+  <div class="pop-up-edit" *ngIf="isOpenEdit" #filterPopup>
+    <div class="filter-header-icon">
+      <div class="filter-text">
+        Edit Material {{materialData.name}}
+      </div>
+      <div class="close-icon cursor-pointer" (click)="popUpEdit()">
+        <img src="../../assets/icons/icon_close.svg" alt="">
+      </div>
+    </div>
+    <div class="pop-up-body">
+      <form [formGroup]="form" (submit)="applyEdit()">
+        <div class="row">
+          <div class="package-filter-content-wrapper">
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-100">
+
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>Material type</label>
+                <input type="text" formControlName="material">
+              </div>
+                <div class="package-filter-wrapper w-50">
+                  <label>Material Name</label>
+                  <input type="text" formControlName="name">
+                </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>Color</label>
+                <input type="text" formControlName="color">
+              </div>
+              <div class="package-filter-wrapper w-50">
+                <label>Size</label>
+                <input type="text" formControlName="size">
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>Price</label>
+                <input type="text" formControlName="price">
+              </div>
+              <div class="package-filter-wrapper w-50">
+                <label>Currency</label>
+                <input type="text" formControlName="currency">
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-100">
+                <label>Description</label>
+                <textarea formControlName="description"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pop-up-Edit">
+          <button type="button" class="buttons__reset" (click)="popUpEdit()">
+            Close
+          </button>
+          <button type="submit" class="buttons__apply">
+            Edit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

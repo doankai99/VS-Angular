@@ -1,0 +1,80 @@
+<div class="content-wrapper package-filter-wrapper">
+  <div class="package-filter-button mt-2 mt-sm-0">
+    <button #filterButton class="filter-button" [ngClass]="{'open': isOpen}" (click)="toggleDetailUser()">
+      <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M6.94436 10.3809C6.94436 10.1726 7.02484 9.97271 7.1681 9.82536C7.31136 9.67801 7.50566 9.59523 7.70825 9.59523H12.2916C12.4942 9.59523 12.6885 9.67801 12.8317 9.82536C12.975 9.97271 13.0555 10.1726 13.0555 10.3809C13.0555 10.5893 12.975 10.7892 12.8317 10.9365C12.6885 11.0839 12.4942 11.1667 12.2916 11.1667H7.70825C7.50566 11.1667 7.31136 11.0839 7.1681 10.9365C7.02484 10.7892 6.94436 10.5893 6.94436 10.3809ZM3.88881 5.66666C3.88881 5.45827 3.96929 5.25842 4.11255 5.11107C4.2558 4.96372 4.4501 4.88094 4.6527 4.88094H15.3471C15.5497 4.88094 15.744 4.96372 15.8873 5.11107C16.0305 5.25842 16.111 5.45827 16.111 5.66666C16.111 5.87504 16.0305 6.07489 15.8873 6.22224C15.744 6.36959 15.5497 6.45237 15.3471 6.45237H4.6527C4.4501 6.45237 4.2558 6.36959 4.11255 6.22224C3.96929 6.07489 3.88881 5.87504 3.88881 5.66666ZM0.833252 0.952371C0.833252 0.743986 0.913733 0.544137 1.05699 0.396787C1.20025 0.249437 1.39454 0.166656 1.59714 0.166656H18.4027C18.6053 0.166656 18.7996 0.249437 18.9428 0.396787C19.0861 0.544137 19.1666 0.743986 19.1666 0.952371C19.1666 1.16076 19.0861 1.3606 18.9428 1.50795C18.7996 1.6553 18.6053 1.73809 18.4027 1.73809H1.59714C1.39454 1.73809 1.20025 1.6553 1.05699 1.50795C0.913733 1.3606 0.833252 1.16076 0.833252 0.952371Z"
+          fill="#5D636F" />
+      </svg>
+      <span> Add Material </span>
+    </button>
+  </div>
+</div>
+
+<div class="filter-backdrop" *ngIf="isOpen"></div>
+<div class="laas-package-filter" *ngIf="isOpen" #filterPopup>
+  <div class="filter-header-icon">
+    <div class="filter-text">
+      Add new user
+    </div>
+    <div class="close-icon cursor-pointer" (click)="toggleDetailUser()">
+      <img src="../../assets/icons/icon_close.svg" alt="">
+    </div>
+  </div>
+  <div class="pop-up-body">
+    <form [formGroup]="form" (submit)="addMaterial()">
+      <div class="row">
+        <div class="package-filter-content-wrapper">
+          <div class="filter-row">
+            <div class="package-filter-wrapper item-center w-100">
+              <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../assets/images/defaultthumbnail.jpg" >
+              <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
+              <label for="fileInput" class="file-label">
+                <i class='bx bx-image-add'></i>
+              </label>
+              <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="package-filter-wrapper w-50">
+              <label>Material type</label>
+              <input type="text" formControlName="material">
+            </div>
+            <div class="package-filter-wrapper w-50">
+              <label>Material Name</label>
+              <input type="text" formControlName="name">
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="package-filter-wrapper w-33">
+              <label>Color</label>
+              <input type="text" formControlName="color">
+            </div>
+            <div class="package-filter-wrapper w-33">
+              <label>Size</label>
+              <input type="text" formControlName="size">
+            </div>
+            <div class="package-filter-wrapper w-33">
+              <label>Price</label>
+              <input type="text" formControlName="price">
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="package-filter-wrapper w-100">
+              <label>Description</label>
+              <textarea formControlName="description"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="buttons pop-up-Edit">
+        <button type="button" class="buttons__reset" (click)="toggleDetailUser()">
+          Close
+        </button>
+        <button type="submit" class="buttons__apply">
+          Apply
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

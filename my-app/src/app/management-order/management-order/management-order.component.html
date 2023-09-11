@@ -1,0 +1,51 @@
+<div>
+  <app-menu></app-menu>
+</div>
+<div class="flex">
+  <div class="col-md-12">
+    <div class="container-xl">
+      <div class="row navbar-expand-lg navbar-light bg-light">
+        <div class="col-md-8">
+          <div class="Title navbar-brand">
+            <h2>Order Management</h2>
+            <i>view all orders</i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <input type="search" class="searchOrder m-28" placeholder="search order">
+        </div>
+      </div>
+      <div class="row m-top-32">
+        <table class="table table-striped table-hover table-bordered">
+          <thead>
+            <tr>
+              <td>Order id</td>
+              <td>Time</td>
+              <td>Customer phone</td>
+              <td>Customer name</td>
+              <td>Customer email</td>
+              <td>Order status</td>
+              <td>Action</td>
+              <td>Option</td>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- *ngFor="let item of list" -->
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <span><app-pop-up-management-order></app-pop-up-management-order></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

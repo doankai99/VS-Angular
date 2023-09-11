@@ -1,0 +1,111 @@
+<div class="content-wrapper package-filter-wrapper">
+  <div class="package-filter-button mt-2 mt-sm-0">
+      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="popUpEdit()">Edit</span>
+      <span class="filter-button" [ngClass]="{'open': isOpenDelete}" (click)="toggleFilter()"> Delete </span>
+  </div>
+
+  <div class="filter-backdrop" *ngIf="isOpenDelete || isOpenEdit"></div>
+
+  <!-- pop-up delete -->
+  <div class="laas-package-filter" *ngIf="isOpenDelete" #filterPopup>
+    <div class="filter-header-icon">
+      <div class="filter-text">
+        Delete User
+      </div>
+      <div class="close-icon cursor-pointer" (click)="toggleFilter()">
+        <img src="../../assets/icons/icon_close.svg" alt="">
+      </div>
+    </div>
+    <div class = "filter-body-content">
+      <span class="title">You have delete account</span>
+      <div class="buttons pop-up-delete">
+        <button type="button" class="buttons__reset" (click)="toggleFilter()">
+          Close
+        </button>
+        <button type="submit" class="buttons__apply" (click)="deleteCustomer()">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop-up edit -->
+
+  <div class="pop-up-edit" *ngIf="isOpenEdit" #filterPopup>
+    <div class="filter-header-icon">
+      <div class="filter-text">
+        Edit Material
+      </div>
+      <div class="close-icon cursor-pointer" (click)="popUpEdit()">
+        <img src="../../assets/icons/icon_close.svg" alt="">
+      </div>
+    </div>
+    <div class="pop-up-body">
+      <form [formGroup]="form" (submit)="updateCustomer()">
+        <div class="row">
+          <div class="package-filter-content-wrapper">
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>First Name</label>
+                <input type="text">
+              </div>
+                <div class="package-filter-wrapper w-50">
+                  <label>Last Name</label>
+                  <input type="text">
+                </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>Email</label>
+                <input type="text">
+              </div>
+              <div class="package-filter-wrapper w-50">
+                <label>Position</label>
+                <input type="text">
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-33">
+                <label>Street</label>
+                <input type="text">
+              </div>
+              <div class="package-filter-wrapper w-33">
+                <label>Ward</label>
+                <input type="text">
+              </div>
+              <div class="package-filter-wrapper w-33">
+                <label>District</label>
+                <input type="text">
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>City</label>
+                <input type="text">
+              </div>
+              <div class="package-filter-wrapper w-50">
+                <label>Country</label>
+                <input type="text">
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-100">
+                <div>Admin</div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pop-up-Edit">
+          <button type="button" class="buttons__reset" (click)="popUpEdit()">
+            Close
+          </button>
+          <button type="submit" class="buttons__apply">
+            Edit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
