@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { MaterialService } from 'src/app/material-management/shared/material.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-delete-price',
@@ -11,6 +12,7 @@ import { MaterialService } from 'src/app/material-management/shared/material.ser
 export class UpdateDeletePriceComponent {
   public isOpenEdit: boolean = false;
   public isOpenDelete: boolean = false;
+  @Input() isLoading: boolean = false;
 
 
   public form !: FormGroup;
@@ -22,7 +24,7 @@ export class UpdateDeletePriceComponent {
   @Input() public priceId: any
   @Output() public data: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private productService: ProductService, private materialService: MaterialService) {
+  constructor(private productService: ProductService, private materialService: MaterialService, private toastr: ToastrService) {
 
   }
 
@@ -79,6 +81,7 @@ export class UpdateDeletePriceComponent {
   }
 
   public handleEditPrice(params: any) {
+    this.isLoading = true;
     this.isPopUpEdit();
     const id = this.priceId;
     this.productService.updatePrice(params, id).subscribe((data) => {
@@ -93,10 +96,10 @@ export class UpdateDeletePriceComponent {
   public deletePrice() {
     this.isPopUpDelete()
     const id = this.priceId
-    console.log(id);
     this.productService.deletePrice(id).subscribe(() => {
-      alert(`Delete price`)
       this.data.emit();
+      this.toastr.success(`Delete price of Product ${{ id }} success`)
+      // alert(`Delete price`)
     })
   }
 }

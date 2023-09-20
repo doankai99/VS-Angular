@@ -18,12 +18,28 @@ export class ListAccountComponent {
   public isOpen = false
   public isCheckAdmin !: boolean;
   public isLoading: boolean = false;
+  currentPage: number = 1;
+  pageSize: number = 4;
+
+  public listUser: any;
+
   constructor(private authService: AuthService, private cd: ChangeDetectorRef, private toastr: ToastrService, private router: Router) {
   }
-  public listUser: any;
 
   ngOnInit() {
     this.getAllAccount()
+  }
+
+  public previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  public nextPage() {
+    if (this.currentPage * this.pageSize < this.listUser.length) {
+      this.currentPage++;
+    }
   }
 
 

@@ -10,6 +10,7 @@ export class ViewProfileCustomerComponent {
 
   public customer: any;
   public customerId: any = "64fc7c3113123572290c1dd7";
+  public activeTab: string = 'A'
 
   constructor(private profileCustomerService: ProfileCustomerService) {
 

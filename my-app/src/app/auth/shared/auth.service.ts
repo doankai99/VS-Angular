@@ -13,7 +13,7 @@ import { addNewUserRequestPayload } from './add-new-user/add-new-user-request.pa
 })
 export class AuthService {
 
-  // private accessToken: string = '';
+  private accessToken: string = '';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -33,16 +33,6 @@ export class AuthService {
 
   public login(loginRequestPayload: loginRequestPayload): Observable<any> {
     return this.httpClient.post<any>('http://localhost:8080/user/login', loginRequestPayload)
-    // .pipe(map(data => {
-    //   this.localStorage.store('authenticationToken', data.authenticationToken);
-    //   this.localStorage.store('email', data.email);
-    //   this.localStorage.store('refreshToken', data.refreshToken);
-    //   this.localStorage.store('expiresAt', data.expiresAt);
-
-    //   this.loggedIn.emit(true);
-    //   this.email.emit(data.email);
-    //   return true;
-    // }));
   }
 
   public customerLogin(queryParam: any): Observable<any> {

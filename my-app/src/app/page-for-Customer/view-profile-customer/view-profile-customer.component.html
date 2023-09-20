@@ -43,23 +43,30 @@
 
         </div>
         <div class="right-side">
-
           <div class="nav">
             <ul>
-              <li onclick="tabs(0)" class="user-post active">Posts</li>
-              <li onclick="tabs(1)" class="user-review">Reviews</li>
-              <li onclick="tabs(2)" class="user-setting"> Settings</li>
+              <li (click)="activeTab = 'A'" class="user-post" [ngClass]="{active: activeTab}" style="color: rgb(36, 36, 36);">Posts</li>
+              <li (click)="activeTab = 'B'" class="user-review" [ngClass]="{active: activeTab}" style="color: rgb(36, 36, 36);">Reviews</li>
+              <li (click)="activeTab = 'C'" class="user-setting" [ngClass]="{active: activeTab}"  style="color: rgb(36, 36, 36);"> Settings</li>
             </ul>
           </div>
           <div class="profile-body">
-            <div class="profile-posts tab">
-            </div>
-            <div class="profile-reviews tab">
-              <h1>User reviews</h1>
-            </div>
-            <div class="profile-settings tab">
-              <div class="account-setting">
-                <h1>Acount Setting</h1>
+            <div [ngSwitch]="activeTab">
+              <div *ngSwitchCase="'A'">
+                <div class="profile-posts tab">
+                  <p style="color: black;">aa</p>
+                </div>
+              </div>
+              <div *ngSwitchCase="'B'" class="profile-reviews tab">
+                <h1 style="color: black;">User reviews</h1>
+              </div>
+              <div *ngSwitchCase="'C'" class="profile-settings tab">
+                <div class="account-setting">
+                  <app-setting-info
+                  [customerId] = "customerId"
+                  [customer]="customer"
+                  ></app-setting-info>
+                </div>
               </div>
             </div>
           </div>

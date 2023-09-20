@@ -1,0 +1,134 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+.container{
+  border: 1px solid rgb(231, 231, 231);
+  display:grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+  width:1000px;
+  margin:auto;
+  margin-top:30px;
+  margin-bottom: 20px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+#fname,#Email,#Password,#numberPhone,#address{
+  border-bottom:2px solid rgb(209, 207, 207);
+  border-top:none;
+  border-right:none;
+  border-left:none;
+}
+#msg{
+  margin-top:30px;
+}
+label{
+  font-size: 18px;;
+}
+input{
+  border: 1px solid #dbd9d9;
+  width:100%;
+  height: 32px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  outline:none;
+  color:#3c3c3c;
+  input[value] {
+    text-align: center;
+  }
+}
+select {
+  border: 1px solid #dbd9d9;
+  width:100%;
+  height: 32px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  outline:none;
+  color:#3c3c3c;
+}
+form{
+  padding:50px;
+  width:400px;
+  color:rgb(70, 70, 70);
+  ::placeholder {
+    color: rgb(145, 144, 145);
+    font-size: 14px;
+    padding-left: 12px;
+  }
+}
+button{
+  padding:15px;
+  margin: 20px 0 30px 0;
+  border-radius: 5px;
+  color: white;
+  background-color: #0f5cb5;
+  border:none;
+  font-size: 15px;
+  font-weight: bold;
+
+}
+.box{
+  width:400px;
+
+}
+span{
+  font-weight: bold;
+  text-align: right;
+}
+hr{
+  width:15%;
+  background-color: rgb(155, 150, 151);
+  padding:2px;
+  border: none;
+  margin-bottom:20px;
+}
+p{
+  font-size:18px;
+  padding:5px;
+  width:70%;
+  margin-bottom: 10px;;
+}
+table{
+  line-height: 1.5;
+}
+td{
+
+  padding:10px;
+  font-size: 18px;
+  margin-bottom:30px;
+}
+
+
+i{
+  font-size: 18px;
+  color: black;
+}
+h1{
+  margin-top:30px;
+}
+@media only screen and (min-width:300px) and (max-width:550px) {
+  .container{
+      width: 100%;
+      grid-template-columns: auto;
+      align-items: center;
+      justify-content: center;
+      box-shadow: none;
+  }
+  .box{
+      width: 100%;
+  }
+  form{
+      width: 100%;
+  }
+}
+@media only screen and (min-width:550px) and (max-width:850px) {
+  .container{
+      width: 100%;
+      grid-template-columns: auto;
+      align-items: center;
+      justify-content: center;
+      box-shadow: none;
+  }
+
+}

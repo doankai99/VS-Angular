@@ -34,7 +34,7 @@
                 <th>Role</th>
                 <th>option</th>
               </tr>
-              <tr *ngFor= "let item of listUser, let i = index">
+              <tr *ngFor= "let item of listUser.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
                 <td>{{i + 1}}</td>
                 <td>
                   <img *ngIf="!item.image" src="../../../assets/images/defauthAvatar.jpg" alt="">
@@ -72,5 +72,9 @@
                 </td>
               </tr>
             </table>
+            <div class="pagination">
+              <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
+              <button [disabled]="currentPage * pageSize >= listUser.length" (click)="nextPage()">Trang sau</button>
+          </div>
         </div>
 </div>

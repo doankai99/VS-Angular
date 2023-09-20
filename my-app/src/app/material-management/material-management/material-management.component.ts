@@ -12,6 +12,8 @@ import { Router } from "@angular/router";
 export class MaterialManagementComponent {
 
   public materials: any;
+  currentPage: number = 1;
+  pageSize: number = 3;
 
   constructor(private materialService: MaterialService, private toast: ToastrService, private router: Router) {
   }
@@ -22,6 +24,17 @@ export class MaterialManagementComponent {
 
   ngViewCheck() {
 
+  }
+  public previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  public nextPage() {
+    if (this.currentPage * this.pageSize < this.materials.length) {
+      this.currentPage++;
+    }
   }
   public handledata() {
     this.getAllMaterial()

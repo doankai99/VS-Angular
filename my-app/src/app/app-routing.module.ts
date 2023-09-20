@@ -17,6 +17,10 @@ import { PriceOfProductComponent } from './product-management/price-of-product/p
 import { HomepageComponent } from './page-for-Customer/homepage/homepage.component';
 import { ViewProfileCustomerComponent } from './page-for-Customer/view-profile-customer/view-profile-customer.component';
 import { CrmProductCustomerComponent } from './page-for-Customer/crm-product-customer/crm-product-customer.component';
+import { LearnMoveTechniqueComponent } from './page-for-Customer/shared/component/learn-move-technique/learn-move-technique.component';
+import { VestScraftCareComponent } from './page-for-Customer/shared/component/vest-scraft-care/vest-scraft-care.component';
+import { AboutUsComponent } from './page-for-Customer/shared/component/about-us/about-us.component';
+import { InStoreOrderComponent } from './page-for-Customer/services/in-store-order/in-store-order.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -43,7 +47,11 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'homeCustomer', component: HomepageComponent },
   { path: 'customer-profile', component: ViewProfileCustomerComponent },
-  { path: 'crm-product', component: CrmProductCustomerComponent }
+  { path: 'crm-product', component: CrmProductCustomerComponent },
+  { path: 'learn-move-tecnique', component: LearnMoveTechniqueComponent },
+  { path: 'vestScraft-care', component: VestScraftCareComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'in-store-order', component: InStoreOrderComponent }
 ];
 
 @NgModule({

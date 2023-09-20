@@ -13,7 +13,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { CustomerManagementComponent } from './customer-management/customer-management/customer-management.component';
 import { ProductManagementComponent } from './product-management/product-management/product-management.component';
 import { MaterialManagementComponent } from './material-management/material-management/material-management.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { NewOrderComponent } from './order-process/new-order/new-order.component';
@@ -25,7 +25,7 @@ import { CreateNewCustomerComponent } from './customer-management/create-new-cus
 import { FormsModule } from '@angular/forms';
 import { AddBodyMeasurementsComponent } from './customer-management/create-new-customer/add-body-measurements/add-body-measurements.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ToastrModule } from "ngx-toastr";
+import { ToastrModule, provideToastr } from "ngx-toastr";
 import { ListAccountComponent } from './auth/list-account/list-account.component';
 import { AddMaterialComponent } from './material-management/add-material/add-material.component';
 import { EditMaterialComponent } from './material-management/edit-material/edit-material.component';
@@ -47,6 +47,12 @@ import { SignUpCustomerComponent } from './auth/sign-up-customer/sign-up-custome
 import { LoginCustomerComponent } from './auth/login-customer/login-customer.component';
 import { ViewProfileCustomerComponent } from './page-for-Customer/view-profile-customer/view-profile-customer.component';
 import { CrmProductCustomerComponent } from './page-for-Customer/crm-product-customer/crm-product-customer.component';
+import { AboutUsComponent } from './page-for-Customer/shared/component/about-us/about-us.component';
+import { LearnMoveTechniqueComponent } from './page-for-Customer/shared/component/learn-move-technique/learn-move-technique.component';
+import { VestScraftCareComponent } from './page-for-Customer/shared/component/vest-scraft-care/vest-scraft-care.component';
+import { InStoreOrderComponent } from './page-for-Customer/services/in-store-order/in-store-order.component';
+import { OnlineOrderComponent } from './page-for-Customer/services/online-order/online-order.component';
+import { SettingInfoComponent } from './page-for-Customer/view-profile-customer/setting-info/setting-info.component';
 // import { LocalStorageService } from './path-to-local-storage-service';
 @NgModule({
   declarations: [
@@ -86,7 +92,13 @@ import { CrmProductCustomerComponent } from './page-for-Customer/crm-product-cus
     SignUpCustomerComponent,
     LoginCustomerComponent,
     ViewProfileCustomerComponent,
-    CrmProductCustomerComponent
+    CrmProductCustomerComponent,
+    AboutUsComponent,
+    LearnMoveTechniqueComponent,
+    VestScraftCareComponent,
+    InStoreOrderComponent,
+    OnlineOrderComponent,
+    SettingInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -98,11 +110,16 @@ import { CrmProductCustomerComponent } from './page-for-Customer/crm-product-cus
     MatIconModule,
     MatMenuModule,
     FormsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [
-    // LocalStorageService
+    provideAnimations(),
+    provideToastr(),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

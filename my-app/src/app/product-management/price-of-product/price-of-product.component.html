@@ -15,6 +15,9 @@
     (fetchData)="handleAddPriceforProduct($event)"
     ></app-add-price>
   </div>
+  <div class="filter-backdrop" *ngIf="isLoading">
+    <div *ngIf="isLoading" class="loading"></div>
+  </div>
   <div class="table-users">
     <div class="header">Product</div>
     <table cellspacing="0">
@@ -33,7 +36,7 @@
           <td>Price</td>
           <td>Option</td>
         </tr>
-        <tr *ngFor="let data of priceData, let i = index">
+        <tr *ngFor="let data of priceData.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
           <td>{{i + 1}}</td>
           <td>
             <img *ngIf="!data.products[0]?.image" src="../../../assets/images/defaultthumbnail.jpg" alt="">
@@ -60,6 +63,7 @@
           <td>{{data.price - data.price * data.discount / 100}}$</td>
           <td>
             <app-update-delete-price
+            [isLoading]= "isLoading"
             [dataPrice] = "data"
             [priceId] =  "data._id"
             (data) = handleCallPrice()
@@ -67,6 +71,10 @@
           </td>
         </tr>
     </table>
+    <div class="pagination">
+      <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
+      <button [disabled]="currentPage * pageSize >= priceData.length" (click)="nextPage()">Trang sau</button>
+  </div>
   </div>
 </div>
 

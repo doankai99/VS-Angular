@@ -2,4 +2,24 @@
   <div>
     <app-menu-customer></app-menu-customer>
   </div>
+  <div class="content-product">
+    <ul class="mystyle-products">
+      <li class="product" *ngFor="let item of viewProduct">
+          <a href="14-single-product.html">
+              <span class="onsale">Sale!</span>
+              <img alt="" class="attachment-shop_catalog " [src]="item.products[0].image" />
+              <h3>{{item.products[0].name}}</h3>
+              <span class="price">
+                  <del> <span class="amount">{{item.price}}</span> </del>
+                  <ins> <span class="amount">269.000 ₫</span> </ins>
+                  <span class="sale-tag sale-tag-square">-33%</span>
+              </span>
+          </a>
+          <a class="button add_to_cart_button product_type_simple" rel="nofollow" href="#">
+              Mua ngay
+          </a>
+          <a href="#" class="btn btn-dark btn-circle btn-review" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="ion ion-ios-move"></i></a>
+      </li>
+  </ul>
+  </div>
 </body>

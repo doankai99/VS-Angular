@@ -65,9 +65,9 @@
           </tr>
       </table>
       <div class="pagination">
-            <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
-            <button [disabled]="currentPage * pageSize >= dataProduct.length" (click)="nextPage()">Trang sau</button>
-          </div>
+          <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
+          <button [disabled]="currentPage * pageSize >= dataProduct.length" (click)="nextPage()">Trang sau</button>
+      </div>
     </div>
 </div>
 
