@@ -1,7 +1,7 @@
 <div class="content-wrapper package-filter-wrapper">
   <div class="package-filter-button mt-2 mt-sm-0">
-      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="popUpEdit()"><i class='bx bxs-edit' ></i></span>
-      <span class="filter-button" [ngClass]="{'open': isOpenDelete}" (click)="popUpDelete()"><i class='bx bxs-trash'></i></span>
+      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="popUpEdit()">Edit</span>
+      <span class="filter-button" [ngClass]="{'open': isOpenDelete}" (click)="popUpDelete()">Delete</span>
   </div>
 
   <div class="filter-backdrop" *ngIf="isOpenDelete || isOpenEdit"></div>

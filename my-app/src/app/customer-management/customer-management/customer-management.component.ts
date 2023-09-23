@@ -9,11 +9,26 @@ import { Toast, ToastrService } from 'ngx-toastr';
 })
 export class CustomerManagementComponent {
   public dataCustomer: any;
+  public isLoading: boolean = false;
+  currentPage: number = 1;
+  pageSize: number = 5;
 
   constructor(private customerService: CustomerService, private toast: ToastrService) { }
 
   ngOnInit() {
     this.getCustomer()
+  }
+
+  public previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  public nextPage() {
+    if (this.currentPage * this.pageSize < this.dataCustomer.length) {
+      this.currentPage++;
+    }
   }
 
   public getCustomer(): void {

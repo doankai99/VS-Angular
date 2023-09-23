@@ -54,6 +54,7 @@ import { InStoreOrderComponent } from './page-for-Customer/services/in-store-ord
 import { OnlineOrderComponent } from './page-for-Customer/services/online-order/online-order.component';
 import { SettingInfoComponent } from './page-for-Customer/view-profile-customer/setting-info/setting-info.component';
 import { AuthInterceptor } from './token-interceptor';
+import { HeaderComponent } from './shared/component/header/header.component';
 // import { LocalStorageService } from './path-to-local-storage-service';
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { AuthInterceptor } from './token-interceptor';
     VestScraftCareComponent,
     InStoreOrderComponent,
     OnlineOrderComponent,
-    SettingInfoComponent
+    SettingInfoComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ export class PriceOfProductComponent {
   public priceData: any;
   public productData: any;
   currentPage: number = 1;
-  pageSize: number = 3;
+  pageSize: number = 5;
   public currentDate: Date = new Date();
 
   constructor(private productService: ProductService, private toastrService: ToastrService) { }

@@ -1,6 +1,4 @@
-<div>
-  <app-menu></app-menu>
-</div>
+<!--
 <div class="flex">
   <div class="col-md-12">
     <div class="container-xl">
@@ -33,7 +31,6 @@
             </tr>
           </thead>
           <tbody>
-            <!-- *ngFor="let item of dataCustomer" -->
             <tr *ngFor="let item of dataCustomer, let i = index">
               <td>{{i + 1}}</td>
               <td>{{item.firstName}} {{item.lastName}}</td>
@@ -50,4 +47,56 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+<body>
+  <div class="menu">
+    <app-menu></app-menu>
+  </div>
+  <div class="content">
+    <app-header></app-header>
+      <div class="col-md-12">
+
+      </div>
+      <div class="filter-backdrop" *ngIf="isLoading">
+        <div *ngIf="isLoading" class="loading"></div>
+      </div>
+      <div class="table-users">
+        <div class="header">Product</div>
+        <table cellspacing="0">
+          <tr>
+            <td>Id</td>
+            <td>Image</td>
+            <td>Name customer</td>
+            <td>Gender</td>
+            <td>Number Phone</td>
+            <td>Email</td>
+            <td>Address</td>
+            <td>Country</td>
+            <td>Create On</td>
+            <td>Option</td>
+          </tr>
+          <tr *ngFor="let item of dataCustomer, let i = index">
+            <td>{{i + 1}}</td>
+            <td>
+              <img *ngIf="!item.image" src="../../../assets/images/defaultthumbnail.jpg" alt="">
+              <img *ngIf="item.image" [src]="item.image" alt="">
+            </td>
+            <td>{{item.firstName}} {{item.lastName}}</td>
+            <td>{{item.gender}}</td>
+            <td>{{item.numberPhone}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.street}}, {{item.ward}}, {{item.district}}, {{item.city}}</td>
+            <td>{{item.country}}</td>
+            <td>{{item.createdAt | date}}</td>
+            <td>
+              <span><app-edit-customer-information></app-edit-customer-information></span>
+            </td>
+          </tr>
+        </table>
+        <div class="pagination">
+          <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
+          <button [disabled]="" (click)="nextPage()">Trang sau</button>
+        </div>
+      </div>
+  </div>
+</body>

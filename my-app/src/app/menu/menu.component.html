@@ -90,10 +90,10 @@
       </ul>
     </li>
     <li><a routerLink="/management-order"><i class='bx bxs-shopping-bags'></i> <span>Management Order</span></a></li>
-    <li><a routerLink="/management-order"><i class='bx bxs-group'></i> <span>Customer Management</span></a></li>
+    <li><a routerLink="/customer-management"><i class='bx bxs-group'></i> <span>Customer Management</span></a></li>
     <li><a routerLink="/price-of-products"><i class='bx bx-wallet'></i> <span>Price of Product</span></a></li>
-    <li><a routerLink="/management-order"><i class='bx bxs-archive' ></i> <span>Product Management</span></a></li>
-    <li><a routerLink="/management-order"><i class='bx bxs-bookmark'></i> <span>Material Management</span></a></li>
+    <li><a routerLink="/product-management"><i class='bx bxs-archive' ></i> <span>Product Management</span></a></li>
+    <li><a routerLink="/material-management"><i class='bx bxs-bookmark'></i> <span>Fabric Management</span></a></li>
     <li class='sub-menu' (click)="toggleSubMenu('profile')">
       <a><i class='bx bxs-user-circle'></i> <span>Profile Management</span><div [ngClass]="{'fa-caret-up': isSubMenuOpen['profile'], 'fa-caret-down': !isSubMenuOpen['profile']}" class='fa right'></div></a>
       <ul *ngIf="isSubMenuOpen['profile']">
