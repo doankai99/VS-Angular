@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  public image: any;
+
+  ngOnInit() {
+    this.image = localStorage.getItem('image');
+    console.log(this.image);
+
+  }
 }

@@ -53,6 +53,7 @@ export class LoginComponent {
         localStorage.setItem('accessToken', token);
         localStorage.setItem('id', data.data.id);
         localStorage.setItem('isAdmin', data.data.isAdmin)
+        localStorage.setItem('image', data.data.image)
         this.toastr.success(`hello ${data.data.email}`)
         this.router.navigateByUrl('/home');
       } else {
