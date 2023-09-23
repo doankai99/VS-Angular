@@ -11,19 +11,27 @@ import { map } from 'rxjs';
 export class MenuComponent {
   public isOpenMenu: boolean = false;
   public isOpen: boolean = false;
+  public isAdmin: any;
+  isSubMenuOpen: { [key: string]: boolean } = {};
   constructor(private router: Router, private breakpointObserver: BreakpointObserver, private el: ElementRef, private renderer: Renderer2) {
   }
 
   ngOnInit() {
+
+    this.isAdmin = Number(localStorage.getItem('isAdmin'))
+
   }
 
-  public logout() {
-    localStorage.removeItem('rememberedAccount');
-    this.router.navigate(['/login'])
+  toggleSubMenu(key: string) {
+    this.isSubMenuOpen[key] = !this.isSubMenuOpen[key];
   }
 
   public openMenu() {
     this.isOpenMenu = !this.isOpenMenu
+  }
+  public logout() {
+    localStorage.removeItem('rememberedAccount');
+    this.router.navigate(['/login'])
   }
 
 }

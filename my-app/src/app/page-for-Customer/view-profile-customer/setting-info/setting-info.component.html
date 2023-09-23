@@ -1,46 +1,46 @@
 <div class="container">
-  <form>
-      <h3>Send us a Message</h3>
-      <label forname="Email">E-mail</label><br>
-      <input type="email" formControlName="email" id="Email" value="{{customer.email}}" placeholder="enter your email"><br>
+  <form [formGroup]="formInfo" (submit)="editInfoCustomer()">
+      <h3>Information</h3>
+      <label>E-mail</label><br>
+      <input type="email" formControlName="email" placeholder="enter your email"><br>
       <label forname="fname">First Name</label><br>
-      <input type="text" id="fname" formControlName="firstName" value="{{customer.firstName}}" placeholder="enter first name"><br>
+      <input type="text" formControlName="firstName" placeholder="enter first name"><br>
       <label forname="lname">Last Name</label><br>
-      <input type="text" id="lname" formControlName="lastName" value="{{customer.lastName}}"><br>
+      <input type="text" formControlName="lastName" placeholder="Last name"><br>
       <label forname="gender">Gender</label><br>
       <select formArrayName="gender">
         <option>Male</option>
         <option>Famale</option>
         <option>Other</option>
       </select><br>
-      <label forname="numberPhone">Number Phone</label><br>
-      <input type="tel" id="numberPhone" formControlName="numberPhone" [value]="customer.numberPhone"><br>
-      <label forname="address">Street</label><br>
-      <input type="text" id="address" formControlName="street" [value]="customer.street"><br>
-      <label forname="address">Ward</label><br>
-      <input type="text" id="address" formControlName="ward" [value]="customer.ward" placeholder="ward"><br>
-      <label forname="address">District</label><br>
-      <input type="text" id="address" formControlName="district" [value]="customer.district" placeholder="district"><br>
-      <label forname="address">City</label><br>
-      <input type="text" id="address" formControlName="city" value="{{customer.city}}" placeholder="city"><br>
-      <label forname="address">Country</label><br>
-      <input type="text" id="address" formControlName="country" value="{{customer.country}}" placeholder="country"><br>
-      <button>Save</button>
+      <label>Number Phone</label><br>
+      <input type="tel" formControlName="numberPhone" placeholder="number phone"><br>
+      <label>Street</label><br>
+      <input type="text" formControlName="street"  placeholder="street"><br>
+      <label>Ward</label><br>
+      <input type="text" formControlName="ward" placeholder="ward"><br>
+      <label>District</label><br>
+      <input type="text" formControlName="district" placeholder="district"><br>
+      <label>City</label><br>
+      <input type="text" formControlName="city" placeholder="city"><br>
+      <label>Country</label><br>
+      <input type="text" formControlName="country" placeholder="country"><br>
+      <button type="submit">Save</button>
   </form>
   <div class="box">
-    <form>
-    <h3>Body of Customer {{bodyCustomers.chest}}</h3>
-    <label forname="fname">Chest</label>
-    <input type="number" id="fname" formControlName="chest" value="{{bodyCustomers.chest}}" min="0"><br>
-    <label forname="fname">Waist</label>
-    <input type="number" formArrayName="waist" id="fname" value="{{bodyCustomers.waist}}" min="0"><br>
-    <label forname="fname">Hips</label>
-    <input type="number" formControlName="hips" id="fname" value="{{bodyCustomers.hips}}" min="0"><br>
-    <label forname="fname">Height</label>
-    <input type="number" formControlName="height" id="fname" value="{{bodyCustomers.height}}" min="0"><br>
-    <label forname="fname">Weight</label>
-    <input type="number" formControlName="weight" id="fname" value="{{bodyCustomers.weight}}" min="0"><br>
-    <button>Save</button>
+    <form [formGroup]="formBody" (submit)="editBodyCustomer">
+    <h3>Body measurements</h3>
+    <label>Chest</label>
+    <input type="number" formControlName="chest" min="0" placeholder="chest"><br>
+    <label>Waist</label>
+    <input type="number" formControlName="waist" min="0" placeholder="waist"><br>
+    <label>Hips</label>
+    <input type="number" formControlName="hips" min="0" placeholder="hips"><br>
+    <label>Height</label>
+    <input type="number" formControlName="height" min="0" placeholder="height"><br>
+    <label>Weight</label>
+    <input type="number" formControlName="weight" min="0" placeholder="weight"><br>
+    <button type="submit">Save</button>
     </form>
   </div>
 </div>

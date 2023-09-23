@@ -24,7 +24,7 @@
               <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../assets/images/defaultthumbnail.jpg" >
               <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
               <label for="fileInput" class="file-label">
-                <i class='bx bx-image-add'></i><span>Upload Product</span>
+                <i class='bx bx-image-add'></i>
               </label>
               <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
           </div>

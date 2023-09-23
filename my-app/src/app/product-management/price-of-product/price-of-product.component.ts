@@ -14,6 +14,7 @@ export class PriceOfProductComponent {
   public productData: any;
   currentPage: number = 1;
   pageSize: number = 3;
+  public currentDate: Date = new Date();
 
   constructor(private productService: ProductService, private toastrService: ToastrService) { }
 
@@ -43,7 +44,7 @@ export class PriceOfProductComponent {
       if (data) {
         this.priceData = data.priceOfProducts
       } else {
-        alert("lấy thông tin giá sản phẩm thất bại")
+        this.toastrService.success('Lấy thông tin giá sản phẩm thất bại')
       }
       this.isLoading = false;
     })
@@ -53,9 +54,9 @@ export class PriceOfProductComponent {
     this.isLoading = true;
     this.productService.addPriceforProduct(queryParams).subscribe(() => {
       this.allPriceOfProducts();
-      this.toastrService.success('Add price for product success')
-      // alert("add price for product success")
+      this.toastrService.success('Thêm giá cho sản phẩm thành công')
       this.isLoading = false;
     })
   }
+
 }

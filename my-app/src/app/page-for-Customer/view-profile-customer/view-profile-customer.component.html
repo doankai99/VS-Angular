@@ -7,13 +7,13 @@
     <div class="container">
       <div class="profile-header">
         <div class="profile-img">
-          <img [src]="customer.image" width="200" alt="Profile Image">
+          <img [src]="customer?.image" width="200" alt="Profile Image">
         </div>
         <div class="profile-nav-info">
-          <h3 class="user-name">{{customer.firstName}} {{customer.lastName}}</h3>
+          <h3 class="user-name">{{customer?.firstName}} {{customer?.lastName}}</h3>
           <div class="address">
-            <p id="state" class="state">{{customer.city}},</p>
-            <span id="country" class="country">{{customer.country}}</span>
+            <p id="state" class="state">{{customer?.city}},</p>
+            <span id="country" class="country">{{customer?.country}}</span>
           </div>
         </div>
       </div>
@@ -23,20 +23,20 @@
           <div class="profile-side">
             <div>
               <label>Email:</label>
-              <p class="user-mail"><i class="fa fa-envelope"></i> {{customer.email}}</p>
+              <p class="user-mail"><i class="fa fa-envelope"></i> {{customer?.email}}</p>
             </div>
             <div>
               <label>Number Phone</label>
-              <p class="mobile-no"><i class="fa fa-phone"></i> {{customer.numberPhone}}</p>
+              <p class="mobile-no"><i class="fa fa-phone"></i> {{customer?.numberPhone}}</p>
             </div>
             <div>
               <label>Gender</label>
-              <p class="mobile-no"><i class="fa fa-phone"></i> {{customer.gender}}</p>
+              <p class="mobile-no"><i class='bx bx-body'></i> {{customer?.gender}}</p>
             </div>
             <div>
               <label>Address</label>
               <p class="mobile-no">
-                <i class="fa fa-phone"></i> {{customer.street}}, {{customer.ward}}, {{customer.district}}
+                <i class='bx bx-buildings' ></i> {{customer?.street}}, {{customer?.ward}}, {{customer?.district}}
               </p>
             </div>
           </div>

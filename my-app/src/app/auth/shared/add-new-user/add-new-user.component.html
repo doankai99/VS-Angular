@@ -25,17 +25,24 @@
         <div class="row">
           <div class="package-filter-content-wrapper">
             <div class="filter-row">
-              <div class="package-filter-wrapper w-100">
-                <input type="file" formControlName="image" (change)="onFileChange($event)">
+              <div class="package-filter-wrapper  w-100">
+                <div class="showImage">
+                  <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../../assets/images/defaultthumbnail.jpg" >
+                  <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
+                  <label for="fileInput" class="file-label">
+                  <i class='bx bx-image-add'></i>
+                  </label>
+                <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
+                </div>
               </div>
             </div>
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
-                <label>Email</label>
+                <label>Email <span style="color: rgb(217, 34, 34);">*</span></label>
                 <input type="text" formControlName="email" placeholder="@gmail.com">
               </div>
               <div class="package-filter-wrapper w-50">
-                <label>Password</label>
+                <label>Password <span style="color: rgb(217, 34, 34);">*</span></label>
                 <span>
                   <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="password">
                   <i class="bi {{ showPassword ? 'bi-eye-slash' : 'bi-eye' }}"(click)="togglePasswordVisibility()"></i>
@@ -44,17 +51,17 @@
             </div>
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
-                <label>First Name</label>
+                <label>First Name <span style="color: rgb(217, 34, 34);">*</span></label>
                 <input type="text" formControlName="firstname">
               </div>
               <div class="package-filter-wrapper w-50">
-                <label>Last Name</label>
+                <label>Last Name <span style="color: rgb(217, 34, 34);">*</span></label>
                 <input type="text" formControlName="lastname">
               </div>
             </div>
             <div class="filter-row">
               <div class="package-filter-wrapper w-100">
-                <label>Position</label>
+                <label>Position <span style="color: rgb(217, 34, 34);">*</span></label>
                 <input type="text" formControlName="position">
               </div>
             </div>

@@ -39,23 +39,6 @@ export class AuthService {
     return this.httpClient.post<any>('http://localhost:8080/customer/login', queryParam)
   }
 
-  // getJwtToken() {
-  //   return this.localStorage.retrieve('authenticationToken');
-  // }
-
-  refreshToken() {
-    // return this.httpClient.post<loginResponse>('http://localhost:8080/api/auth/refresh/token',
-    //   this.refreshTokenPayload)
-    //   .pipe(tap(response => {
-    //     this.localStorage.clear('authenticationToken');
-    //     this.localStorage.clear('expiresAt');
-
-    //     this.localStorage.store('authenticationToken',
-    //       response.authenticationToken);
-    //     this.localStorage.store('expiresAt', response.expiresAt);
-    //   }));
-  }
-
   public setAuthorizationHeader(token: string): void {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   }

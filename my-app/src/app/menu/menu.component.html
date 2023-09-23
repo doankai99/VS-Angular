@@ -46,16 +46,16 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/management-order"><i class='bx bxs-shopping-bags'></i> Management Order</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="isAdmin">
             <a class="nav-link" routerLink="/customer-management"><i class='bx bxs-group'></i> Customer Management</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/product-management"><i class='bx bxs-archive' ></i> Product Management</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="isAdmin">
             <a class="nav-link" routerLink="/price-of-products"><i class='bx bx-wallet'></i> Price of Product</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="isAdmin">
             <a class="nav-link" routerLink="/material-management"><i class='bx bxs-bookmark'></i> Material Management</a>
           </li>
           <li class="nav-item dropdown">
@@ -63,7 +63,7 @@
               <i class='bx bxs-user-circle'></i> Profile Management
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" routerLink="/profile"><i class='bx bx-user-circle'></i> My Profile</a></li>
-                <li><a class="dropdown-item" routerLink="/list-account"><i class='bx bxs-user-account'></i> Management User</a></li>
+                <li *ngIf="isAdmin"><a class="dropdown-item" routerLink="/list-account"><i class='bx bxs-user-account'></i> Management User</a></li>
               </ul>
             </a>
           </li>
@@ -76,3 +76,33 @@
   </div>
 </div>
 
+<!-- menu desktop -->
+<nav class='animated bounceInDown'>
+  <ul>
+    <h3><i class='bx bx-spa'></i> <span>VestScraft</span></h3>
+    <li><a routerLink="/home"><i class='bx bx-home'></i> <span>Home</span></a></li>
+    <li class='sub-menu' (click)="toggleSubMenu('orderProcess')">
+      <a><i class='bx bx-cart-add'></i> Order Process <div [ngClass]="{'fa-caret-up': isSubMenuOpen['orderProcess'], 'fa-caret-down': !isSubMenuOpen['orderProcess']}" class='fa right'></div></a>
+      <ul *ngIf="isSubMenuOpen['orderProcess']">
+        <li><a routerLink="/new-order"><i class='bx bxs-cart-add'></i> <span>New Order</span></a></li>
+        <li><a><i class='bx bx-receipt'></i> <span>Draft Order</span></a></li>
+        <li><a routerLink="/quote-management"><i class='bx bx-folder-open'></i> <span>Quote Management</span></a></li>
+      </ul>
+    </li>
+    <li><a routerLink="/management-order"><i class='bx bxs-shopping-bags'></i> <span>Management Order</span></a></li>
+    <li><a routerLink="/management-order"><i class='bx bxs-group'></i> <span>Customer Management</span></a></li>
+    <li><a routerLink="/price-of-products"><i class='bx bx-wallet'></i> <span>Price of Product</span></a></li>
+    <li><a routerLink="/management-order"><i class='bx bxs-archive' ></i> <span>Product Management</span></a></li>
+    <li><a routerLink="/management-order"><i class='bx bxs-bookmark'></i> <span>Material Management</span></a></li>
+    <li class='sub-menu' (click)="toggleSubMenu('profile')">
+      <a><i class='bx bxs-user-circle'></i> <span>Profile Management</span><div [ngClass]="{'fa-caret-up': isSubMenuOpen['profile'], 'fa-caret-down': !isSubMenuOpen['profile']}" class='fa right'></div></a>
+      <ul *ngIf="isSubMenuOpen['profile']">
+        <li><a routerLink="/profile"><i class='bx bx-user'></i> <span>Profile</span></a></li>
+        <li><a routerLink="/list-account"><i class='bx bx-user'></i> <span>Management User</span></a></li>
+        <li><a href='#settings'><i class='bx bx-bookmark-alt-minus'></i> <span>Order</span></a></li>
+        <li><a href='#settings'><i class='bx bx-cog'></i> <span>Setting</span></a></li>
+      </ul>
+    </li>
+    <li><a (click)="logout()"><i class='bx bxs-log-out bx-rotate-180' ></i> <span>Logout</span></a></li>
+  </ul>
+</nav>

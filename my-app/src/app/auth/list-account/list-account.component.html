@@ -1,8 +1,8 @@
 <div>
   <app-menu></app-menu>
 </div>
-<div class="mt-5 text-center">
-      <div class="row navbar navbar-expand-lg navbar-light bg-light">
+<div class="mt-5">
+      <div class="row navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="col-md-12">
           <div class="Title navbar-brand">
             <h2>Management User</h2>
@@ -31,7 +31,7 @@
                 <th>Email</th>
                 <th>Position</th>
                 <th>Address</th>
-                <th>Role</th>
+                <th>isAdmin</th>
                 <th>option</th>
               </tr>
               <tr *ngFor= "let item of listUser.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
@@ -53,7 +53,6 @@
                 <td>
                   <div class="form-check form-switch">
                     <input
-                      (click)="changeAdmin(item.isAdmin, item._id)"
                       mdbCheckbox
                       class="form-check-input"
                       type="checkbox"

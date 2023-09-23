@@ -13,6 +13,7 @@ export class AddNewUserComponent {
   public isOpen = false;
   public showPassword: boolean = false;
   public form !: FormGroup;
+  public selectedImageURL: any;
 
   public constructor() {
 
@@ -47,16 +48,33 @@ export class AddNewUserComponent {
   }
 
   public onFileChange(event: any) {
+    // if (event.target.files.length > 0) {
+    //   const file = event.target.files[0];
+    //   this.form.patchValue({
+    //     fileSource: file
+    //   });
+    //   this.form.get('fileSource')?.updateValueAndValidity();
+    // }
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.form.patchValue({
-        fileSource: file
-      });
-      this.form.get('fileSource')?.updateValueAndValidity();
+      // Kiểm tra xem tệp đã chọn có phải là hình ảnh không
+      if (file.type.match(/image\/*/) !== null) {
+        this.form.patchValue({
+          fileSource: file
+        });
+        this.form.get('fileSource')?.updateValueAndValidity();
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.selectedImageURL = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        console.error('Chọn một tệp hình ảnh.');
+      }
     }
   }
 
-  public addNewUser() {
+  public addNewUser(): void {
     const formData: FormData = new FormData();
     if (this.form.controls['fileSource']?.value) {
       formData.append('image', this.form.controls['fileSource']?.value);
@@ -72,6 +90,8 @@ export class AddNewUserComponent {
     formData.append('city', this.form.controls['city']?.value);
     formData.append('country', this.form.controls['country']?.value);
     this.fetchData.emit(formData);
+    console.log(formData);
+
     this.toggleDetailUser();
   }
 }

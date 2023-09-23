@@ -47,15 +47,17 @@ export class LoginComponent {
   }
 
   public loginAdmin(params: any) {
-    this.authService.login(params).subscribe(data => {
+    this.authService.login(params).subscribe((data) => {
       if (data.status === 'OK') {
         const token = data.data.access_token
-        localStorage.setItem('accessToken', 'bearer' + token);
-        let headers = new Headers();
-        // headers = headers.append('access_token', 'bearer' + token);
+        localStorage.setItem('accessToken', token);
+        localStorage.setItem('id', data.data.id);
+        localStorage.setItem('isAdmin', data.data.isAdmin)
+        this.toastr.success(`hello ${data.data.email}`)
         this.router.navigateByUrl('/home');
       } else {
         this.isError = true;
+        this.toastr.error('email và password không chính xác')
       }
     })
   }
@@ -71,9 +73,13 @@ export class LoginComponent {
   public loginByCustomer(queryParam: any) {
     this.authService.customerLogin(queryParam).subscribe((data) => {
       if (data) {
+        const token = data.data.access_token
+        localStorage.setItem('accessToken', token);
+        localStorage.setItem('id', data.data.id);
+        this.toastr.success(`hello ${data.data.email}`)
         this.router.navigateByUrl('/homeCustomer')
       } else {
-        alert('login false')
+        this.toastr.error(`login false`)
         this.isError = true;
       }
     })

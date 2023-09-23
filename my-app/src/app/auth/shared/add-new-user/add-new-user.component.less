@@ -1,6 +1,18 @@
 .w-50 {
   width: 45%;
 }
+
+.showImage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+  }
+}
+
 .package-filter-wrapper {
   position: relative;
   display: flex;
@@ -10,6 +22,7 @@
   font-size: 13px;
   line-height: 16px;
   color: #25282C;
+
 
   label {
     font-size: 14px;
@@ -78,8 +91,8 @@
   z-index: 99;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   right: 33%;
-  top: 20%;
-  min-height: 65%;
+  top: 15%;
+  min-height: 80%;
   font-family: 'Poppins';
   .pop-up-body {
     padding: 16px 16px 0px 16px;
@@ -89,9 +102,11 @@
   padding: 8px 16px 8px 24px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: -20px;
+  margin-bottom: -15px;
   align-items: center;
-  height: 52px;
+  height: 54px;
+  border-radius: 8px 8px 0px 0px;
+  background: #398B93;
   .filter-text {
     font-weight: 600;
     font-size: 15px;

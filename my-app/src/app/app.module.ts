@@ -53,6 +53,7 @@ import { VestScraftCareComponent } from './page-for-Customer/shared/component/ve
 import { InStoreOrderComponent } from './page-for-Customer/services/in-store-order/in-store-order.component';
 import { OnlineOrderComponent } from './page-for-Customer/services/online-order/online-order.component';
 import { SettingInfoComponent } from './page-for-Customer/view-profile-customer/setting-info/setting-info.component';
+import { AuthInterceptor } from './token-interceptor';
 // import { LocalStorageService } from './path-to-local-storage-service';
 @NgModule({
   declarations: [
@@ -119,6 +120,11 @@ import { SettingInfoComponent } from './page-for-Customer/view-profile-customer/
   providers: [
     provideAnimations(),
     provideToastr(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

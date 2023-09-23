@@ -1,26 +1,20 @@
-<div>
-  <app-menu></app-menu>
-</div>
-<div class="mt-5">
-  <div class="row navbar navbar-expand-lg navbar-light bg-light text-center">
-    <div class="col-md-12">
-      <div class="Title navbar-brand">
-        <h2>Price</h2>
-        <i>List Price of Products</i>
-      </div>
+<body>
+  <div class="menu">
+    <app-menu></app-menu>
+  </div>
+  <div class="content">
+    <div class="avatar">
+      <img src="../../../assets/images/defauthAvatar.jpg" alt="">
     </div>
-  </div>
-  <div class="col-md-12">
-    <app-add-price
-    (fetchData)="handleAddPriceforProduct($event)"
-    ></app-add-price>
-  </div>
-  <div class="filter-backdrop" *ngIf="isLoading">
-    <div *ngIf="isLoading" class="loading"></div>
-  </div>
-  <div class="table-users">
-    <div class="header">Product</div>
-    <table cellspacing="0">
+    <div class="col-md-12">
+      <app-add-price (fetchData)="handleAddPriceforProduct($event)"></app-add-price>
+    </div>
+    <div class="filter-backdrop" *ngIf="isLoading">
+      <div *ngIf="isLoading" class="loading"></div>
+    </div>
+    <div class="table-users">
+      <div class="header">Product</div>
+      <table cellspacing="0">
         <tr>
           <td>id</td>
           <td>images</td>
@@ -51,30 +45,28 @@
           <td>{{data.endDate}}</td>
           <td>
             <div class="form-check form-switch">
-              <input
-                mdbCheckbox
-                class="form-check-input"
-                type="checkbox"
-                [checked]="data.isPromotion"
-              />
+              <input mdbCheckbox class="form-check-input" type="checkbox" [checked]="data.isPromotion" />
             </div>
           </td>
           <td>{{data.promotionDescription}}</td>
-          <td>{{data.price - data.price * data.discount / 100}}$</td>
           <td>
-            <app-update-delete-price
-            [isLoading]= "isLoading"
-            [dataPrice] = "data"
-            [priceId] =  "data._id"
-            (data) = handleCallPrice()
-            ></app-update-delete-price>
+            <ng-container *ngIf="currentDate >= data.startDate && currentDate <= data.endDate; else otherPrice">
+              {{ data.price - (data.price * data.discount / 100) }}$
+            </ng-container>
+            <ng-template #otherPrice>
+              {{ data.price }}$
+            </ng-template>
+          </td>
+          <td>
+            <app-update-delete-price [isLoading]="isLoading" [dataPrice]="data" [priceId]="data._id"
+              (data)=handleCallPrice()></app-update-delete-price>
           </td>
         </tr>
-    </table>
-    <div class="pagination">
-      <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
-      <button [disabled]="currentPage * pageSize >= priceData.length" (click)="nextPage()">Trang sau</button>
+      </table>
+      <div class="pagination">
+        <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
+        <button [disabled]="currentPage * pageSize >= priceData.length" (click)="nextPage()">Trang sau</button>
+      </div>
+    </div>
   </div>
-  </div>
-</div>
-
+</body>

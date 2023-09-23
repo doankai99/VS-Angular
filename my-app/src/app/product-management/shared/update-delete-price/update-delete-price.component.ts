@@ -86,8 +86,8 @@ export class UpdateDeletePriceComponent {
     const id = this.priceId;
     this.productService.updatePrice(params, id).subscribe((data) => {
       if (data) {
-        alert('update price of product success')
         this.data.emit();
+        this.toastr.success(`Update price for product success`)
       }
     })
   }
@@ -96,10 +96,13 @@ export class UpdateDeletePriceComponent {
   public deletePrice() {
     this.isPopUpDelete()
     const id = this.priceId
-    this.productService.deletePrice(id).subscribe(() => {
-      this.data.emit();
-      this.toastr.success(`Delete price of Product ${{ id }} success`)
-      // alert(`Delete price`)
+    this.productService.deletePrice(id).subscribe((data) => {
+      if (data) {
+        this.data.emit();
+        this.toastr.success(`Delete price of Product ${id} success`)
+      } else {
+        this.toastr.error(`delete price of product false`)
+      }
     })
   }
 }
