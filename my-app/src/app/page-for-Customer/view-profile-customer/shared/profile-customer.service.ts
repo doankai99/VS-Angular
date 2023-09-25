@@ -10,7 +10,7 @@ export class ProfileCustomerService {
   constructor(private httpClient: HttpClient) { }
 
   public getDetailCustomer(id: any): Observable<any> {
-    return this.httpClient.get(`http://localhost:8080/customer/${id}`)
+    return this.httpClient.get(`http://localhost:8080/v1/customer/${id}`)
   }
 
   public showBodyOfCustomer(id: String): Observable<any> {

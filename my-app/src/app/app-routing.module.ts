@@ -21,6 +21,7 @@ import { LearnMoveTechniqueComponent } from './page-for-Customer/shared/componen
 import { VestScraftCareComponent } from './page-for-Customer/shared/component/vest-scraft-care/vest-scraft-care.component';
 import { AboutUsComponent } from './page-for-Customer/shared/component/about-us/about-us.component';
 import { InStoreOrderComponent } from './page-for-Customer/services/in-store-order/in-store-order.component';
+import { SettingComponent } from './profile/setting/setting.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -51,7 +52,8 @@ const routes: Routes = [
   { path: 'learn-move-tecnique', component: LearnMoveTechniqueComponent },
   { path: 'vestScraft-care', component: VestScraftCareComponent },
   { path: 'about-us', component: AboutUsComponent },
-  { path: 'in-store-order', component: InStoreOrderComponent }
+  { path: 'in-store-order', component: InStoreOrderComponent },
+  { path: 'setting', component: SettingComponent }
 ];
 
 @NgModule({

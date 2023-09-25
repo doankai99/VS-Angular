@@ -10,6 +10,7 @@ import { GlobalConfig, ToastrService } from 'ngx-toastr';
 export class AppComponent {
   title = 'my-app';
 
+  public token = localStorage.getItem('id')
   constructor(private toastr: ToastrService) {
   }
 }

@@ -12,18 +12,18 @@ export class MaterialService {
   constructor(private httpClient: HttpClient) { }
 
   public getAllmeterial(): Observable<any> {
-    return this.httpClient.get<any>('http://localhost:8080/fabric/allFabric')
+    return this.httpClient.get<any>('http://localhost:8080/v1/fabric/allFabric')
   }
 
   public addMaterial(addMaterial: addMaterialPayload): Observable<any> {
-    return this.httpClient.post("http://localhost:8080/fabric/addFabric", addMaterial)
+    return this.httpClient.post("http://localhost:8080/v1/fabric/addFabric", addMaterial)
   }
 
   public editMaterial(queryParams: any, id: string) {
-    return this.httpClient.put(`http://localhost:8080/fabric/update/${id}`, queryParams)
+    return this.httpClient.put(`http://localhost:8080/v1/fabric/update/${id}`, queryParams)
   }
 
   public deleteMaterial(id: any): Observable<any> {
-    return this.httpClient.delete(`http://localhost:8080/fabric/delete/${id}`)
+    return this.httpClient.delete(`http://localhost:8080/v1/fabric/delete/${id}`)
   }
 }

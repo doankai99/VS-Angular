@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 })
 export class MaterialManagementComponent {
 
+  public isLoading: boolean = false;
   public materials: any;
   currentPage: number = 1;
   pageSize: number = 3;

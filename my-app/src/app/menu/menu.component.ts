@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Router } from "@angular/router";
 import { map } from 'rxjs';
+import { AuthService } from '../auth/shared/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -13,7 +14,7 @@ export class MenuComponent {
   public isOpen: boolean = false;
   public isAdmin: any;
   isSubMenuOpen: { [key: string]: boolean } = {};
-  constructor(private router: Router, private breakpointObserver: BreakpointObserver, private el: ElementRef, private renderer: Renderer2) {
+  constructor(private router: Router, private breakpointObserver: BreakpointObserver, private el: ElementRef, private renderer: Renderer2, private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -30,7 +31,7 @@ export class MenuComponent {
     this.isOpenMenu = !this.isOpenMenu
   }
   public logout() {
-    localStorage.removeItem('rememberedAccount');
+    localStorage.removeItem('accessToken');
     this.router.navigate(['/login'])
   }
 

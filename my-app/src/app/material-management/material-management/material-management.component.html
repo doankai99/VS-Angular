@@ -1,25 +1,19 @@
-<div>
-  <app-menu></app-menu>
-</div>
-<div class="mt-5 text-center">
-        <div class="row navbar navbar-expand-lg navbar-light bg-light">
-          <div class="col-md-12">
-            <div class="Title navbar-brand">
-              <h2>Material Management</h2>
-              <i>List material</i>
-            </div>
-          </div>
-        </div>
-    <div class="row">
-      <div>
-        <app-add-material
+<body>
+  <div class="menu">
+    <app-menu></app-menu>
+  </div>
+  <div class="content">
+    <app-header></app-header>
+    <div class="col-md-12">
+      <app-add-material
         (fetchData)="handleAddMaterial($event)"
         ></app-add-material>
-      </div>
     </div>
-      <div class="result-material"><span>Result: {{materials.length}}</span></div>
+    <div class="filter-backdrop" *ngIf="isLoading">
+      <div *ngIf="isLoading" class="loading"></div>
+    </div>
     <div class="table-users">
-      <div class="header">Users</div>
+      <div class="header">Product</div>
       <table cellspacing="0">
         <tr>
           <td>Id</td>
@@ -30,6 +24,7 @@
           <td>Size</td>
           <td>Price</td>
           <td>Currency</td>
+          <td>createdAt</td>
           <td>Option</td>
         </tr>
         <tr *ngFor= "let items of materials.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
@@ -41,6 +36,7 @@
             <td>{{items.size}}</td>
             <td>{{items.price}}</td>
             <td>{{items.currency}}</td>
+            <td>{{items.createdAt | date}}</td>
             <td><app-edit-material
               [materialData]= "items"
               [materialId] = "items._id"
@@ -49,9 +45,11 @@
             </app-edit-material></td>
         </tr>
       </table>
-      <div class="pagination">
-        <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
-        <button [disabled]="currentPage * pageSize >= materials.length" (click)="nextPage()">Trang sau</button>
-      </div>
     </div>
-</div>
+    <div class="pagination">
+      <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
+      <button [disabled]="currentPage * pageSize >= materials.length" (click)="nextPage()">Trang sau</button>
+    </div>
+  </div>
+</body>
+

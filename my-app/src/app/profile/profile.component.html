@@ -1,175 +1,45 @@
-<div>
-  <app-menu></app-menu>
-</div>
-<div class="flex">
-  <div class="col-md-12">
-    <div class="container-xl">
-      <div class="row navbar navbar-expand-lg navbar-light bg-light">
-        <div class="col-md-12">
-          <div class="Title navbar-brand">
-            <h2>Xin chào</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row p-32">
-        <div class="controltab">
-          <button (click)="activeTab = 'A'">Basic infomation</button>
-          <button (click)="activeTab = 'B'">Change Password</button>
-          <button (click)="activeTab = 'C'">Manager Account</button>
-        </div>
-      </div>
-
-      <div class="row">
-        <div [ngSwitch]="activeTab">
-          <div *ngSwitchCase="'A'">
-            <div class="row">
-              <div [ngSwitch]="activeTab">
-                <div *ngSwitchCase="'A'">
-                  <div class="contentTab">
-                    <form [formGroup]="Form" (submit)="updateProfile()">
-                      <div class="row p-16">
-                          <div class="package-filter-content-wrapper">
-                            <div class="section">
-                              <p class="titleTable">Basic information</p>
-                              <div class="filter-row">
-                                <div class="package-filter-wrapper w-100">
-                                  <div class="w-50">
-                                    <label>FirstName *</label>
-                                    <div class="laas-package-input">
-                                      <span class="icon"> <mat-icon>account_circle</mat-icon> </span>
-                                      <input>
-                                    </div>
-                                  </div>
-                                  <div class="w-50">
-                                    <label>LastName*</label>
-                                    <div class="laas-package-input">
-                                      <span class="icon"> <mat-icon>account_circle</mat-icon> </span>
-                                      <input>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="filter-row">
-                                <div class="package-filter-wrapper w-100">
-                                  <div class="w-50">
-                                    <label>Position*</label>
-                                    <div class="laas-package-input">
-                                      <span class="icon"> <mat-icon>account_circle</mat-icon> </span>
-                                      <input>
-                                    </div>
-                                  </div>
-                                  <div class="w-50">
-                                    <label>Company*</label>
-                                    <div class="laas-package-input">
-                                      <span class="icon"> <mat-icon>account_circle</mat-icon> </span>
-                                      <input>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="package-filter-content-wrapper">
-                            <div class="section">
-                              <p class="titleTable">Address</p>
-                              <div class="filter-row">
-                                <div class="package-filter-wrapper w-100">
-                                  <div class="w-33">
-                                    <label>Street*</label>
-                                    <div class="laas-package-input">
-                                      <input>
-                                    </div>
-                                  </div>
-                                  <div class="w-33">
-                                    <label>Ward*</label>
-                                    <div class="laas-package-input">
-                                      <input>
-                                    </div>
-                                  </div>
-                                  <div class="w-33">
-                                    <label>District*</label>
-                                    <div class="laas-package-input">
-                                      <input>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="filter-row">
-                                <div class="package-filter-wrapper w-100">
-                                  <div class="w-33">
-                                    <label>City*</label>
-                                    <div class="laas-package-input">
-                                      <input>
-                                    </div>
-                                  </div>
-                                  <div class="w-33">
-                                    <label>Bang*</label>
-                                    <div class="laas-package-input">
-                                      <input type="text">
-                                    </div>
-                                  </div>
-                                  <div class="w-33">
-                                    <label>Country*</label>
-                                    <div class="laas-package-input">
-                                      <input type="text">
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="package-filter-content-wrapper">
-                            <div class="section">
-                              <p class="titleTable">Credentials</p>
-                              <div class="filter-row">
-                                <div class="package-filter-wrapper w-100">
-                                  <div class="w-50">
-                                    <label>Number Phone*</label>
-                                    <div class="laas-package-input">
-                                      <input>
-                                    </div>
-                                  </div>
-                                  <div class="w-50">
-                                    <label>UserName*</label>
-                                    <div class="laas-package-input">
-                                      <input>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="filter-row">
-                                <div class="package-filter-wrapper w-100">
-                                  <div class="w-100">
-                                    <label>Email*</label>
-                                    <div class="laas-package-input">
-                                      <span class="icon"> <mat-icon>account_circle</mat-icon> </span>
-                                      <input>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="buttons">
-                            <button class="button__update">update</button>
-                            <button class="button__reset">Reset</button>
-                          </div>
-                        </div>
-                    </form>
+<body>
+  <div class="menu">
+    <app-menu></app-menu>
+  </div>
+  <div class="content">
+    <app-header
+    ></app-header>
+    <div>
+      <form>
+        <div class="container rounded bg-white">
+          <div class="row">
+              <div class="col-md-4 border-right">
+                  <div class="d-flex flex-column align-items-center text-center p-3"><img class="rounded-circle mt-5" width="150px" [src]="userInfo.image" alt="">
+                    <span class="font-weight-bold">{{userInfo.firstname}} {{userInfo.lastname}}</span>
+                    <span class="text-black-50">{{userInfo.email}}
+                    </span><span> </span></div>
+              </div>
+              <div class="col-md-8 border-right">
+                  <div class="p-3 py-5">
+                      <div class="d-flex justify-content-between align-items-center mb-3">
+                          <h4 class="text-right">Profile</h4>
+                      </div>
+                      <div class="row mt-2">
+                          <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" [value]="userInfo.firstname" readonly></div>
+                          <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" [value]="userInfo.lastname" placeholder="surname" readonly></div>
+                      </div>
+                      <div class="row mt-3">
+                          <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" [value]="userInfo.email"readonly></div>
+                          <div class="col-md-12"><label class="labels">Position</label><input type="text" class="form-control" placeholder="enter address line 2" [value]="userInfo.position" readonly></div>
+                          <div class="col-md-12"><label class="labels">Street</label><input type="text" class="form-control" placeholder="enter address line 1" [value]="userInfo.street" readonly></div>
+                          <div class="col-md-12"><label class="labels">Ward</label><input type="text" class="form-control" placeholder="enter address line 2" [value]="userInfo.ward" readonly></div>
+                          <div class="col-md-12"><label class="labels">District</label><input type="text" class="form-control" placeholder="District" [value]="userInfo.district" readonly></div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-md-6"><label class="labels">City</label><input type="text" class="form-control" [value]="userInfo.city" placeholder="city" readonly></div>
+                          <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" [value]="userInfo.country" readonly></div>
+                      </div>
                   </div>
-                </div>
-            </div>
+              </div>
           </div>
-      </div>
-      <!-- content tab-B -->
-        <div *ngSwitchCase="'B'">
-          <span>content Change Password</span>
         </div>
-        <!-- content Tab-c -->
-        <div *ngSwitchCase="'C'">
-          <span>content Manager Account</span>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
-</div>
+</body>

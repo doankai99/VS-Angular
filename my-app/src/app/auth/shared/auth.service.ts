@@ -14,29 +14,18 @@ import { addNewUserRequestPayload } from './add-new-user/add-new-user-request.pa
 export class AuthService {
 
   private accessToken: string = '';
+  public loggedIn: boolean = false;
 
   constructor(private httpClient: HttpClient) { }
 
-  @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() email: EventEmitter<string> = new EventEmitter();
 
-  // public getAccessToken(): string {
-  //   return this.accessToken;
-  // }
-
-  // getAuthHeaders(): HttpHeaders {
-  //   return new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     Authorization: `Bearer ${this.getAccessToken()}`
-  //   });
-  // }
-
   public login(loginRequestPayload: loginRequestPayload): Observable<any> {
-    return this.httpClient.post<any>('http://localhost:8080/user/login', loginRequestPayload)
+    return this.httpClient.post<any>('http://localhost:8080/v1/user/login', loginRequestPayload);
   }
 
   public customerLogin(queryParam: any): Observable<any> {
-    return this.httpClient.post<any>('http://localhost:8080/customer/login', queryParam)
+    return this.httpClient.post<any>('http://localhost:8080/v1/customer/login', queryParam)
   }
 
   public setAuthorizationHeader(token: string): void {
@@ -44,28 +33,29 @@ export class AuthService {
   }
 
   public listAccount(): Observable<any> {
-    return this.httpClient.get<any>('http://localhost:8080/user/getAll')
+    return this.httpClient.get<any>('http://localhost:8080/v1/user/getAll')
   }
 
   public addNewUser(addNewUserRequestPayload: addNewUserRequestPayload): Observable<any> {
-    return this.httpClient.post<any>('http://localhost:8080/user/createUser', addNewUserRequestPayload)
+    return this.httpClient.post<any>('http://localhost:8080/v1/user/createUser', addNewUserRequestPayload)
   }
 
   public deleteAccount(userId: string): Observable<any> {
-    return this.httpClient.delete<any>(`http://localhost:8080/user/delete/${userId}`)
+    return this.httpClient.delete<any>(`http://localhost:8080/v1/user/delete/${userId}`)
   }
 
   public editUser(userId: string, addNewUserRequestPayload: addNewUserRequestPayload): Observable<any> {
-    return this.httpClient.put<any>(`http://localhost:8080/user/update/${userId}`, addNewUserRequestPayload)
+    return this.httpClient.put<any>(`http://localhost:8080/v1/user/update/${userId}`, addNewUserRequestPayload)
   }
   public updateAdmin(userId: string, addNewUserRequestPayload: addNewUserRequestPayload): Observable<any> {
-    return this.httpClient.put<any>(`http://localhost:8080/user/update/${userId}`, addNewUserRequestPayload)
+    return this.httpClient.put<any>(`http://localhost:8080/v1/user/update/${userId}`, addNewUserRequestPayload)
   }
 
-  // getUserName() {
-  //   return this.localStorage.retrieve('email');
-  // }
-  // getRefreshToken() {
-  //   return this.localStorage.retrieve('refreshToken');
-  // }
+  public detailUser(id: any): Observable<any> {
+    return this.httpClient.get<any>(`http://localhost:8080/v1/user/${id}`)
+  }
+
+  public isLoggedIn(): boolean {
+    return this.loggedIn;
+  }
 }

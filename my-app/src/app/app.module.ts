@@ -55,6 +55,7 @@ import { OnlineOrderComponent } from './page-for-Customer/services/online-order/
 import { SettingInfoComponent } from './page-for-Customer/view-profile-customer/setting-info/setting-info.component';
 import { AuthInterceptor } from './token-interceptor';
 import { HeaderComponent } from './shared/component/header/header.component';
+import { SettingComponent } from './profile/setting/setting.component';
 // import { LocalStorageService } from './path-to-local-storage-service';
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { HeaderComponent } from './shared/component/header/header.component';
     InStoreOrderComponent,
     OnlineOrderComponent,
     SettingInfoComponent,
-    HeaderComponent
+    HeaderComponent,
+    SettingComponent
   ],
   imports: [
     BrowserModule,

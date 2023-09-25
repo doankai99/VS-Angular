@@ -12,10 +12,10 @@ export class CustomerService {
 
   public addCustomer(createCustomerRequestPayload: createCustomerRequestPayload): Observable<any> {
     console.log(createCustomerRequestPayload);
-    return this.httpClient.post<any>('http://localhost:8080/customer/createCustomer', createCustomerRequestPayload)
+    return this.httpClient.post<any>('http://localhost:8080/v1/customer/createCustomer', createCustomerRequestPayload)
   }
 
   public getCustomerService(): Observable<any> {
-    return this.httpClient.get<any>('http://localhost:8080/customer/getAll/getCustomer')
+    return this.httpClient.get<any>('http://localhost:8080/v1/customer/getAll/getCustomer')
   }
 }

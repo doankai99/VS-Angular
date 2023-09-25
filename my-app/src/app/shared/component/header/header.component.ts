@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  public image: any;
+  @Output() image: any;
 
   ngOnInit() {
     this.image = localStorage.getItem('image');
     console.log(this.image);
-
   }
 }
