@@ -22,6 +22,7 @@ import { VestScraftCareComponent } from './page-for-Customer/shared/component/ve
 import { AboutUsComponent } from './page-for-Customer/shared/component/about-us/about-us.component';
 import { InStoreOrderComponent } from './page-for-Customer/services/in-store-order/in-store-order.component';
 import { SettingComponent } from './profile/setting/setting.component';
+import { OnlineOrderComponent } from './page-for-Customer/services/online-order/online-order.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -31,13 +32,7 @@ const routes: Routes = [
   { path: 'customer-management', component: CustomerManagementComponent },
   { path: 'product-management', component: ProductManagementComponent },
   { path: 'price-of-products', component: PriceOfProductComponent },
-  {
-    path: 'material-management',
-    component: MaterialManagementComponent,
-    children: [
-
-    ]
-  },
+  { path: 'online-order', component: OnlineOrderComponent },
   { path: 'add-order', component: NewOrderComponent },
   { path: 'add-customer', component: CreateNewCustomerComponent },
   { path: 'new-order', component: NewOrderComponent },

@@ -16,4 +16,8 @@ export class ProfileCustomerService {
   public showBodyOfCustomer(id: String): Observable<any> {
     return this.httpClient.get(`http://localhost:8080/v1/bodyCustomer/bodyOfCustomer/${id}`)
   }
+
+  public getBodyMeasurements(): Observable<any> {
+    return this.httpClient.get(`http://localhost:8080/v1/bodyMeasurementChart/bodyMeasurementChart`)
+  }
 }

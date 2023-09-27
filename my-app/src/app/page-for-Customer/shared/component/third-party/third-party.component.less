@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+
+footer {
+  --space: 3rem;
+  display: grid;
+  align-content: center;
+  overflow: hidden;
+  width: 100%;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  h4{
+    text-align: center;
+    padding-bottom: 12px;
+  }
+}
+
+.marquee {
+  --duration: 12s;
+  --gap: var(--space);
+
+  display: flex;
+  overflow: hidden;
+}
+
+.marquee__group {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%;
+  animation: scroll var(--duration) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__group {
+    animation-play-state: paused;
+  }
+}
+
+.list-company {
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  padding: 40px;
+  background-image: linear-gradient(to right, rgb(62, 179, 188), rgb(174, 238, 210));
+
+  i{
+    color: rgb(249, 248, 248);
+    font-size: 75px;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}

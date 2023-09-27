@@ -1,45 +1,45 @@
 <div class="container">
   <form [formGroup]="formInfo" (submit)="editInfoCustomer()">
       <h3>Information</h3>
-      <label>E-mail</label><br>
-      <input type="email" formControlName="email" placeholder="enter your email"><br>
-      <label forname="fname">First Name</label><br>
-      <input type="text" formControlName="firstName" placeholder="enter first name"><br>
-      <label forname="lname">Last Name</label><br>
-      <input type="text" formControlName="lastName" placeholder="Last name"><br>
-      <label forname="gender">Gender</label><br>
+      <label class="form-label">E-mail</label><br>
+      <input type="email" class="form-control" formControlName="email" placeholder="enter your email"><br>
+      <label class="form-label">First Name</label><br>
+      <input type="text" class="form-control" formControlName="firstName" placeholder="enter first name"><br>
+      <label class="form-label">Last Name</label><br>
+      <input type="text"class="form-control"  formControlName="lastName" placeholder="Last name"><br>
+      <label class="form-label">Gender</label><br>
       <select formArrayName="gender">
         <option>Male</option>
         <option>Famale</option>
         <option>Other</option>
       </select><br>
-      <label>Number Phone</label><br>
-      <input type="tel" formControlName="numberPhone" placeholder="number phone"><br>
-      <label>Street</label><br>
-      <input type="text" formControlName="street"  placeholder="street"><br>
-      <label>Ward</label><br>
-      <input type="text" formControlName="ward" placeholder="ward"><br>
-      <label>District</label><br>
-      <input type="text" formControlName="district" placeholder="district"><br>
-      <label>City</label><br>
-      <input type="text" formControlName="city" placeholder="city"><br>
-      <label>Country</label><br>
-      <input type="text" formControlName="country" placeholder="country"><br>
+      <label class="form-label">Number Phone</label><br>
+      <input type="tel" class="form-control" formControlName="numberPhone" placeholder="number phone"><br>
+      <label class="form-label">Street</label><br>
+      <input type="text" class="form-control"  formControlName="street"  placeholder="street"><br>
+      <label class="form-label">Ward</label><br>
+      <input type="text" class="form-control"  formControlName="ward" placeholder="ward"><br>
+      <label class="form-label">District</label><br>
+      <input type="text"class="form-control"  formControlName="district" placeholder="district"><br>
+      <label class="form-label">City</label><br>
+      <input type="text" class="form-control"  formControlName="city" placeholder="city"><br>
+      <label class="form-label">Country</label><br>
+      <input type="text" class="form-control"  formControlName="country" placeholder="country"><br>
       <button type="submit">Save</button>
   </form>
   <div class="box">
     <form [formGroup]="formBody" (submit)="editBodyCustomer">
     <h3>Body measurements</h3>
-    <label>Chest</label>
-    <input type="number" formControlName="chest" min="0" placeholder="chest"><br>
-    <label>Waist</label>
-    <input type="number" formControlName="waist" min="0" placeholder="waist"><br>
-    <label>Hips</label>
-    <input type="number" formControlName="hips" min="0" placeholder="hips"><br>
-    <label>Height</label>
-    <input type="number" formControlName="height" min="0" placeholder="height"><br>
-    <label>Weight</label>
-    <input type="number" formControlName="weight" min="0" placeholder="weight"><br>
+    <label class="form-label">Chest</label>
+    <input type="number" class="form-control" formControlName="chest" min="0" placeholder="chest"><br>
+    <label class="form-label">Waist</label>
+    <input type="number" class="form-control" formControlName="waist" min="0" placeholder="waist"><br>
+    <label class="form-label">Hips</label>
+    <input type="number" class="form-control" formControlName="hips" min="0" placeholder="hips"><br>
+    <label class="form-label">Height</label>
+    <input type="number" class="form-control" formControlName="height" min="0" placeholder="height"><br>
+    <label class="form-label">Weight</label>
+    <input type="number" class="form-control" formControlName="weight" min="0" placeholder="weight"><br>
     <button type="submit">Save</button>
     </form>
   </div>

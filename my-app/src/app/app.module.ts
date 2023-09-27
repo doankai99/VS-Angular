@@ -56,6 +56,14 @@ import { SettingInfoComponent } from './page-for-Customer/view-profile-customer/
 import { AuthInterceptor } from './token-interceptor';
 import { HeaderComponent } from './shared/component/header/header.component';
 import { SettingComponent } from './profile/setting/setting.component';
+import { FooterComponent } from './page-for-Customer/homepage/footer/footer.component';
+import { ThirdPartyComponent } from './page-for-Customer/shared/component/third-party/third-party.component';
+import { ServiceHomepageComponent } from './page-for-Customer/shared/component/service-homepage/service-homepage.component';
+import { WhatWeDoSectionComponent } from './page-for-Customer/shared/component/what-we-do-section/what-we-do-section.component';
+import { HeaderCustomerComponent } from './page-for-Customer/homepage/header-customer/header-customer.component';
+import { OurExpertsComponent } from './page-for-Customer/homepage/our-experts/our-experts.component';
+import { BodyMeasurementComponent } from './shared/component/body-measurement/body-measurement.component';
+import { DoorToDoorComponent } from './page-for-Customer/services/door-to-door/door-to-door.component';
 // import { LocalStorageService } from './path-to-local-storage-service';
 @NgModule({
   declarations: [
@@ -103,7 +111,15 @@ import { SettingComponent } from './profile/setting/setting.component';
     OnlineOrderComponent,
     SettingInfoComponent,
     HeaderComponent,
-    SettingComponent
+    SettingComponent,
+    FooterComponent,
+    ThirdPartyComponent,
+    ServiceHomepageComponent,
+    WhatWeDoSectionComponent,
+    HeaderCustomerComponent,
+    OurExpertsComponent,
+    BodyMeasurementComponent,
+    DoorToDoorComponent,
   ],
   imports: [
     BrowserModule,
