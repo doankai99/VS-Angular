@@ -1,0 +1,41 @@
+<section class="bg-gray-100">
+    <div class="container m-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 p-2">
+        <div class="card animate-slide-fade bg-white rounded shadow" *ngFor="let item of appointment, let i = index">
+          <div class="flex items-center header-title">
+            <span class="h-3 w-3 mr-2 rounded-full bg-red-500" [ngClass]="{'status-appointment': !checkStatusAppointment(item.status)}">{{i+1}}</span>
+            <span class="font-semibold">createAt: {{item.createdAt | date:'yyyy MMM dd - HH:mm'}}</span>
+          </div>
+          <p class="text-gray-400">
+            <span>Name:</span>
+            <span>{{item?.name}}</span>
+          </p>
+          <p class="text-gray-400">
+            <span>Phone:</span>
+            <span>{{item?.phone}}</span>
+          </p>
+          <p class="text-gray-400">
+            <span>Name:</span>
+            <span>{{item?.email}}</span>
+          </p>
+          <p class="text-gray-400">
+            <span>Time:</span>
+            <span>{{item?.date | date}} - {{item?.time}}</span>
+          </p>
+          <p class="text-gray-400">
+            <span>status:</span>
+            <span>{{checkStatusAppointment(item.status) ? 'active' : 'huy'}}</span>
+            <span class="icon-status"></span>
+          </p>
+          <div class="h-3 w-3 mr-2 bg-red-500 buttons">
+            <span *ngIf="checkStatusAppointment(item.status)">
+              <button class="button__cancel">Cancel</button>
+            </span>
+            <span>
+              <button class="button__delete" (click)="deleteAppointent(item._id)">Delete</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

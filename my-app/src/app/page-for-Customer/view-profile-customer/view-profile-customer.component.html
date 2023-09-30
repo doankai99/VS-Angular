@@ -47,7 +47,8 @@
             <ul>
               <li (click)="activeTab = 'A'" class="user-post" [ngClass]="{active: activeTab}" style="color: rgb(36, 36, 36);">Posts</li>
               <li (click)="activeTab = 'B'" class="user-review" [ngClass]="{active: activeTab}" style="color: rgb(36, 36, 36);">Reviews</li>
-              <li (click)="activeTab = 'C'" class="user-setting" [ngClass]="{active: activeTab}"  style="color: rgb(36, 36, 36);"> Settings</li>
+              <li (click)="activeTab = 'C'" class="user-setting" [ngClass]="{active: activeTab}"  style="color: rgb(36, 36, 36);"> Appointment </li>
+              <li (click)="activeTab = 'D'" class="user-setting" [ngClass]="{active: activeTab}"  style="color: rgb(36, 36, 36);"> Settings</li>
             </ul>
           </div>
           <div class="profile-body">
@@ -60,7 +61,10 @@
               <div *ngSwitchCase="'B'" class="profile-reviews tab">
                 <h1 style="color: black;">User reviews</h1>
               </div>
-              <div *ngSwitchCase="'C'" class="profile-settings tab">
+              <div *ngSwitchCase="'C'" class="profile-reviews tab">
+                <app-list-booked-appointment></app-list-booked-appointment>
+              </div>
+              <div *ngSwitchCase="'D'" class="profile-settings tab">
                 <div class="account-setting">
                   <app-setting-info
                   [customerId] = "customerId"

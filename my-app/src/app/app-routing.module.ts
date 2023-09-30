@@ -23,6 +23,9 @@ import { AboutUsComponent } from './page-for-Customer/shared/component/about-us/
 import { InStoreOrderComponent } from './page-for-Customer/services/in-store-order/in-store-order.component';
 import { SettingComponent } from './profile/setting/setting.component';
 import { OnlineOrderComponent } from './page-for-Customer/services/online-order/online-order.component';
+import { ContactUsComponent } from './page-for-Customer/contact-us/contact-us.component';
+import { DoorToDoorComponent } from './page-for-Customer/services/door-to-door/door-to-door.component';
+import { ListBookedAppointmentComponent } from './page-for-Customer/view-profile-customer/list-booked-appointment/list-booked-appointment.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -39,7 +42,7 @@ const routes: Routes = [
   { path: 'quote-management', component: QuoteManagementComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'list-account', component: ListAccountComponent },
-  { path: 'add-material', component: AddMaterialComponent },
+  { path: 'material-management', component: MaterialManagementComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'homeCustomer', component: HomepageComponent },
   { path: 'customer-profile', component: ViewProfileCustomerComponent },
@@ -48,7 +51,10 @@ const routes: Routes = [
   { path: 'vestScraft-care', component: VestScraftCareComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'in-store-order', component: InStoreOrderComponent },
-  { path: 'setting', component: SettingComponent }
+  { path: 'door-to-door', component: DoorToDoorComponent },
+  { path: 'setting', component: SettingComponent },
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'appointment', component: ListBookedAppointmentComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,86 @@
+@keyframes slide-fade-up {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 900px) {
+  .animate-slide-fade {
+    min-width: 750px;
+    p {
+      display: flex;
+      gap: 16px;
+    }
+  }
+  .header-title{
+    border-bottom: 1px solid rgb(214, 212, 212);
+    padding: 12px;
+    color: white;
+  }
+}
+
+.disabled-card {
+  background-color: #161212;
+}
+
+.animate-slide-fade {
+  opacity: 0;
+  animation: slide-fade-up 0.5s ease-out forwards;
+  border-radius: 8px !important;
+  margin-top: 8px;
+}
+.rounded-full{
+  background: #43a67c;
+  padding: 0 4px !important;
+  border-radius: 50%
+}
+.status-appointment{
+  padding: 0 4px !important;
+  border-radius: 50%;
+  background-color: rgb(242, 35, 35);
+}
+.header-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: #56bfd4;
+  border-radius: 8px 8px 0 0 ;
+}
+p{
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+.buttons{
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-right: 8px;
+  .button__cancel{
+    padding: 4px;
+    border-radius: 6px;
+    background-color: rgb(249, 119, 119);
+    color: white;
+    margin-bottom: 12px;
+    border: none;
+  }
+  .button__delete{
+    padding: 4px;
+    border-radius: 6px;
+    background-color: rgb(244, 20, 20);
+    color: white;
+    margin-bottom: 12px;
+    border: none;
+  }
+}
+.icon-status{
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #43a67c;
+}

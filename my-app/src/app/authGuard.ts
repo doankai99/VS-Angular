@@ -12,15 +12,17 @@ export class AuthGuard implements CanActivate {
   ngOnInit() {
     this.token = localStorage.getItem('accessToken')
   }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean | UrlTree {
-    console.log(this.token);
+    const token = localStorage.getItem('accessToken');
 
-    if (this.token) {
+    if (token) {
       return true;
     } else {
+      // Nếu không có token hoặc token không hợp lệ, chuyển hướng về trang đăng nhập
       return this.router.parseUrl('/login');
     }
   }

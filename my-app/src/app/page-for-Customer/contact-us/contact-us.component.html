@@ -1,0 +1,86 @@
+<body>
+  <div>
+    <app-menu-customer></app-menu-customer>
+  </div>
+  <section>
+    <div class="picture-contact">
+      <img src="../../../assets/images/contact.jpg" alt="">
+      <div class="contact-us">
+        <h3>VestScraft</h3>
+        <div class="contact-info">
+          <ul>
+            <li>Opening time: Mon – Sat, from 9AM to 6PM (Sundays are only available for booking in advance)</li>
+            <li>Address:</li>
+            <li>Tel: 036464...</li>
+            <li>VestScraft@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="formbold-main-wrapper">
+      <div class="formbold-form-wrapper">
+        <form [formGroup]="form" (submit)="bookAppointment()">
+          <h3 style="text-align: center;">Contact</h3>
+          <div class="formbold-mb-5">
+            <label class="formbold-form-label"> Full Name </label>
+            <input type="text" formControlName="name" placeholder="Full Name" class="formbold-form-input" />
+          </div>
+          <div class="formbold-mb-5">
+            <label class="formbold-form-label"> Phone Number </label>
+            <input type="text" formControlName="phone" placeholder="Enter your phone number"
+              class="formbold-form-input" />
+          </div>
+          <div class="formbold-mb-5">
+            <label class="formbold-form-label"> Email Address </label>
+            <input type="email" formControlName="email" placeholder="Enter your email" class="formbold-form-input" />
+          </div>
+          <div class="flex flex-wrap formbold--mx-3">
+            <div class="w-full sm:w-half formbold-px-3">
+              <div class="formbold-mb-5 w-full">
+                <label class="formbold-form-label"> Date </label>
+                <input type="date" formControlName="date" class="formbold-form-input" />
+              </div>
+            </div>
+            <div class="w-full sm:w-half formbold-px-3">
+              <div class="formbold-mb-5">
+                <label class="formbold-form-label"> Time </label>
+                <input type="time" formControlName="time" class="formbold-form-input" />
+              </div>
+            </div>
+          </div>
+
+          <div class="formbold-mb-5 formbold-pt-3">
+            <label class="formbold-form-label formbold-form-label-2">
+              Address Details
+            </label>
+            <div class="flex flex-wrap formbold--mx-3">
+              <div class="w-full sm:w-half formbold-px-3">
+                <div class="formbold-mb-5">
+                  <input type="text" formControlName="area" placeholder="Enter area" class="formbold-form-input" />
+                </div>
+              </div>
+              <div class="w-full sm:w-half formbold-px-3">
+                <div class="formbold-mb-5">
+                  <input type="text" formControlName="city" placeholder="Enter city" class="formbold-form-input" />
+                </div>
+              </div>
+              <div class="w-full sm:w-half formbold-px-3">
+                <div class="formbold-mb-5">
+                  <input type="text" formControlName="state" placeholder="Enter state" class="formbold-form-input" />
+                </div>
+              </div>
+              <div class="w-full sm:w-half formbold-px-3">
+                <div class="formbold-mb-5">
+                  <input type="text" formControlName="country" placeholder="Post Code" class="formbold-form-input" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="formbold-btn" type="submit">Book Appointment</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>

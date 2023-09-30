@@ -45,6 +45,8 @@ export class MaterialManagementComponent {
     this.materialService.getAllmeterial().subscribe((data) => {
       if (data) {
         this.materials = data.fabric
+        console.log(this.materials.companyId.email);
+
         this.toast.success("get all material success")
       } else {
         this.toast.error("get all user false")
@@ -53,7 +55,6 @@ export class MaterialManagementComponent {
   }
 
   public handleAddMaterial(queryParams: any) {
-    console.log(`aaa`);
     this.materialService.addMaterial(queryParams).subscribe((data) => {
       if (data) {
         alert('Add new material success')

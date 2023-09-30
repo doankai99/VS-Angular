@@ -18,25 +18,29 @@
         <tr>
           <td>Id</td>
           <td>Image</td>
-          <td>Material</td>
           <td>Name Material</td>
+          <td>Category</td>
           <td>Color</td>
           <td>Size</td>
           <td>Price</td>
           <td>Currency</td>
+          <td>Supplier</td>
+          <td>Email</td>
           <td>createdAt</td>
           <td>Option</td>
         </tr>
         <tr *ngFor= "let items of materials.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
           <td>{{i + 1}}</td>
             <td> <img [src] = "items.image" alt=""></td>
-            <td>{{items.material}}</td>
-            <td>{{items.name}}</td>
-            <td>{{items.color}}</td>
-            <td>{{items.size}}</td>
-            <td>{{items.price}}</td>
-            <td>{{items.currency}}</td>
-            <td>{{items.createdAt | date}}</td>
+            <td>{{items?.name}}</td>
+            <td>{{items?.material}}</td>
+            <td>{{items?.color}}</td>
+            <td>{{items?.size}}</td>
+            <td>{{items?.price}}</td>
+            <td>{{items?.currency}}</td>
+            <td>{{items.companyId?.companyName}}</td>
+            <td>{{items.companyId?.email}}</td>
+            <td>{{items?.createdAt | date}}</td>
             <td><app-edit-material
               [materialData]= "items"
               [materialId] = "items._id"

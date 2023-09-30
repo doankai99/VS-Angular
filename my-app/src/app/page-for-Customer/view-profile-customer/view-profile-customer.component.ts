@@ -10,7 +10,7 @@ export class ViewProfileCustomerComponent {
 
   public customer: any;
   public customerId: any = localStorage.getItem('id');
-  public activeTab: string = 'A'
+  public activeTab: string = 'C'
 
   constructor(private profileCustomerService: ProfileCustomerService) {
 

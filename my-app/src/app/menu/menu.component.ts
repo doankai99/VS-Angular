@@ -31,7 +31,18 @@ export class MenuComponent {
     this.isOpenMenu = !this.isOpenMenu
   }
   public logout() {
-    localStorage.removeItem('accessToken');
+    if (localStorage.getItem('accessToken')) {
+      localStorage.removeItem('accessToken');
+    }
+    if (localStorage.getItem('image')) {
+      localStorage.removeItem('image');
+    }
+    if (localStorage.getItem('isAdmin')) {
+      localStorage.removeItem('isAdmin');
+    }
+    if (localStorage.getItem('id')) {
+      localStorage.removeItem('id');
+    }
     this.router.navigate(['/login'])
   }
 

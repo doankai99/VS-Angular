@@ -40,16 +40,16 @@ export class SettingInfoComponent {
 
   public setFormInfo(): void {
     this.formInfo = new FormGroup({
-      email: new FormControl(this.customer.email),
-      firstName: new FormControl(this.customer.firstName),
-      lastName: new FormControl(this.customer.lastName),
-      gender: new FormControl(this.customer.gender),
-      numberPhone: new FormControl(this.customer.numberPhone),
-      street: new FormControl(this.customer.street),
-      ward: new FormControl(this.customer.ward),
-      district: new FormControl(this.customer.district),
-      city: new FormControl(this.customer.city),
-      country: new FormControl(this.customer.country)
+      email: new FormControl(''),
+      firstName: new FormControl(''),
+      lastName: new FormControl(''),
+      gender: new FormControl(''),
+      numberPhone: new FormControl(''),
+      street: new FormControl(''),
+      ward: new FormControl(''),
+      district: new FormControl(''),
+      city: new FormControl(''),
+      country: new FormControl('')
     })
   }
 
@@ -57,8 +57,8 @@ export class SettingInfoComponent {
     console.log(this.bodyCustomers);
 
     this.formBody = new FormGroup({
-      chest: new FormControl(this.bodyCustomers.chest),
-      waist: new FormControl(this.bodyCustomers.waist),
+      chest: new FormControl(''),
+      waist: new FormControl(''),
       hips: new FormControl(this.bodyCustomers.hips),
       height: new FormControl(this.bodyCustomers.height),
       weight: new FormControl(this.bodyCustomers.weight),

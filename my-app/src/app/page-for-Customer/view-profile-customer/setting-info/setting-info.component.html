@@ -1,46 +1,63 @@
-<div class="container">
-  <form [formGroup]="formInfo" (submit)="editInfoCustomer()">
-      <h3>Information</h3>
-      <label class="form-label">E-mail</label><br>
-      <input type="email" class="form-control" formControlName="email" placeholder="enter your email"><br>
-      <label class="form-label">First Name</label><br>
-      <input type="text" class="form-control" formControlName="firstName" placeholder="enter first name"><br>
-      <label class="form-label">Last Name</label><br>
-      <input type="text"class="form-control"  formControlName="lastName" placeholder="Last name"><br>
-      <label class="form-label">Gender</label><br>
-      <select formArrayName="gender">
-        <option>Male</option>
-        <option>Famale</option>
-        <option>Other</option>
-      </select><br>
-      <label class="form-label">Number Phone</label><br>
-      <input type="tel" class="form-control" formControlName="numberPhone" placeholder="number phone"><br>
-      <label class="form-label">Street</label><br>
-      <input type="text" class="form-control"  formControlName="street"  placeholder="street"><br>
-      <label class="form-label">Ward</label><br>
-      <input type="text" class="form-control"  formControlName="ward" placeholder="ward"><br>
-      <label class="form-label">District</label><br>
-      <input type="text"class="form-control"  formControlName="district" placeholder="district"><br>
-      <label class="form-label">City</label><br>
-      <input type="text" class="form-control"  formControlName="city" placeholder="city"><br>
-      <label class="form-label">Country</label><br>
-      <input type="text" class="form-control"  formControlName="country" placeholder="country"><br>
-      <button type="submit">Save</button>
-  </form>
-  <div class="box">
-    <form [formGroup]="formBody" (submit)="editBodyCustomer">
-    <h3>Body measurements</h3>
-    <label class="form-label">Chest</label>
-    <input type="number" class="form-control" formControlName="chest" min="0" placeholder="chest"><br>
-    <label class="form-label">Waist</label>
-    <input type="number" class="form-control" formControlName="waist" min="0" placeholder="waist"><br>
-    <label class="form-label">Hips</label>
-    <input type="number" class="form-control" formControlName="hips" min="0" placeholder="hips"><br>
-    <label class="form-label">Height</label>
-    <input type="number" class="form-control" formControlName="height" min="0" placeholder="height"><br>
-    <label class="form-label">Weight</label>
-    <input type="number" class="form-control" formControlName="weight" min="0" placeholder="weight"><br>
-    <button type="submit">Save</button>
+<body>
+  <div class="container">
+    <form>
+      <div class="container rounded bg-white">
+        <div class="row">
+            <div class="col-md-8 border-right">
+                <div class="p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Fisrt Name</label><input type="text" class="form-control" placeholder="first name" [value]="customer.firstName" readonly></div>
+                        <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" [value]="customer.lastName" placeholder="surname" readonly></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="enter email id" [value]="customer.email"readonly></div>
+                        <div class="col-md-12"><label class="labels">Phone</label><input type="text" class="form-control" placeholder="enter address line 2" [value]="customer.numberPhone" readonly></div>
+                        <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="enter email id" [value]="customer.gender"readonly></div>
+                        <div class="col-md-12"><label class="labels">Street</label><input type="text" class="form-control" placeholder="enter address line 1" [value]="customer.street" readonly></div>
+                        <div class="col-md-12"><label class="labels">Ward</label><input type="text" class="form-control" placeholder="enter address line 2" [value]="customer.ward" readonly></div>
+                        <div class="col-md-12"><label class="labels">District</label><input type="text" class="form-control" placeholder="District" [value]="customer.district" readonly></div>
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-md-6"><label class="labels">City</label><input type="text" class="form-control" [value]="customer.city" placeholder="city" readonly></div>
+                        <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" [value]="customer.country" readonly></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 border-right">
+              <div class="d-flex flex-column align-items-center text-center p-3">
+                <span class="font-weight-bold">Body measurements</span>
+                <div class="text-black-50">
+                  <div class="measurements-item">
+                    <label>Size: </label>
+                    <span>{{bodyCustomers.size}}</span>
+                  </div>
+                  <div class="measurements-item">
+                    <label>Height: </label>
+                    <span>{{bodyCustomers.height}}</span>
+                  </div>
+                  <div class="measurements-item">
+                    <label>Weight:</label>
+                    <span>{{bodyCustomers.weight}}</span>
+                  </div>
+                  <div class="measurements-item">
+                    <label>Chest:</label>
+                    <span>{{bodyCustomers.chest}}</span>
+                  </div>
+                  <div class="measurements-item">
+                    <label>Waist:</label>
+                    <span>{{bodyCustomers.waist}}</span>
+                  </div>
+                  <div class="measurements-item">
+                    <label>Hips:</label>
+                    <span>{{bodyCustomers.hips}}</span>
+                  </div>
+                </div><span> </span></div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
-</div>
+</body>

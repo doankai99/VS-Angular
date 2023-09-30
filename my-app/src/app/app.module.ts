@@ -64,7 +64,9 @@ import { HeaderCustomerComponent } from './page-for-Customer/homepage/header-cus
 import { OurExpertsComponent } from './page-for-Customer/homepage/our-experts/our-experts.component';
 import { BodyMeasurementComponent } from './shared/component/body-measurement/body-measurement.component';
 import { DoorToDoorComponent } from './page-for-Customer/services/door-to-door/door-to-door.component';
-// import { LocalStorageService } from './path-to-local-storage-service';
+import { ContactUsComponent } from './page-for-Customer/contact-us/contact-us.component';
+import { ListBookedAppointmentComponent } from './page-for-Customer/view-profile-customer/list-booked-appointment/list-booked-appointment.component';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -120,6 +122,8 @@ import { DoorToDoorComponent } from './page-for-Customer/services/door-to-door/d
     OurExpertsComponent,
     BodyMeasurementComponent,
     DoorToDoorComponent,
+    ContactUsComponent,
+    ListBookedAppointmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -138,6 +142,7 @@ import { DoorToDoorComponent } from './page-for-Customer/services/door-to-door/d
     }),
   ],
   providers: [
+    DatePipe,
     provideAnimations(),
     provideToastr(),
     {

@@ -58,4 +58,24 @@ export class AuthService {
   public isLoggedIn(): boolean {
     return this.loggedIn;
   }
+
+  public isValidToken(token: string): boolean {
+    if (!token) {
+      // Nếu không có token, token không hợp lệ
+      return false;
+    }
+
+    // Giả sử token chứa thông tin về thời gian hết hạn (expire time) dưới dạng timestamp
+    const tokenExpireTime = 36000;/* Lấy thời gian hết hạn từ token */
+    const currentTime = Math.floor(Date.now() / 1000); // Lấy thời gian hiện tại dưới dạng timestamp
+
+    // So sánh thời gian hết hạn với thời gian hiện tại
+    if (tokenExpireTime && tokenExpireTime > currentTime) {
+      // Token còn hạn và hợp lệ
+      return true;
+    } else {
+      // Token đã hết hạn hoặc không có thông tin thời gian hết hạn
+      return false;
+    }
+  }
 }
