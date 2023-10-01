@@ -26,9 +26,13 @@ import { OnlineOrderComponent } from './page-for-Customer/services/online-order/
 import { ContactUsComponent } from './page-for-Customer/contact-us/contact-us.component';
 import { DoorToDoorComponent } from './page-for-Customer/services/door-to-door/door-to-door.component';
 import { ListBookedAppointmentComponent } from './page-for-Customer/view-profile-customer/list-booked-appointment/list-booked-appointment.component';
+import { DetailProductComponent } from './page-for-Customer/crm-product-customer/detail-product/detail-product.component';
+import { SignUpCustomerComponent } from './auth/sign-up-customer/sign-up-customer.component';
+import { SettingBodyMeasurementComponent } from './page-for-Customer/shared/component/setting-body-measurement/setting-body-measurement.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'sign-up', component: SignUpCustomerComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'home', component: HomeComponent },
   { path: 'management-order', component: ManagementOrderComponent },
@@ -54,7 +58,9 @@ const routes: Routes = [
   { path: 'door-to-door', component: DoorToDoorComponent },
   { path: 'setting', component: SettingComponent },
   { path: 'contact-us', component: ContactUsComponent },
-  { path: 'appointment', component: ListBookedAppointmentComponent }
+  { path: 'appointment', component: ListBookedAppointmentComponent },
+  { path: `detail-product/:id`, component: DetailProductComponent },
+  { path: `setting-body-measurement/:id`, component: SettingBodyMeasurementComponent }
 ];
 
 @NgModule({

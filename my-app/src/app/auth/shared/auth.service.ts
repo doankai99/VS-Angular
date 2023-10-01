@@ -20,24 +20,32 @@ export class AuthService {
 
   @Output() email: EventEmitter<string> = new EventEmitter();
 
+  //Api Login by staff and Admin
   public login(loginRequestPayload: loginRequestPayload): Observable<any> {
     return this.httpClient.post<any>('http://localhost:8080/v1/user/login', loginRequestPayload);
   }
 
+  //Api login by customer
   public customerLogin(queryParam: any): Observable<any> {
     return this.httpClient.post<any>('http://localhost:8080/v1/customer/login', queryParam)
   }
 
-  public setAuthorizationHeader(token: string): void {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  }
+  // public setAuthorizationHeader(token: string): void {
+  //   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  // }
 
+  //Api show list all user
   public listAccount(): Observable<any> {
     return this.httpClient.get<any>('http://localhost:8080/v1/user/getAll')
   }
 
+  //Api add new User
   public addNewUser(addNewUserRequestPayload: addNewUserRequestPayload): Observable<any> {
     return this.httpClient.post<any>('http://localhost:8080/v1/user/createUser', addNewUserRequestPayload)
+  }
+
+  public createCustomer(data: any): Observable<any> {
+    return this.httpClient.post('http://localhost:8080/v1/customer/createCustomer', data)
   }
 
   public deleteAccount(userId: string): Observable<any> {

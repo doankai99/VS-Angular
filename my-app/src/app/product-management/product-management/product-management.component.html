@@ -29,7 +29,7 @@
               <td>published_on</td>
               <td>Option</td>
             </tr>
-            <tr *ngFor="let data of dataProduct.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+            <tr *ngFor="let data of dataProduct?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
               <td>{{i + 1}}</td>
               <td>
                 <img *ngIf="!data.image" src="../../../assets/images/defaultthumbnail.jpg" alt="">

@@ -25,6 +25,10 @@ export class ProductService {
     return this.httpClient.get('http://localhost:8080/v1/price/getAllPriceProduct')
   }
 
+  public detailPriceOfProduct(id: any): Observable<any> {
+    return this.httpClient.get(`http://localhost:8080/v1/price/detailPriceOfProduct/${id}`)
+  }
+
   public addPriceforProduct(queryParams: any): Observable<any> {
     return this.httpClient.post('http://localhost:8080/v1/price/addPrice', queryParams)
   }

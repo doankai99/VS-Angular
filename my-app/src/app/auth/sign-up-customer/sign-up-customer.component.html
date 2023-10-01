@@ -1,1 +1,104 @@
-<p>sign-up-customer works!</p>
+<section class="formLogin vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form [formGroup]="form" (ngSubmit)="signUpCustomer()">
+          <div class="divider d-flex align-items-center my-4">
+            <h3 class="text-center fw-bold mx-3 mb-0 title">Sign Up</h3>
+          </div>
+          <div class="package-filter-content-wrapper">
+            <div class="filter-row">
+              <div class="package-filter-wrapper  w-100">
+                <div class="showImage">
+                  <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../../assets/images/defaultthumbnail.jpg" >
+                  <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
+                  <label for="fileInput" class="file-label">
+                  <i class='bx bx-image-add'></i>
+                  </label>
+                <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
+                </div>
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>Email <span style="color: #d92222;">*</span></label>
+                <input type="email" formControlName="email" placeholder="@gmail.com">
+              </div>
+              <div class="package-filter-wrapper w-50">
+                <label>Password <span style="color: rgb(217, 34, 34);">*</span></label>
+                <span>
+                  <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="password">
+                  <i class="bi {{ showPassword ? 'bi-eye-slash' : 'bi-eye' }}"(click)="togglePasswordVisibility()"></i>
+                </span>
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>First Name <span style="color: rgb(217, 34, 34);">*</span></label>
+                <input type="text" formControlName="firstName" placeholder="Enter First Name">
+              </div>
+              <div class="package-filter-wrapper w-50">
+                <label>Last Name <span style="color: rgb(217, 34, 34);">*</span></label>
+                <input type="text" formControlName="lastName" placeholder="Last Name">
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>Number Phone <span style="color: rgb(217, 34, 34);">*</span></label>
+                <input type="tel" formControlName="numberPhone">
+              </div>
+              <div class="package-filter-wrapper w-50">
+                <label>Gender <span style="color: rgb(217, 34, 34);">*</span></label>
+                <select formControlName="gender">
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>other</option>
+                </select>
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-33">
+                <label>Street</label>
+                <input type="text" formControlName="street">
+              </div>
+              <div class="package-filter-wrapper w-33">
+                <label>Ward</label>
+                <input type="text" formControlName="ward">
+              </div>
+              <div class="package-filter-wrapper w-33">
+                <label>District</label>
+                <input type="text" formControlName="district">
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>City</label>
+                <input type="text" formControlName="city">
+              </div>
+              <div class="package-filter-wrapper w-50">
+                <label>Country</label>
+                <input type="text" formControlName="country">
+              </div>
+            </div>
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="submit" class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">
+              Register
+            </button>
+            <p class="small fw-bold mt-2 pt-1 mb-0">back to <a routerLink="/login"
+                class="link-danger">login</a></p>
+          </div>
+        </form>
+        <div class="filter-backdrop" *ngIf="isLoading">
+          <div *ngIf="isLoading" class="loading"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

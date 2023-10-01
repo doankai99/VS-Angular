@@ -4,8 +4,8 @@
   </div>
   <div class="content-product">
     <ul class="mystyle-products">
-      <li class="product" *ngFor="let item of viewProduct">
-          <a href="14-single-product.html">
+      <li class="product" *ngFor="let item of viewProduct" [routerLink]="'/detail-product/' + item._id">
+          <a>
               <span class="onsale">Sale!</span>
               <img alt="" class="attachment-shop_catalog " [src]="item.products[0].image" />
               <h3>{{item.products[0].name}}</h3>

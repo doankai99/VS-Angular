@@ -20,4 +20,8 @@ export class AppointmentService {
   public deleteAppointment(id: any): Observable<any> {
     return this.httpClient.delete(`http://localhost:8080/v1/appointment/deleteAppointment/${id}`)
   }
+
+  public updateStatusAppointment(id: any): Observable<any> {
+    return this.httpClient.put(`http://localhost:8080/v1/appointment/updateStatusAppointment/${id}`, [])
+  }
 }

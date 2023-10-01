@@ -45,20 +45,39 @@ export class ListBookedAppointmentComponent {
 
   public isCurrentTimeBeforeAppointment(date: any): boolean {
     const currentDate = new Date();
-    const appointmentDate = date;
-    console.log(appointmentDate);
-    if (currentDate < appointmentDate) {
-      return this.dateAppointment = true;
-    } else {
-      return this.dateAppointment = false;
+    // Kiểm tra xem date có phải là một đối tượng Date hợp lệ không
+    if (!(date instanceof Date) || isNaN(date.getTime())) {
+      // Nếu không phải, hãy thử chuyển đổi date thành đối tượng Date
+      date = new Date(date);
     }
+
+    console.log(date);
+    console.log(currentDate);
+
+    if (currentDate.getTime() < date.getTime()) {
+      this.dateAppointment = true;
+    } else {
+      this.dateAppointment = false;
+    }
+
+    return this.dateAppointment;
   }
+
   public deleteAppointent(id: any): void {
     this.appointmentService.deleteAppointment(id).subscribe(() => {
       this.toast.success(`delete appointment ${id} success`)
       this.getAppointment();
     }, () => {
       this.toast.error(`delete appointment ${id} false`)
+    })
+  }
+
+  public updateStatusAppointment(id: any): void {
+    this.appointmentService.updateStatusAppointment(id).subscribe(() => {
+      this.toast.success('Update status appointment success')
+      this.getAppointment();
+    }, () => {
+      this.toast.error('update status apppointment false')
     })
   }
 }

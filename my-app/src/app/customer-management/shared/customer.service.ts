@@ -18,4 +18,8 @@ export class CustomerService {
   public getCustomerService(): Observable<any> {
     return this.httpClient.get<any>('http://localhost:8080/v1/customer/getAll/getCustomer')
   }
+
+  public createBodymeasurement(id: any, data: any): Observable<any> {
+    return this.httpClient.post(`http://localhost:8080/v1/bodyCustomer/createBodyMeasurementCustomer/${id}`, data)
+  }
 }

@@ -1,0 +1,137 @@
+form {
+  margin-top: 40px;
+}
+.showImage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+  }
+}
+.package-filter-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #25282C;
+
+
+  label {
+    font-size: 14px;
+    color: #565C67;
+    margin-top: 16px;
+  }
+
+  input {
+    height: 32px;
+    padding: 8px 12px;
+    border: 1px solid #D0D2D8;
+    border-radius: 6px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+    &:hover {
+      border: 1px solid #565C67;
+    }
+    &:focus {
+      border: 2px solid #4794EB !important;
+    }
+    &:disabled {
+      color: #878E9B;
+      background-color: #F2F3F5;
+      border: 1px solid #ECEDEF !important;
+    }
+  }
+}
+
+.package-filter-content-wrapper {
+  .filter-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    input{
+      width: 100%;
+      height: 32px;
+      border: 1px solid #D5D8DC;
+      border-radius: 5px;
+      &:focus{
+        border: 1px solid #006DEB;
+      }
+      &:hover {
+        border: 1px solid #006DEB;
+      }
+    }
+    select{
+      width: 100%;
+      height: 32px;
+      border: 1px solid #D5D8DC;
+      border-radius: 5px;
+      &:focus{
+        border: 1px solid #006DEB;
+      }
+      &:hover {
+        border: 1px solid #006DEB;
+      }
+    }
+  }
+  select{
+    width: 100%;
+  }
+}
+.filter-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  background: rgba(46, 49, 56, 0.7);
+  // opacity: 1;
+}
+.loading{
+  position: relative;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  z-index: 1 !important;
+  top: 50%;
+
+  --colorA: #b78eff;
+
+  &::before,
+  &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      border-radius: 50%;
+      border-top: 10px solid #fff;
+      filter:
+          drop-shadow(0 0 2px var(--colorA))
+          drop-shadow(0 0 5px var(--colorA))
+          drop-shadow(0 0 10px var(--colorA))
+          drop-shadow(0 0 20px var(--colorA));
+      animation: rotate 3s infinite linear;
+  }
+
+  &::after {
+      --colorA: #ffec41;
+      animation-delay: -1.5s;
+  }
+}
+
+@keyframes rotate {
+  100% {
+      transform: rotate(360deg);
+  }
+}
+

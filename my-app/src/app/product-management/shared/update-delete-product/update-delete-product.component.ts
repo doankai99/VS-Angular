@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-delete-product',
@@ -18,7 +19,7 @@ export class UpdateDeleteProductComponent {
 
 
   public form !: FormGroup;
-  constructor(private productServcie: ProductService) {
+  constructor(private productServcie: ProductService, private toast: ToastrService) {
 
   }
   ngOnInit() {
@@ -35,13 +36,6 @@ export class UpdateDeleteProductComponent {
   }
 
   public onFileChange(event: any) {
-    // if (event.target.files.length > 0) {
-    //   const file = event.target.files[0];
-    //   this.form.patchValue({
-    //     fileSource: file
-    //   });
-    //   this.form.get('fileSource')?.updateValueAndValidity();
-    // }
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       // Kiểm tra xem tệp đã chọn có phải là hình ảnh không
@@ -90,7 +84,9 @@ export class UpdateDeleteProductComponent {
     this.productServcie.deleteProduct(id).subscribe(() => {
       this.popUpDelete();
       this.data.emit()
-      alert(`delete product id: ${id}, name: ${this.productData.name} success`)
+      this.toast.success(`delete product id: ${id}, name: ${this.productData.name} success`)
+    }, () => {
+      this.toast.error(`delete product id: ${id}, name: ${this.productData.name} false`)
     })
   }
 }

@@ -15,7 +15,6 @@
     </div>
     <div class = "filter-body-content">
       <div class="display-infor-User">
-        <img [src]="productData.image" alt="">
         <p class="d-flex justify-content-center">Bạn có muốn xóa Product {{productData.name}}</p>
       </div>
       <div class="buttons pop-up-delete">
@@ -55,7 +54,7 @@
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
                 <label>Name Product</label>
-                <input type="text" formControlName="name">
+                <input type="text" formControlName="name" placeholder="Name Product">
               </div>
                 <div class="package-filter-wrapper w-50">
                   <label>Product Type</label>
@@ -73,7 +72,7 @@
             <div class="filter-row">
               <div class="package-filter-wrapper w-100">
                 <label>Summary</label>
-                <textarea formControlName="summary"></textarea>
+                <textarea formControlName="summary" placeholder="Enter summary"></textarea>
               </div>
             </div>
           </div>

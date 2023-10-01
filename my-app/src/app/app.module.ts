@@ -67,6 +67,8 @@ import { DoorToDoorComponent } from './page-for-Customer/services/door-to-door/d
 import { ContactUsComponent } from './page-for-Customer/contact-us/contact-us.component';
 import { ListBookedAppointmentComponent } from './page-for-Customer/view-profile-customer/list-booked-appointment/list-booked-appointment.component';
 import { DatePipe } from '@angular/common';
+import { DetailProductComponent } from './page-for-Customer/crm-product-customer/detail-product/detail-product.component';
+import { SettingBodyMeasurementComponent } from './page-for-Customer/shared/component/setting-body-measurement/setting-body-measurement.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -124,6 +126,8 @@ import { DatePipe } from '@angular/common';
     DoorToDoorComponent,
     ContactUsComponent,
     ListBookedAppointmentComponent,
+    DetailProductComponent,
+    SettingBodyMeasurementComponent,
   ],
   imports: [
     BrowserModule,
