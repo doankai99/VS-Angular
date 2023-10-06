@@ -1,0 +1,98 @@
+<div class="content-wrapper package-filter-wrapper">
+  <div class="package-filter-button mt-2 mt-sm-0">
+    <button #filterButton class="filter-button" [ngClass]="{'open': isOpen}" (click)="isOpenPopUp()">
+      <i class='bx bx-plus'></i>
+      <span> Add Company </span>
+    </button>
+  </div>
+</div>
+<div class="filter-backdrop" *ngIf="isOpen"></div>
+<div class="laas-package-filter" *ngIf="isOpen" #filterPopup>
+  <div class="filter-header-icon">
+    <div class="filter-text">
+      Add Company
+    </div>
+    <div class="close-icon cursor-pointer" (click)="isOpenPopUp()">
+      <img src="../../assets/icons/icon_close.svg" alt="">
+    </div>
+  </div>
+  <div class="pop-up-body">
+    <form [formGroup] = "form" (submit)="addCompany()">
+      <div class="row">
+        <div class="package-filter-content-wrapper">
+
+          <div class="filter-row">
+            <div class="package-filter-wrapper w-50">
+              <label>Company Name</label>
+              <input type="text" formControlName="companyName" placeholder="Name">
+            </div>
+            <div class="package-filter-wrapper w-50">
+              <label>LogoUrl</label>
+              <input type="text" formControlName="logoUrl" placeholder="Link company">
+            </div>
+          </div>
+
+          <div class="filter-row">
+            <div class="package-filter-wrapper w-50">
+              <label>Email Address</label>
+              <input type="Email" formControlName="email" placeholder="Enter email">
+            </div>
+            <div class="package-filter-wrapper w-50">
+              <label>Number Phone</label>
+              <input type="tel" formControlName="numberPhone" placeholder="tel">
+            </div>
+          </div>
+
+          <div class="filter-row">
+            <div class="package-filter-wrapper w-50">
+              <label>Fabric Categories</label>
+              <mat-select formControlName="productCategories" multiple>
+                <mat-option *ngFor="let category of fabricCategories" [value]="category">{{category}}</mat-option>
+              </mat-select>
+            </div>
+            <div class="package-filter-wrapper w-50">
+              <label>Business Type</label>
+              <mat-select formControlName="businessType" multiple>
+                <mat-option *ngFor="let type of businessTypes" [value]="type">{{type}}</mat-option>
+              </mat-select>
+            </div>
+          </div>
+
+          <div class="filter-row">
+            <div class="package-filter-wrapper w-33">
+              <label>Street</label>
+              <input type="text" formControlName="street" placeholder="street">
+            </div>
+            <div class="package-filter-wrapper w-33">
+              <label>Ward</label>
+              <input type="text" formControlName="ward" placeholder="ward">
+            </div>
+            <div class="package-filter-wrapper w-33">
+              <label>District</label>
+              <input type="text" formControlName="district" placeholder="district">
+            </div>
+          </div>
+
+          <div class="filter-row">
+            <div class="package-filter-wrapper w-50">
+              <label>City</label>
+              <input type="text" formControlName="city" placeholder="city">
+            </div>
+            <div class="package-filter-wrapper w-50">
+              <label>Country</label>
+              <input type="text" formControlName="country" placeholder="country">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pop-up-Edit buttons">
+        <button type="button" class="buttons__reset" (click)="isOpenPopUp()">
+          Close
+        </button>
+        <button type="submit" class="buttons__apply">
+          Apply
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

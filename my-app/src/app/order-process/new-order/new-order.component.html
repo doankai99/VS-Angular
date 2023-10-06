@@ -1,49 +1,82 @@
-<div>
-  <app-menu></app-menu>
-</div>
-<div class="flex">
-  <div class="col-md-12">
-    <div class="container-xl">
-      <div class="row navbar-expand-lg navbar-light bg-light">
-          <div class="Title navbar-brand">
-            <h2>Create Order</h2>
-            <p>Please provide complete information below</p>
-          </div>
-      </div>
-      <div class="row">
-        <div class="contentTab">
-          <form>
-            <div class="formCreateOrder">
-              <span (click)="isOpen = !isOpen"><p>1</p> information customer</span>
-              <div *ngIf="isOpen">
-                <input>
-              </div>
-            </div>
-            <div class="formCreateOrder">
-              <span><p>2</p>Product Option</span>
-              <div *ngIf="isOpen">
-                <input>
-              </div>
-            </div>
-            <div class="formCreateOrder">
-              <span><p>3</p>Types of services</span>
-            </div>
-            <div class="formCreateOrder">
-              <span><p>4</p>Shipping methods</span>
-            </div>
-            <div class="formCreateOrder">
-              <span><p>5</p>Payment methods</span>
-            </div>
-            <div class="formCreateOrder">
-              <span><p>6</p>Requirement Orther</span>
+<body>
+  <div class="menu">
+    <app-menu></app-menu>
+  </div>
+  <div class="content">
+    <div class="header">
+      <app-header></app-header>
+    </div>
+    <div class="main-order">
+      <h5>Form Order</h5>
+        <div class="form-order">
+          <form [formGroup]="form" (submit)="createNewOrder()">
+            <div class="info-order">
+                <div class="title">
+                  <span>Info Oder</span>
+                </div>
+                <div class="feild-order">
+                  <label class="w-50">
+                    <span class="fname">Customer<span class="required">*</span></span>
+                    <select formControlName="customer">
+                      <option *ngFor="let item of customer" [value]="item?._id">{{item?.email}}</option>
+                    </select>
+                  </label>
+                  <label class="w-50">
+                    <span class="lname">Product<span class="required">*</span></span>
+                    <mat-select formControlName="product" multiple>
+                      <mat-option *ngFor="let data of product" [value]="data?._id">{{data?.productId?.name}}</mat-option>
+                    </mat-select>
+                  </label>
+                </div>
+                <div class="feild-order">
+                  <label class="w-50">
+                    <span>Start Time<span class="required">*</span></span>
+                    <input type="date" formControlName="startTime" placeholder="startTime" required>
+                  </label>
+                  <label class="w-50">
+                    <span>End Time<span class="required">*</span></span>
+                    <input type="date" formControlName="endTime" placeholder="endTime">
+                  </label>
+                </div>
+                <div class="feild-order">
+                  <label class="w-100">
+                    <span class="lname">Shipping Address<span class="required">*</span></span>
+                    <input type="text" formControlName="shippingAddress">
+                  </label>
+                </div>
+                <div class="paymentMethod">
+                  <div class="title">
+                    <span>Payment method</span>
+                  </div>
+                  <div class="Yorder">
+                    <div class="rdo-btn">
+                      <input type="radio" formControlName="paymentMethod" value="0" checked> Direct Bank Transfer
+                      <p>
+                        Make your payment directly into our bank account.
+                    `</p>
+                    </div>
+                    <div class="rdo-btn">
+                      <input type="radio" formControlName="paymentMethod" value="1"> Cash on Delivery
+                      <p>
+                        Make your payment directly into our bank account.
+                    `</p>
+                    </div>
+                    <div class="rdo-btn">
+                      <input type="radio" formControlName="paymentMethod" value="2"> Paypal <span>
+                      <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
+                      <p>
+                        Make your payment directly into our bank account.
+                    `</p>
+                      </span>
+                    </div>
+                  </div><!-- Yorder -->
+                </div>
             </div>
             <div class="buttons">
-              <button class="button__quote">Create quote</button>
-              <button class="button__close">Close</button>
+              <button type="submit">Place Order</button>
             </div>
           </form>
         </div>
-      </div>
     </div>
   </div>
-</div>
+</body>

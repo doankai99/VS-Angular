@@ -43,55 +43,68 @@
       <form [formGroup]="form" (submit)="applyEdit()">
         <div class="row">
           <div class="package-filter-content-wrapper">
-            <div class="filter-row">
-              <div class="package-filter-wrapper w-100">
-
-              </div>
-            </div>
-            <div class="filter-row">
-              <div class="package-filter-wrapper w-50">
-                <label>Material type</label>
-                <input type="text" formControlName="material">
-              </div>
-                <div class="package-filter-wrapper w-50">
-                  <label>Material Name</label>
-                  <input type="text" formControlName="name">
+            <div class="upload-image w-50">
+              <div class="filter-row">
+                <div class="package-filter-wrapper item-center w-100">
+                  <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../assets/images/defaultthumbnail.jpg" >
+                  <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
+                  <label for="fileInput" class="file-label">
+                    <i class='bx bx-image-add'></i>
+                  </label>
+                  <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
                 </div>
-            </div>
-            <div class="filter-row">
-              <div class="package-filter-wrapper w-50">
-                <label>Color</label>
-                <input type="text" formControlName="color">
-              </div>
-              <div class="package-filter-wrapper w-50">
-                <label>Size</label>
-                <input type="text" formControlName="size">
               </div>
             </div>
-            <div class="filter-row">
-              <div class="package-filter-wrapper w-50">
-                <label>Price</label>
-                <input type="text" formControlName="price">
+            <div class="fabric-info w-50">
+              <div class="filter-row">
+                <div class="package-filter-wrapper w-100">
+                  <label>Material Name</label>
+                  <input type="text" formControlName="name" placeholder="material">
+                </div>
               </div>
-              <div class="package-filter-wrapper w-50">
-                <label>Currency</label>
-                <input type="text" formControlName="currency">
+              <div class="filter-row">
+                <div class="package-filter-wrapper w-50">
+                  <label>Company name</label>
+                  <select formControlName="companyId">
+                    <option *ngFor="let items of masterCompany" [value]="items._id">{{items?.companyName}}</option>
+                  </select>
+                </div>
+                <div class="package-filter-wrapper w-50">
+                  <label>Fabric Categories</label>
+                  <select formControlName="material">
+                    <option *ngFor="let categorys of fabricCategories">{{categorys}}</option>
+                  </select>
+                </div>
               </div>
-            </div>
-            <div class="filter-row">
-              <div class="package-filter-wrapper w-100">
-                <label>Description</label>
-                <textarea formControlName="description"></textarea>
+              <div class="filter-row">
+                <div class="package-filter-wrapper w-33">
+                  <label>Color</label>
+                  <input type="text" formControlName="color">
+                </div>
+                <div class="package-filter-wrapper w-33">
+                  <label>Size</label>
+                  <input type="text" formControlName="size">
+                </div>
+                <div class="package-filter-wrapper w-33">
+                  <label>Price</label>
+                  <input type="text" formControlName="price">
+                </div>
+              </div>
+              <div class="filter-row">
+                <div class="package-filter-wrapper w-100">
+                  <label>Description</label>
+                  <textarea formControlName="description"></textarea>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="pop-up-Edit">
+        <div class="buttons pop-up-Edit">
           <button type="button" class="buttons__reset" (click)="popUpEdit()">
             Close
           </button>
           <button type="submit" class="buttons__apply">
-            Edit
+            Apply
           </button>
         </div>
       </form>

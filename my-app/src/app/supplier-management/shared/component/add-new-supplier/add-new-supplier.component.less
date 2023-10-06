@@ -1,0 +1,232 @@
+:host{
+  ::ng-deep {
+    .mat-mdc-select-trigger {
+      border: 1px solid #D5D8DC;
+      height: 32px;
+      padding: 12px;
+      border-radius: 4px;
+      &:focus{
+        border: 1px solid #006DEB;
+      }
+      &:hover {
+        border: 1px solid #006DEB;
+      }
+    }
+  }
+}
+.w-33 {
+  width: 33%;
+}
+.package-filter-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #25282C;
+
+  label {
+    font-size: 14px;
+    color: #565C67;
+    margin-top: 16px;
+  }
+
+  input {
+    height: 32px;
+    padding: 8px 12px;
+    border: 1px solid #D0D2D8;
+    border-radius: 6px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+    &:focus{
+      border: 1px solid #006DEB;
+    }
+    &:hover {
+      border: 1px solid #006DEB;
+    }
+  }
+}
+.package-filter-button {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  .filter-button {
+    margin-right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 1px solid #E3E5E8;
+    border-radius: 6px;
+    height: 34px;
+    margin-top: 15px;
+    &.open{
+      border: 1px solid #006DEB;
+    }
+  }
+}
+.laas-package-filter {
+  border-radius: 10px;
+  width: 35%;
+  min-width: 350px;
+  background: white;
+  position: fixed;
+  z-index: 99;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  // left: 5%;
+  right: 25%;
+  top: 20%;
+  min-height: 65%;
+  font-family: 'Poppins';
+  .pop-up-body {
+    padding: 16px 16px 0px 16px;
+  }
+}
+.filter-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  background: rgba(46, 49, 56, 0.7);
+  opacity: 1;
+}
+
+.filter-header-icon {
+  padding: 8px 16px 8px 24px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -20px;
+  align-items: center;
+  height: 52px;
+  .filter-text {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    .icon-filter {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      margin-right: 16px;
+    }
+  }
+  .close-icon {
+    width: 32px;
+    height: 32px;
+    padding: 7px 10px;
+    &:hover {
+      background: #E3E5E8;
+      border-radius: 100px;
+    }
+  }
+}
+.package-filter-content-wrapper {
+  .filter-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    input{
+      width: 100%;
+      height: 32px;
+      border: 1px solid #D5D8DC;
+      border-radius: 5px;
+      &:focus{
+        border: 1px solid #006DEB;
+      }
+      &:hover {
+        border: 1px solid #006DEB;
+      }
+    }
+    select{
+      width: 100%;
+      height: 32px;
+      border: 1px solid #D5D8DC;
+      border-radius: 5px;
+      &:focus{
+        border: 1px solid #006DEB;
+      }
+      &:hover {
+        border: 1px solid #006DEB;
+      }
+    }
+  }
+  select{
+    width: 100%;
+  }
+  textarea {
+    width: 100%;
+    height: 52px;
+    border: 1px solid #D5D8DC;
+    border-radius: 5px;
+    &:focus{
+      border: 1px solid #006DEB;
+    }
+    &:hover {
+      border: 1px solid #006DEB;
+    }
+  }
+}
+.buttons {
+  display: flex;
+  position: absolute;
+  width: 95%;
+  bottom: 0;
+  border-radius: 0 0 4px 4px;
+  button {
+    border: none;
+    width: 100%;
+    height: 36px;
+    border-radius: 6px;
+    outline: none;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .buttons__apply {
+    background: #6ea0ec;
+    color: #FFFFFF;
+    :hover{
+      background-color: #006DEB;
+    }
+  }
+  .buttons__reset {
+    background: #F0F1F2;
+    color: #006DEB;
+    margin-bottom: 5px;
+    background-color: white;
+  }
+}
+
+@media (max-width: 400px) {
+  .laas-package-filter {
+    border-radius: 10px;
+    /* width: 100%; */
+    min-width: 370px;
+    margin: 0px 8px;
+    left: 0%;
+    background: white;
+    position: fixed;
+    z-index: 99;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    // left: 5%;
+    // right: 25%;
+    top: 20%;
+    min-height: 65%;
+    font-family: 'Poppins';
+    .pop-up-body {
+      padding: 16px 16px 0px 16px;
+    }
+  }
+}

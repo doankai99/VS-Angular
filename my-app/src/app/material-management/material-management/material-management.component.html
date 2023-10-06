@@ -13,7 +13,7 @@
       <div *ngIf="isLoading" class="loading"></div>
     </div>
     <div class="table-users">
-      <div class="header">Product</div>
+      <div class="header">Fabric</div>
       <table cellspacing="0">
         <tr>
           <td>Id</td>
@@ -29,7 +29,7 @@
           <td>createdAt</td>
           <td>Option</td>
         </tr>
-        <tr *ngFor= "let items of materials.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+        <tr *ngFor= "let items of materials?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
           <td>{{i + 1}}</td>
             <td> <img [src] = "items.image" alt=""></td>
             <td>{{items?.name}}</td>
@@ -38,8 +38,8 @@
             <td>{{items?.size}}</td>
             <td>{{items?.price}}</td>
             <td>{{items?.currency}}</td>
-            <td>{{items.companyId?.companyName}}</td>
-            <td>{{items.companyId?.email}}</td>
+            <td>{{items?.companyId?.companyName}}</td>
+            <td>{{items?.companyId?.email}}</td>
             <td>{{items?.createdAt | date}}</td>
             <td><app-edit-material
               [materialData]= "items"
@@ -52,7 +52,7 @@
     </div>
     <div class="pagination">
       <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
-      <button [disabled]="currentPage * pageSize >= materials.length" (click)="nextPage()">Trang sau</button>
+      <button [disabled]="currentPage * pageSize >= materials?.length" (click)="nextPage()">Trang sau</button>
     </div>
   </div>
 </body>

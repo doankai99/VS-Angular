@@ -90,8 +90,8 @@ export class SignUpCustomerComponent {
     this.isLoading = true;
     this.authService.createCustomer(data).subscribe((data) => {
       if (data) {
-        this.customerId = data.customer.id
-        this.router.navigateByUrl(`/setting-body-measurement/${data.customer.id}`)
+        this.customerId = data.customer?.id
+        this.router.navigateByUrl(`/setting-body-measurement/${data.customer?.id}`)
         this.isLoading = false
         this.toast.success('Create account sucees');
       } else {

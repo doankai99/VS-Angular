@@ -84,7 +84,8 @@
     padding: 16px 16px 0px 16px;
     img{
       width: 100%;
-      max-height: 400px;
+      max-width: 250px;
+      max-height: 350px;
     }
   }
 }
@@ -169,9 +170,14 @@
   display: flex;
   gap: 12px;
   .uploadimage {
+    display: flex;
     height: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     .file-label {
       width: 100%;
+      max-width: 250px;
       border: 1px solid #D5D8DC;
       display: flex;
       justify-content: center;

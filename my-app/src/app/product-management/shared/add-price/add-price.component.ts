@@ -28,11 +28,6 @@ export class AddPriceComponent {
         this.productData = data.products;
       }
     })
-    this.materialService.getAllmeterial().subscribe((data) => {
-      if (data) {
-        this.materialData = data.fabric
-      }
-    })
   }
 
   ngAfterViewInit() {
@@ -47,7 +42,6 @@ export class AddPriceComponent {
   public setForm() {
     this.form = new FormGroup({
       productId: new FormControl(''),
-      fabricId: new FormControl(''),
       price: new FormControl(''),
       discount: new FormControl(''),
       priceGroup: new FormControl(''),
@@ -59,7 +53,6 @@ export class AddPriceComponent {
   public addPriceforProduct() {
     const params = {
       productId: this.form.controls['productId']?.value,
-      fabricId: this.form.controls['fabricId']?.value,
       price: this.form.controls['price']?.value,
       discount: this.form.controls['discount']?.value,
       priceGroup: this.form.controls['priceGroup']?.value,

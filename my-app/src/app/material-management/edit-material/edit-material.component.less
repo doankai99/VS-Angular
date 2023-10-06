@@ -75,15 +75,25 @@
 
 .laas-package-filter {
   border-radius: 10px;
-  width: 35%;
+  width: 60%;
+  height: 60%;
   background: white;
   position: fixed;
   z-index: 99;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  right: 30%;
-  top: 30%;
-  min-height: 25%;
+  right: 20%;
+  top: 20%;
+  overflow-x: auto;
+  min-height: 65%;
   font-family: 'Poppins';
+  .pop-up-body {
+    padding: 16px 16px 0px 16px;
+    img{
+      width: 100%;
+      max-width: 250px;
+      max-height: 350px;
+    }
+  }
 }
 
 .filter-header-icon {
@@ -219,6 +229,8 @@
 }
 
 .package-filter-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
   .filter-row {
     display: flex;
     justify-content: space-between;
@@ -287,3 +299,30 @@
   }
 }
 
+@media (max-width: 400px) {
+  .package-filter-content-wrapper {
+    display: flex;
+    .filter-row{
+      padding: 8px;
+    }
+  }
+  .laas-package-filter {
+    border-radius: 10px;
+    margin: 0px 8px;
+    left: 0%;
+    background: white;
+    position: fixed;
+    z-index: 99;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    top: 20%;
+    min-height: 65%;
+    font-family: 'Poppins';
+    .pop-up-body {
+      padding: 8px 8px 0px 8px;
+    }
+  }
+  .pop-up-edit {
+    min-width: 370px;
+    right: 3%;
+  }
+}

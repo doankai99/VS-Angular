@@ -1,7 +1,7 @@
 <div class="content-wrapper package-filter-wrapper">
   <div class="package-filter-button mt-2 mt-sm-0">
     <button #filterButton class="filter-button" [ngClass]="{'open': isOpen}" (click)="openAddPrice()">
-      <i class='bx bx-layer-plus'></i>
+      <i class='bx bx-plus'></i>
       <span> Add Price</span>
     </button>
   </div>
@@ -21,16 +21,10 @@
       <div class="row">
         <div class="package-filter-content-wrapper">
           <div class="filter-row">
-            <div class="package-filter-wrapper w-50">
+            <div class="package-filter-wrapper w-100">
               <label>Product</label>
               <select formControlName="productId" aria-label="Chọn sản phẩm">
                 <option *ngFor="let data of productData" [value]="data._id">{{data.name}}</option>
-              </select>
-            </div>
-            <div class="package-filter-wrapper w-50">
-              <label>Fabric</label>
-              <select formControlName="fabricId" aria-label="Chọn loại vải">
-                <option *ngFor="let item of materialData" [value]="item._id">{{item.name}}</option>
               </select>
             </div>
           </div>

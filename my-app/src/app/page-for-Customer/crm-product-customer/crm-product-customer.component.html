@@ -6,13 +6,13 @@
     <ul class="mystyle-products">
       <li class="product" *ngFor="let item of viewProduct" [routerLink]="'/detail-product/' + item._id">
           <a>
-              <span class="onsale">Sale!</span>
-              <img alt="" class="attachment-shop_catalog " [src]="item.products[0].image" />
-              <h3>{{item.products[0].name}}</h3>
+              <span class="onsale" *ngIf="isWithinDateRange">Sale!</span>
+              <img alt="" class="attachment-shop_catalog " [src]="item.productId.image" />
+              <h3>{{item.productId.name}}</h3>
               <span class="price">
-                  <del> <span class="amount">{{item.price}}</span> </del>
-                  <ins> <span class="amount">269.000 ₫</span> </ins>
-                  <span class="sale-tag sale-tag-square">-33%</span>
+                  <del> <span class="amount"> ${{ isWithinDateRange ? (item?.price - item?.price * item?.discount / 100) : item?.price }}</span> </del>
+                  <ins> <span class="amount">{{item?.price}}</span> </ins>
+                  <span class="sale-tag sale-tag-square">{{item?.discount}}$</span>
               </span>
           </a>
           <a class="button add_to_cart_button product_type_simple" rel="nofollow" href="#">

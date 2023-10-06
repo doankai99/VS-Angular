@@ -34,13 +34,6 @@ export class AddNewProductComponent {
   }
 
   public onFileChange(event: any) {
-    // if (event.target.files.length > 0) {
-    //   const file = event.target.files[0];
-    //   this.form.patchValue({
-    //     fileSource: file
-    //   });
-    //   this.form.get('fileSource')?.updateValueAndValidity();
-    // }
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       // Kiểm tra xem tệp đã chọn có phải là hình ảnh không

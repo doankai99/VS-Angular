@@ -1,0 +1,69 @@
+<body>
+  <div class="menu">
+    <app-menu></app-menu>
+  </div>
+  <div class="content">
+    <app-header></app-header>
+    <div class="col-md-12">
+      <app-add-new-supplier
+      (fetchData)="handleAddCompany($event)"
+      ></app-add-new-supplier>
+    </div>
+    <div class="filter-backdrop" *ngIf="isLoading">
+      <div *ngIf="isLoading" class="loading"></div>
+    </div>
+    <div class="table-users">
+      <div class="header">Product</div>
+      <table cellspacing="0">
+        <tr>
+          <td>#</td>
+          <td>Company Name</td>
+          <td>Email Address</td>
+          <td>Number Phone</td>
+          <td>Business Type</td>
+          <td>Product Categories</td>
+          <td>Address</td>
+          <td>Country</td>
+          <td>logoUrl</td>
+          <td>Option</td>
+        </tr>
+        <tr *ngFor= "let items of masterCompany?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+          <td>{{i + 1}}</td>
+          <td>{{items?.companyName}}</td>
+          <td>{{items?.email}}</td>
+          <td>{{items?.numberPhone}}</td>
+          <td>
+            <ul>
+              <li *ngFor="let business of items?.businessType">{{ business }}</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li *ngFor="let category of items?.productCategories">{{ category }}</li>
+            </ul>
+          </td>
+          <td>
+            <span>
+              {{items?.street}}, {{items?.ward}}, {{items?.district}}, {{items?.city}}
+            </span>
+          </td>
+          <td>{{items?.country}}</td>
+          <td><a [href]="items?.logoUrl"><span>link</span></a></td>
+          <td>
+            <app-update-delete-supplier
+            [masterCompany] = "masterCompany"
+            [companyId] = "items._id"
+            (data)="handleCompany()"
+            (fetchData)="handleEditCompany($event, items._id)"
+            ></app-update-delete-supplier>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="pagination">
+      <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
+      <button [disabled]="currentPage * pageSize >= masterCompany?.length" (click)="nextPage()">Trang sau</button>
+    </div>
+  </div>
+</body>
+

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/shared/auth.service';
@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/auth/shared/auth.service';
   styleUrls: ['./pop-up-management-order.component.less']
 })
 export class PopUpManagementOrderComponent {
+  @Input() public status !: number
 
   public isOpenDelete = false;
   public isOpenEdit = false;
@@ -19,7 +20,8 @@ export class PopUpManagementOrderComponent {
   }
 
   public ngOnInit() {
-
+    console.log(this.status);
+    this.setForm();
   }
 
   public toggleFilter() {
@@ -30,6 +32,12 @@ export class PopUpManagementOrderComponent {
   public popUpEdit() {
     this.isOpenEdit = !this.isOpenEdit;
     this.isOpenDelete = false;
+  }
+
+  public setForm() {
+    this.form = new FormGroup({
+
+    })
   }
 
   public updateOrder() {

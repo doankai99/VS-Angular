@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MaterialService } from '../shared/material.service';
+import { SupplierService } from 'src/app/supplier-management/shared/service/supplier.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-material',
@@ -15,8 +17,18 @@ export class EditMaterialComponent {
 
   @Input() public materialData: any
   @Input() public materialId: any
+
   public form !: FormGroup;
-  constructor(private materialService: MaterialService) {
+  public selectedImageURL: any;
+  public masterCompany: any;
+
+  public fabricCategories = ["Silk", "Wool", "Linen", "Cotton", "Tweed", "Flannel", "Polyester"];
+
+  constructor(
+    private materialService: MaterialService,
+    private supplierService: SupplierService,
+    private toast: ToastrService
+  ) {
 
   }
 
@@ -45,6 +57,26 @@ export class EditMaterialComponent {
       currency: new FormControl(''),
       description: new FormControl(''),
     })
+  }
+
+  public onFileChange(event: any) {
+    if (event.target?.files?.length > 0) {
+      const file = event.target?.files[0];
+      // Kiểm tra xem tệp đã chọn có phải là hình ảnh không
+      if (file.type.match(/image\/*/) !== null) {
+        this.form.patchValue({
+          fileSource: file
+        });
+        this.form.get('fileSource')?.updateValueAndValidity();
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.selectedImageURL = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        console.error('Chọn một tệp hình ảnh.');
+      }
+    }
   }
 
   public applyEdit() {
@@ -78,6 +110,18 @@ export class EditMaterialComponent {
     this.materialService.deleteMaterial(id).subscribe(() => {
       alert('delete material success')
       this.data.emit()
+    })
+  }
+
+  public handleDataCompany() {
+    this.supplierService.getCompanyMaster().subscribe((data) => {
+      this.supplierService.getCompanyMaster().subscribe((data) => {
+        if (data) {
+          this.masterCompany = data.masterCompany
+        } else {
+          this.toast.error(data.message)
+        }
+      })
     })
   }
 

@@ -48,8 +48,8 @@ export class AuthService {
     return this.httpClient.post('http://localhost:8080/v1/customer/createCustomer', data)
   }
 
-  public deleteAccount(userId: string): Observable<any> {
-    return this.httpClient.delete<any>(`http://localhost:8080/v1/user/delete/${userId}`)
+  public deleteAccount(userId: any): Observable<any> {
+    return this.httpClient.delete<any>(`http://localhost:8080/v1/customer/deleteCustomer/${userId}`)
   }
 
   public editUser(userId: string, addNewUserRequestPayload: addNewUserRequestPayload): Observable<any> {

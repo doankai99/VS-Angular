@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/shared/auth.service';
@@ -11,7 +11,8 @@ import { AuthService } from 'src/app/auth/shared/auth.service';
 export class EditCustomerInformationComponent {
   public isOpenDelete = false;
   public isOpenEdit = false;
-  @Input() userId !: string;
+  @Input() userId !: any;
+  @Output() public fetchData: EventEmitter<any> = new EventEmitter<any>();
 
   public form !: FormGroup;
   public constructor(private authService: AuthService, private toast: ToastrService) {
@@ -19,6 +20,7 @@ export class EditCustomerInformationComponent {
   }
 
   public ngOnInit() {
+    console.log(this.userId);
 
   }
 
@@ -41,8 +43,16 @@ export class EditCustomerInformationComponent {
   }
 
   public deleteCustomer() {
-    this.authService.deleteAccount(this.userId).subscribe(() => {
-      this.toast.success('Delete user success')
+    const id = this.userId
+    console.log(id);
+    this.authService.deleteAccount(id).subscribe((data) => {
+      if (data) {
+        this.toast.success('Delete user success')
+        this.fetchData.emit()
+      } else {
+        this.toast.error('delete customer false')
+      }
+      this.toggleFilter()
     })
   }
 }

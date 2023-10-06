@@ -35,11 +35,6 @@ export class UpdateDeletePriceComponent {
         this.productData = data.products;
       }
     })
-    this.materialService.getAllmeterial().subscribe((data) => {
-      if (data) {
-        this.materialData = data.fabric
-      }
-    })
   }
   ngAfterViewInit() {
 

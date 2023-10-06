@@ -10,10 +10,13 @@ import { ToastrService } from 'ngx-toastr';
 export class PriceOfProductComponent {
 
   public isLoading: boolean = false;
+  public isWithinDateRange: boolean = false;
+
   public priceData: any;
   public productData: any;
   currentPage: number = 1;
-  pageSize: number = 5;
+  pageSize: number = 4;
+
   public currentDate: Date = new Date();
 
   constructor(private productService: ProductService, private toastrService: ToastrService) { }
@@ -38,11 +41,27 @@ export class PriceOfProductComponent {
     }
   }
 
+  public dateSale(startDate: Date, endDate: Date) {
+    console.log(startDate);
+    console.log(endDate);
+
+    const currentDate = new Date();
+    if (currentDate >= startDate && currentDate <= endDate) {
+      this.isWithinDateRange = true;
+    } else {
+      this.isWithinDateRange = false;
+    }
+  }
+
   public allPriceOfProducts() {
     this.isLoading = true;
     this.productService.getAllPriceOfPriduct().subscribe((data) => {
       if (data) {
         this.priceData = data.priceOfProducts
+        const startDate = new Date(data.priceOfProducts?.startDate);
+        const endDate = new Date(data.priceOfProducts?.endDate);
+
+        this.dateSale(startDate, endDate);
       } else {
         this.toastrService.success('Lấy thông tin giá sản phẩm thất bại')
       }

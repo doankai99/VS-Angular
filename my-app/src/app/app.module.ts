@@ -66,9 +66,19 @@ import { BodyMeasurementComponent } from './shared/component/body-measurement/bo
 import { DoorToDoorComponent } from './page-for-Customer/services/door-to-door/door-to-door.component';
 import { ContactUsComponent } from './page-for-Customer/contact-us/contact-us.component';
 import { ListBookedAppointmentComponent } from './page-for-Customer/view-profile-customer/list-booked-appointment/list-booked-appointment.component';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { DetailProductComponent } from './page-for-Customer/crm-product-customer/detail-product/detail-product.component';
 import { SettingBodyMeasurementComponent } from './page-for-Customer/shared/component/setting-body-measurement/setting-body-measurement.component';
+import { SupplierManagementComponent } from './supplier-management/supplier-management.component';
+import { UpdateDeleteSupplierComponent } from './supplier-management/shared/component/update-delete-supplier/update-delete-supplier.component';
+import { AddNewSupplierComponent } from './supplier-management/shared/component/add-new-supplier/add-new-supplier.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { DraftOrderComponent } from './order-process/draft-order/draft-order.component';
+import { EditConfirmOrderInactiveComponent } from './order-process/draft-order/edit-confirm-order-inactive/edit-confirm-order-inactive.component';
+import { TranslateStatusPipe } from './order-process/shared/component/translateStatus.pipe';
+import { CustomerOrderComponent } from './page-for-Customer/crm-product-customer/detail-product/customer-order/customer-order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -128,6 +138,13 @@ import { SettingBodyMeasurementComponent } from './page-for-Customer/shared/comp
     ListBookedAppointmentComponent,
     DetailProductComponent,
     SettingBodyMeasurementComponent,
+    SupplierManagementComponent,
+    UpdateDeleteSupplierComponent,
+    AddNewSupplierComponent,
+    DraftOrderComponent,
+    EditConfirmOrderInactiveComponent,
+    TranslateStatusPipe,
+    CustomerOrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -139,6 +156,10 @@ import { SettingBodyMeasurementComponent } from './page-for-Customer/shared/comp
     MatIconModule,
     MatMenuModule,
     FormsModule,
+    CommonModule,
+    MatSelectModule,
+    MatOptionModule,
+    NgMultiSelectDropDownModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-right',

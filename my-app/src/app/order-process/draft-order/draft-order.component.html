@@ -1,0 +1,62 @@
+<body>
+  <div class="menu">
+    <app-menu></app-menu>
+  </div>
+  <div class="content">
+    <div class="header-top">
+      <app-header></app-header>
+    </div>
+    <div class="filter-backdrop" *ngIf="isLoading">
+      <div *ngIf="isLoading" class="loading"></div>
+    </div>
+    <div class="table-users">
+      <div class="header">Draft Order</div>
+      <table cellspacing="0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>creater</th>
+            <th>Customer</th>
+            <th>Number Phone</th>
+            <th>Shipping Address</th>
+            <th>Status</th>
+            <th>Order Date</th>
+            <th>Delivery Date</th>
+            <th>totalCount</th>
+            <th>Option</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of inactiveOrder">
+            <td>{{ order._id }}</td>
+            <td>{{ order.user?.firstname}} {{ order.user?.lastname}}</td>
+            <td>{{ order.customer?.firstName }} {{ order.customer?.LastName }}</td>
+            <td>{{ order.customer?.numberPhone }}</td>
+            <td>{{ order?.shippingAddress }}</td>
+            <td>{{ order?.status }}</td>
+            <td>{{ order?.startTime | date }}</td>
+            <td>{{ order?.endTime | date }}</td>
+            <td>{{ order?.totalCount }}</td>
+            <td>
+              <app-edit-confirm-order-inactive
+              [orderId] = "order._id"
+              >
+              </app-edit-confirm-order-inactive>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination">
+      <button [disabled]="currentPage === 1" (click)="previousPage()">
+        Trang trước
+      </button>
+      <button
+        [disabled]="currentPage * pageSize >= inactiveOrder?.length"
+        (click)="nextPage()"
+      >
+        Trang sau
+      </button>
+    </div>
+  </div>
+</body>

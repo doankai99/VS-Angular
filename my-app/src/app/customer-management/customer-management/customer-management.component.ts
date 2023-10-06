@@ -31,11 +31,14 @@ export class CustomerManagementComponent {
     }
   }
 
+  public handleLoadData() {
+    this.getCustomer()
+  }
+
   public getCustomer(): void {
     this.customerService.getCustomerService().subscribe((data) => {
       if (data) {
         this.dataCustomer = data.customer
-        console.log(this.dataCustomer);
       } else {
         this.toast.error('Get data Customer error')
       }
