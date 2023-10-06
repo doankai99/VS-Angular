@@ -1,6 +1,13 @@
+
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+
+#install
+
+run "npm install"
+or
+run "npm install @angular/cli"
 
 ## Development server
 
