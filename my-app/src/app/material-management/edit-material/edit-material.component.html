@@ -33,7 +33,7 @@
   <div class="pop-up-edit" *ngIf="isOpenEdit" #filterPopup>
     <div class="filter-header-icon">
       <div class="filter-text">
-        Edit Material {{materialData.name}}
+        Edit Material {{materialData?.name}}
       </div>
       <div class="close-icon cursor-pointer" (click)="popUpEdit()">
         <img src="../../assets/icons/icon_close.svg" alt="">
@@ -43,7 +43,7 @@
       <form [formGroup]="form" (submit)="applyEdit()">
         <div class="row">
           <div class="package-filter-content-wrapper">
-            <div class="upload-image w-50">
+            <div class="upload-image">
               <div class="filter-row">
                 <div class="package-filter-wrapper item-center w-100">
                   <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../assets/images/defaultthumbnail.jpg" >
@@ -55,7 +55,7 @@
                 </div>
               </div>
             </div>
-            <div class="fabric-info w-50">
+            <div class="fabric-info">
               <div class="filter-row">
                 <div class="package-filter-wrapper w-100">
                   <label>Material Name</label>
@@ -66,13 +66,13 @@
                 <div class="package-filter-wrapper w-50">
                   <label>Company name</label>
                   <select formControlName="companyId">
-                    <option *ngFor="let items of masterCompany" [value]="items._id">{{items?.companyName}}</option>
+                    <option *ngFor="let items of masterCompany" [value]="items?._id">{{items?.companyName}}</option>
                   </select>
                 </div>
                 <div class="package-filter-wrapper w-50">
                   <label>Fabric Categories</label>
                   <select formControlName="material">
-                    <option *ngFor="let categorys of fabricCategories">{{categorys}}</option>
+                    <option *ngFor="let categorys of fabricCategories" [value]="categorys">{{categorys}}</option>
                   </select>
                 </div>
               </div>

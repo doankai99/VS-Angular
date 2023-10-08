@@ -14,7 +14,7 @@ export class DraftOrderComponent {
   public inactiveOrder: any;
 
   currentPage: number = 1;
-  pageSize: number = 3;
+  pageSize: number = 8;
 
   constructor(
     private orderService: OrderService, private toast: ToastrService) {

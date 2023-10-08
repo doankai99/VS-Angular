@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
 })
 export class EditConfirmOrderInactiveComponent {
   public customer: any;
-  public product: any
+  public product: any;
+  public isAdmin: any;
 
   public isOpenEdit: boolean = false;
   public isOpenConfirm: boolean = false;
@@ -31,6 +32,7 @@ export class EditConfirmOrderInactiveComponent {
   ) { }
 
   ngOnInit() {
+    this.isAdmin = Number(localStorage.getItem('isAdmin'))
     this.handleCustomer();
     this.handleProduct();
     this.setForm();

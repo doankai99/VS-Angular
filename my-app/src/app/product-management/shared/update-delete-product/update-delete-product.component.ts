@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { ToastrService } from 'ngx-toastr';
+import { MaterialService } from 'src/app/material-management/shared/material.service';
 
 @Component({
   selector: 'app-update-delete-product',
@@ -12,18 +13,23 @@ export class UpdateDeleteProductComponent {
   public isOpenDelete: boolean = false;
   public isOpenEdit: boolean = false;
   public selectedImageURL: any;
+  public materialsData: any;
 
   @Input() public productData: any
   @Input() public productId: any
+
   @Output() public data: EventEmitter<any> = new EventEmitter<any>();
 
 
   public form !: FormGroup;
-  constructor(private productServcie: ProductService, private toast: ToastrService) {
+  constructor(private productServcie: ProductService, private toast: ToastrService, private materialService: MaterialService) {
 
   }
   ngOnInit() {
     this.setForm();
+    this.getAllMaterial()
+    console.log(this.productId);
+
   }
   public setForm() {
     this.form = new FormGroup({
@@ -62,6 +68,14 @@ export class UpdateDeleteProductComponent {
     this.isOpenDelete = !this.isOpenDelete
   }
 
+  public getAllMaterial() {
+    this.materialService.getAllmeterial().subscribe((data) => {
+      if (data) {
+        this.materialsData = data.fabric
+      }
+    })
+  }
+
   public editProduct() {
     const formData: FormData = new FormData();
     if (this.form.controls['fileSource']?.value) {
@@ -76,7 +90,7 @@ export class UpdateDeleteProductComponent {
   }
 
   public handleEditProduct(data: any) {
-
+    // this.
   }
 
   public deleteProduct() {

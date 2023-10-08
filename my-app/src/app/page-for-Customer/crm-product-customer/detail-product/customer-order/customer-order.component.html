@@ -19,7 +19,50 @@
   </div>
 
   <div class="pop-up-body">
-    <form [formGroup] = "form" (submit)="createOrder()">
+    <form [formGroup] = "form" (submit)="createNewOrder()">
+      <figure class="snip1195">
+        <div class="image w-50">
+          <h4>Casual Top</h4>
+          <img [src]="product.productId?.image" alt="sq-sample14"/>
+          <div class="rating">
+            5<i class='bx bxs-star'></i>
+          </div>
+        </div>
+        <div class="info-product w-50">
+          <h5>{{product.productId?.name}}</h5>
+          <div class="form-order w-50">
+            <p>
+              <label>quantity</label>
+              <input type="number" formControlName="quantity">
+            </p>
+          </div>
+          <div>
+            <p>
+              <label>Shipping Address</label>
+              <input type="text" formControlName="shippingAddress">
+            </p>
+          </div>
+          <div class="payment-method">
+            <p>
+              <label>Direct Bank Transfer</label>
+              <input type="radio" formControlName="paymentMethod" value="0" checked>
+            </p>
+            <p>
+              <label>Cash on Delivery</label>
+              <input type="radio" formControlName="paymentMethod" value="1">
+            </p>
+            <p>
+              <label>Paypal</label>
+              <input type="radio" formControlName="paymentMethod" value="2">
+            </p>
+          </div>
+          <div class="price">
+            <label>Price: </label>
+            <s>{{product.price}}</s><span>{{product.price - product.price*product.discount/100}}</span>
+          </div>
+        </div>
+      </figure>
+      <button class="add-to-cart">Add to Cart</button>
     </form>
   </div>
 </div>

@@ -47,7 +47,7 @@
             <div class="package-filter-wrapper w-50">
               <label>Fabric Categories</label>
               <select formControlName="material">
-                <option *ngFor="let categorys of fabricCategories">{{categorys}}</option>
+                <option *ngFor="let categorys of fabricCategories" [value]="categorys">{{categorys}}</option>
               </select>
             </div>
           </div>

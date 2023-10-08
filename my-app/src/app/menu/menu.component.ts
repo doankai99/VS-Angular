@@ -18,9 +18,7 @@ export class MenuComponent {
   }
 
   ngOnInit() {
-
     this.isAdmin = Number(localStorage.getItem('isAdmin'))
-
   }
 
   toggleSubMenu(key: string) {

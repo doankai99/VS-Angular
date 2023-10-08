@@ -1,7 +1,7 @@
 <div class="content-wrapper package-filter-wrapper">
   <div class="package-filter-button mt-2 mt-sm-0">
-      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="isPopUpEdit()">Edit</span>
-      <span class="filter-button" [ngClass]="{'open': isOpenConfirm}" (click)="isPopUpConfirm()">Confirm</span>
+      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="isPopUpEdit()" *ngIf="!isAdmin">Edit</span>
+      <span class="filter-button" [ngClass]="{'open': isOpenConfirm}" (click)="isPopUpConfirm()" *ngIf="isAdmin">Confirm</span>
   </div>
 
   <div class="filter-backdrop" *ngIf="isOpenConfirm || isOpenEdit"></div>
@@ -16,13 +16,15 @@
     <div class = "filter-body-content">
       <div class="display-infor-User">
         <p class="d-flex justify-content-center">Bạn có muốn chuyển order sang active</p>
+        <p class="d-flex justify-content-center">Click Save</p>
+        <p class="d-flex justify-content-center" style="color: rgb(36, 198, 66);"><i class='bx bxs-arrow-to-bottom bx-fade-down' ></i></p>
       </div>
       <div class="buttons pop-up-delete">
         <button type="button" class="buttons__reset" (click)="isPopUpConfirm()">
           Close
         </button>
         <button type="submit" class="buttons__apply" (click)="confirmActiveOrder()">
-          Confirm
+            Save
         </button>
       </div>
     </div>

@@ -15,7 +15,7 @@
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="enter email id" [value]="customer.email"readonly></div>
                         <div class="col-md-12"><label class="labels">Phone</label><input type="text" class="form-control" placeholder="enter address line 2" [value]="customer.numberPhone" readonly></div>
-                        <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="enter email id" [value]="customer.gender"readonly></div>
+                        <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" placeholder="enter email id" [value]="customer.gender | translateGender"readonly></div>
                         <div class="col-md-12"><label class="labels">Street</label><input type="text" class="form-control" placeholder="enter address line 1" [value]="customer.street" readonly></div>
                         <div class="col-md-12"><label class="labels">Ward</label><input type="text" class="form-control" placeholder="enter address line 2" [value]="customer.ward" readonly></div>
                         <div class="col-md-12"><label class="labels">District</label><input type="text" class="form-control" placeholder="District" [value]="customer.district" readonly></div>
@@ -32,27 +32,27 @@
                 <div class="text-black-50">
                   <div class="measurements-item">
                     <label>Size: </label>
-                    <span>{{bodyCustomers.size}}</span>
+                    <span>{{bodyCustomers?.size}}</span>
                   </div>
                   <div class="measurements-item">
                     <label>Height: </label>
-                    <span>{{bodyCustomers.height}}</span>
+                    <span>{{bodyCustomers?.height}}</span>
                   </div>
                   <div class="measurements-item">
                     <label>Weight:</label>
-                    <span>{{bodyCustomers.weight}}</span>
+                    <span>{{bodyCustomers?.weight}}</span>
                   </div>
                   <div class="measurements-item">
                     <label>Chest:</label>
-                    <span>{{bodyCustomers.chest}}</span>
+                    <span>{{bodyCustomers?.chest}}</span>
                   </div>
                   <div class="measurements-item">
                     <label>Waist:</label>
-                    <span>{{bodyCustomers.waist}}</span>
+                    <span>{{bodyCustomers?.waist}}</span>
                   </div>
                   <div class="measurements-item">
                     <label>Hips:</label>
-                    <span>{{bodyCustomers.hips}}</span>
+                    <span>{{bodyCustomers?.hips}}</span>
                   </div>
                 </div><span> </span></div>
           </div>

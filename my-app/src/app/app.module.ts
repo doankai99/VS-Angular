@@ -79,6 +79,10 @@ import { DraftOrderComponent } from './order-process/draft-order/draft-order.com
 import { EditConfirmOrderInactiveComponent } from './order-process/draft-order/edit-confirm-order-inactive/edit-confirm-order-inactive.component';
 import { TranslateStatusPipe } from './order-process/shared/component/translateStatus.pipe';
 import { CustomerOrderComponent } from './page-for-Customer/crm-product-customer/detail-product/customer-order/customer-order.component';
+import { TranslateGenderPipe } from './shared/tranforms/translateGender.pipe';
+import { TranslateStatusAppointmentPipe } from './shared/tranforms/translateStatusAppointment.pipe';
+import { OrderDetailComponent } from './page-for-Customer/crm-product-customer/detail-product/order-detail/order-detail.component';
+import { TranslateShippingMethodPipe } from './shared/tranforms/translateShippingMethod.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -144,7 +148,11 @@ import { CustomerOrderComponent } from './page-for-Customer/crm-product-customer
     DraftOrderComponent,
     EditConfirmOrderInactiveComponent,
     TranslateStatusPipe,
+    TranslateGenderPipe,
+    TranslateStatusAppointmentPipe,
+    TranslateShippingMethodPipe,
     CustomerOrderComponent,
+    OrderDetailComponent,
   ],
   imports: [
     BrowserModule,

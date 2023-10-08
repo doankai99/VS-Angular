@@ -31,6 +31,7 @@ import { SignUpCustomerComponent } from './auth/sign-up-customer/sign-up-custome
 import { SettingBodyMeasurementComponent } from './page-for-Customer/shared/component/setting-body-measurement/setting-body-measurement.component';
 import { SupplierManagementComponent } from './supplier-management/supplier-management.component';
 import { DraftOrderComponent } from './order-process/draft-order/draft-order.component';
+import { OrderDetailComponent } from './page-for-Customer/crm-product-customer/detail-product/order-detail/order-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -57,6 +58,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpCustomerComponent },
   { path: 'homeCustomer', component: HomepageComponent },
   { path: 'online-order', component: OnlineOrderComponent },
+  { path: 'order/order-detail/:id', component: OrderDetailComponent },
   { path: 'customer-profile', component: ViewProfileCustomerComponent },
   { path: 'crm-product', component: CrmProductCustomerComponent },
   { path: 'learn-move-tecnique', component: LearnMoveTechniqueComponent },

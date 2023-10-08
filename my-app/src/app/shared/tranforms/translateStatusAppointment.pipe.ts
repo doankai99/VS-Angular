@@ -1,23 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'translateStatus'
+  name: 'translateStatusAppointment'
 })
-export class TranslateStatusPipe implements PipeTransform {
+export class TranslateStatusAppointmentPipe implements PipeTransform {
 
   transform(status: number): string {
     switch (status) {
       case 0:
-        return 'close';
+        return 'Cancel';
       case 1:
-        return 'Inactive';
-      case 2:
         return 'Active';
-      case 3:
-        return 'Doing';
-      case 4:
-        return 'Delivering';
-      case 5:
+      case 2:
         return 'Done';
       default:
         return status.toString();

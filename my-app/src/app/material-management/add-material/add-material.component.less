@@ -25,7 +25,7 @@
     color: #918f8f;
     border-radius: 50%;
     margin-top: -18px !important;
-    margin-left: 40%;
+    margin-left: 25%;
   }
 
   // .file-label:hover {
@@ -55,6 +55,28 @@
 
   input {
     height: 32px;
+    padding: 8px 12px;
+    border: 1px solid #D0D2D8;
+    border-radius: 6px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+    &:hover {
+      border: 1px solid #565C67;
+    }
+    &:focus {
+      border: 2px solid #4794EB !important;
+    }
+    &:disabled {
+      color: #878E9B;
+      background-color: #F2F3F5;
+      border: 1px solid #ECEDEF !important;
+    }
+  }
+
+  textarea {
+    height: 60px;
     padding: 8px 12px;
     border: 1px solid #D0D2D8;
     border-radius: 6px;

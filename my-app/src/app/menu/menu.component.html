@@ -38,7 +38,8 @@
             <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" appToggleDropdown>
               <i class='bx bx-cart-add'></i> Order Process
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" routerLink="/new-order"><i class='bx bxs-cart-add'></i> New Order</a></li>
+                <li *ngIf="isAdmin"><a class="dropdown-item" routerLink="/new-order"><i class='bx bxs-cart-add'></i> New Order</a></li>
+                <li><a class="dropdown-item" routerLink="/order/draft-order"><i class='bx bxs-cart-add'></i> Draft Order</a></li>
                 <li><a class="dropdown-item" routerLink="/quote-management"><i class='bx bx-folder-open'></i> Quote Management</a></li>
                 <li><a class="dropdown-item" routerLink="/management-order"><i class='bx bxs-shopping-bags'></i> Management Order</a></li>
               </ul>
@@ -85,7 +86,7 @@
     <li class='sub-menu' (click)="toggleSubMenu('orderProcess')">
       <a><i class='bx bx-cart-add'></i> Order Process <div [ngClass]="{'fa-caret-up': isSubMenuOpen['orderProcess'], 'fa-caret-down': !isSubMenuOpen['orderProcess']}" class='fa right'></div></a>
       <ul *ngIf="isSubMenuOpen['orderProcess']">
-        <li><a routerLink="/new-order"><i class='bx bxs-cart-add'></i> <span>New Order</span></a></li>
+        <li *ngIf="!isAdmin"><a routerLink="/new-order"><i class='bx bxs-cart-add'></i> <span>New Order</span></a></li>
         <li><a routerLink="/order/draft-order"><i class='bx bx-receipt'></i> <span>Draft Order</span></a></li>
         <li><a routerLink="/quote-management"><i class='bx bx-folder-open'></i> <span>Quote Management</span></a></li>
         <li><a routerLink="/management-order"><i class='bx bxs-shopping-bags'></i> <span>Management Order</span></a></li>

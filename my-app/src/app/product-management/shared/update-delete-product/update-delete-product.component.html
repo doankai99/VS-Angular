@@ -40,13 +40,13 @@
       </div>
     </div>
     <div class="pop-up-body">
-      <form [formGroup]="form" (submit)="popUpEdit()">
+      <form [formGroup]="form" (submit)="editProduct()">
         <div class="formAddProduct">
           <div class="uploadimage w-50">
-            <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../assets/images/defaultthumbnail.jpg" >
+              <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../assets/images/defaultthumbnail.jpg" >
               <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
               <label for="fileInput" class="file-label">
-                <i class='bx bx-image-add'></i><span>Upload Product</span>
+                <i class='bx bx-image-add'></i>
               </label>
               <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
           </div>
@@ -54,25 +54,25 @@
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
                 <label>Name Product</label>
-                <input type="text" formControlName="name" placeholder="Name Product">
+                <input type="text" formControlName="name">
               </div>
                 <div class="package-filter-wrapper w-50">
                   <label>Product Type</label>
-                  <input type="text" formControlName="product_type" placeholder="type">
+                  <input type="text" formControlName="product_type">
                 </div>
             </div>
             <div class="filter-row">
               <div class="package-filter-wrapper w-100">
                 <label>Material typecode</label>
-                <select formControlName="productId" aria-label="Chọn sản phẩm">
-                  <option *ngFor="let item of productData" [value]="item._id">{{ item.name }}</option>
+                <select formControlName="fabricId" aria-label="Chọn loại vải">
+                  <option *ngFor="let item of materialsData" [value]="item._id">{{ item.name }}</option>
                 </select>
               </div>
             </div>
             <div class="filter-row">
               <div class="package-filter-wrapper w-100">
                 <label>Summary</label>
-                <textarea formControlName="summary" placeholder="Enter summary"></textarea>
+                <textarea formControlName="summary"></textarea>
               </div>
             </div>
           </div>

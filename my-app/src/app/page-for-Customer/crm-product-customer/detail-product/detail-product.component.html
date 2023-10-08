@@ -30,6 +30,7 @@
                   <span>3 Reviews</span>
                 </div>
                 <div class="product-price-discount">
+                  <p>{{productDetail?._id}}</p>
                   <span>
                     ${{ isWithinDateRange ? (productDetail?.price - productDetail?.price * productDetail?.discount / 100) : productDetail?.price }}
                   </span>
@@ -45,7 +46,10 @@
               <span>Sammary</span>
               <p>{{productDetail?.productId?.summary}}</p>
               <span>
-                <app-customer-order></app-customer-order>
+                <app-customer-order
+                [product]="productDetail"
+                [productId]="productid"
+                ></app-customer-order>
               </span>
           </div>
         </div>

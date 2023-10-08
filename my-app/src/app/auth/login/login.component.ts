@@ -19,6 +19,8 @@ export class LoginComponent {
   public loginRequestPayload!: loginRequestPayload;
   public loginForm !: FormGroup;
 
+  public showPassword: boolean = false;
+
   constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) {
     this.loginRequestPayload = {
       email: '',
@@ -30,6 +32,9 @@ export class LoginComponent {
   }
   public isAdmin() {
     this.isOpen = !this.isOpen
+  }
+  public togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
   public setForm() {
     this.loginForm = new FormGroup({
@@ -51,10 +56,10 @@ export class LoginComponent {
       if (data.status === 'OK') {
         const token = data.data.access_token
         localStorage.setItem('accessToken', token);
-        localStorage.setItem('id', data.data.id);
-        localStorage.setItem('isAdmin', data.data.isAdmin)
-        localStorage.setItem('image', data.data.image)
-        this.toastr.success(`hello ${data.data.email}`)
+        localStorage.setItem('id', data.data?.id);
+        localStorage.setItem('isAdmin', data.data?.isAdmin)
+        localStorage.setItem('image', data.data?.image)
+        this.toastr.success(`hello ${data.data?.email}`)
         this.router.navigateByUrl('/home');
       } else {
         this.isError = true;
@@ -74,10 +79,10 @@ export class LoginComponent {
   public loginByCustomer(queryParam: any) {
     this.authService.customerLogin(queryParam).subscribe((data) => {
       if (data) {
-        const token = data.data.access_token
+        const token = data.data?.access_token
         localStorage.setItem('accessToken', token);
-        localStorage.setItem('id', data.data.id);
-        this.toastr.success(`hello ${data.data.email}`)
+        localStorage.setItem('id', data.data?.id);
+        this.toastr.success(`hello ${data.data?.email}`)
         this.router.navigateByUrl('/homeCustomer')
       } else {
         this.toastr.error(`login false`)

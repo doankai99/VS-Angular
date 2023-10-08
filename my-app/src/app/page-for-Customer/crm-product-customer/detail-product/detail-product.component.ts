@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/product-management/shared/product.servic
   styleUrls: ['./detail-product.component.less']
 })
 export class DetailProductComponent {
-  public productid: string = '';
+  public productid: any;
   public productDetail: any;
   public isWithinDateRange: boolean = false;
 
@@ -26,6 +26,8 @@ export class DetailProductComponent {
 
   public dateSale(startDate: Date, endDate: Date) {
     const currentDate = new Date();
+    startDate = new Date(currentDate)
+    endDate = new Date(currentDate)
     if (currentDate >= startDate && currentDate <= endDate) {
       this.isWithinDateRange = true;
     } else {
@@ -38,8 +40,9 @@ export class DetailProductComponent {
     this.productService.detailPriceOfProduct(id).subscribe((data) => {
       if (data) {
         this.productDetail = data.detailPriceProduct
-        const startDate = new Date(this.productDetail.startDate);
-        const endDate = new Date(this.productDetail.endDate);
+        console.log(this.productDetail);
+        const startDate = new Date(this.productDetail[0]?.startDate);
+        const endDate = new Date(this.productDetail[0]?.endDate);
         this.dateSale(startDate, endDate);
       } else {
         this.toast.error("K tìm thấy product")

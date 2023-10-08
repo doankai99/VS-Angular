@@ -34,6 +34,7 @@ export class EditMaterialComponent {
 
   ngOnInit() {
     this.setForm();
+    this.handleDataCompany();
   }
 
   public toggleFilter() {
@@ -48,13 +49,13 @@ export class EditMaterialComponent {
 
   public setForm() {
     this.form = new FormGroup({
-      image: new FormControl(''),
+      fileSource: new FormControl(''),
       material: new FormControl(''),
+      companyId: new FormControl(''),
       name: new FormControl(''),
       color: new FormControl(''),
       size: new FormControl(''),
       price: new FormControl(''),
-      currency: new FormControl(''),
       description: new FormControl(''),
     })
   }
@@ -80,27 +81,31 @@ export class EditMaterialComponent {
   }
 
   public applyEdit() {
-    const id = this.materialId
-    const params: any = {
-      image: this.form.controls['image']?.value,
-      material: this.form.controls['material']?.value,
-      name: this.form.controls['name']?.value,
-      color: this.form.controls['color']?.value,
-      size: this.form.controls['size']?.value,
-      price: this.form.controls['price']?.value,
-      currency: this.form.controls['price']?.value,
-      description: this.form.controls['description']?.value
+    const formData: FormData = new FormData();
+    if (this.form.controls['fileSource']?.value) {
+      formData.append('image', this.form.controls['fileSource']?.value);
     }
-    const EditParams = this.clean(params);
-    this.editMaterial(params)
+    formData.append('material', this.form.controls['material']?.value);
+    formData.append('companyId', this.form.controls['companyId']?.value);
+    formData.append('name', this.form.controls['name']?.value);
+    formData.append('color', this.form.controls['color']?.value);
+    formData.append('size', this.form.controls['size']?.value);
+    formData.append('price', this.form.controls['price']?.value);
+    formData.append('description', this.form.controls['description']?.value);
+    console.log(formData);
+    this.editMaterial(formData)
+    this.popUpEdit();
   }
 
   public editMaterial(queryParams: any) {
+    console.log(queryParams);
     this.isOpenEdit = !this.isOpenEdit;
     const id = this.materialId;
-    this.materialService.editMaterial(queryParams, id).subscribe(() => {
-      alert(`update material ${this.materialData.name} success`)
-      this.data.emit()
+    this.materialService.editMaterial(queryParams, id).subscribe((data) => {
+      if (data) {
+        this.toast.success(`update material ${this.materialData.name} success`)
+        this.data.emit()
+      }
     })
   }
 
@@ -118,6 +123,7 @@ export class EditMaterialComponent {
       this.supplierService.getCompanyMaster().subscribe((data) => {
         if (data) {
           this.masterCompany = data.masterCompany
+          console.log(this.masterCompany);
         } else {
           this.toast.error(data.message)
         }

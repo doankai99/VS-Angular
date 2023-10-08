@@ -20,6 +20,8 @@ export class ProductManagementComponent {
 
   public ngOnInit() {
     this.getAllProduct();
+    // console.log(p);
+
   }
 
   public previousPage() {

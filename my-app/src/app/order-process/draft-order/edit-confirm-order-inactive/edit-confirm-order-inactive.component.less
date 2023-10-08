@@ -93,7 +93,7 @@
 
 .laas-package-filter {
   border-radius: 10px;
-  width: 35%;
+  width: 30%;
   background: white;
   position: fixed;
   z-index: 99;
@@ -105,11 +105,13 @@
 }
 
 .filter-header-icon {
-  padding: 8px 16px 8px 24px;
+  margin-bottom: 12px;
+  padding: 6px 16px 6px 24px;
   display: flex;
   justify-content: space-between;
   margin-bottom: -20px;
   align-items: center;
+  border-radius: 8px 8px 0 0;
   height: 52px;
   .filter-text {
     font-weight: 600;
@@ -150,44 +152,12 @@
 
 .filter-body-content {
   padding: 16px;
-  max-height: 215px;
+  max-height: 250px;
   .display-infor-User {
     .avatar{
       display: flex;
       justify-content: center;
       position: relative;
-      img{
-        width: 80px;
-        height: 80px;
-        border-radius: 100px;
-        -webkit-transition:all 0.5s ease-out;
-        -moz-transition:all 0.5s ease-out;
-        -ms-transition:all 0.5s ease-out;
-        -o-transition:all 0.5s ease-out;
-        transition:all 0.5s ease-out;
-      }
-      &:hover img {
-        transform: scale(1.2);
-        width: 150px;
-        height: 150px;
-        -webkit-transform:rotate(360deg);
-        -moz-transform:rotate(360deg);
-        -ms-transform:rotate(360deg);
-        -o-transform:rotate(360deg);
-        transform:rotate(360deg);
-        // filter: brightness(1.2);
-      }
-
-      &:before img{
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 100px;
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-
       &:hover:before {
         opacity: 1;
       }
@@ -222,7 +192,7 @@
     line-height: 16px;
   }
   .buttons__apply {
-    background: #ec2a23;
+    background: #08931d;
     color: #FFFFFF;
     :hover{
       background-color: #1461b8;

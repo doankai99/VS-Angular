@@ -38,6 +38,7 @@ export class NewOrderComponent {
     this.form = new FormGroup({
       customer: new FormControl(''),
       product: new FormControl([]),
+      quantity: new FormControl('1'),
       startTime: new FormControl(''),
       endTime: new FormControl(''),
       shippingAddress: new FormControl(''),
@@ -63,6 +64,7 @@ export class NewOrderComponent {
     const params = {
       customer: this.form.controls['customer']?.value,
       product: this.form.controls['product']?.value,
+      quantity: this.form.controls['quantity']?.value,
       startTime: this.form.controls['startTime']?.value,
       endTime: this.form.controls['endTime']?.value,
       shippingAddress: this.form.controls['shippingAddress']?.value,
