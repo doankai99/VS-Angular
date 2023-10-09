@@ -74,14 +74,5 @@ export class ListAccountComponent {
   }
 
   public changeAdmin(isAdmin: boolean, userId: string) {
-    //   console.log(userId);
-    //   const updateAdmin = {
-    //     isAdmin: isAdmin
-    //   }
-    //   this.authService.updateAdmin(userId, updateAdmin).subscribe(
-    //     () => {
-    //       this.toastr.success('Update isAdmin success')
-    //     }
-    //   )
   }
 }

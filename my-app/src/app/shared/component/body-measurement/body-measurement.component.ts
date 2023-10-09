@@ -24,7 +24,6 @@ export class BodyMeasurementComponent {
       if (data) {
         this.bodyMen = data.bodyMen;
         this.bodyWomen = data.bodyWomen;
-        console.log(this.bodyMen);
       }
     })
   }

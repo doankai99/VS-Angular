@@ -11,7 +11,6 @@ export class CustomerService {
   constructor(private httpClient: HttpClient) { }
 
   public addCustomer(createCustomerRequestPayload: createCustomerRequestPayload): Observable<any> {
-    console.log(createCustomerRequestPayload);
     return this.httpClient.post<any>('http://localhost:8080/v1/customer/createCustomer', createCustomerRequestPayload)
   }
 

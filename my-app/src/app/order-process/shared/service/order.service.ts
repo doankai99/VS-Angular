@@ -34,4 +34,9 @@ export class OrderService {
   public orderDetail(id: any): Observable<any> {
     return this.httpClient.get(`http://localhost:8080/v1/order/orderDetail/${id}`)
   }
+
+  //List Order of Customer
+  public orderCustomer(id: any): Observable<any> {
+    return this.httpClient.get(`http://localhost:8080/v1/order/listOrderCustomer/${id}`)
+  }
 }

@@ -11,8 +11,8 @@ export class ProductManagementComponent {
   public isOpen = false
   public dataProduct: any;
   public isLoading: boolean = false;
-  currentPage: number = 1;
-  pageSize: number = 3;
+  public currentPage: number = 1;
+  public pageSize: number = 3;
 
   public constructor(private productService: ProductService) {
 
@@ -20,8 +20,6 @@ export class ProductManagementComponent {
 
   public ngOnInit() {
     this.getAllProduct();
-    // console.log(p);
-
   }
 
   public previousPage() {

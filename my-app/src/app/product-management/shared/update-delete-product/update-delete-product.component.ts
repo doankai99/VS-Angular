@@ -28,8 +28,6 @@ export class UpdateDeleteProductComponent {
   ngOnInit() {
     this.setForm();
     this.getAllMaterial()
-    console.log(this.productId);
-
   }
   public setForm() {
     this.form = new FormGroup({

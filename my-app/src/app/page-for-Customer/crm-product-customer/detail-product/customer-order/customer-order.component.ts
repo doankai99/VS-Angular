@@ -22,9 +22,6 @@ export class CustomerOrderComponent {
     private router: Router) { }
 
   ngOnInit() {
-    console.log(this.productId);
-    console.log(this.product);
-
     this.setForm();
     this.customerId = localStorage.getItem('id')
   }
@@ -50,8 +47,6 @@ export class CustomerOrderComponent {
       paymentMethod: this.form.controls['paymentMethod']?.value,
     }
     this.handleAddOrder(params);
-    console.log(params);
-
   }
 
   public handleAddOrder(param: any) {

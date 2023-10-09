@@ -31,7 +31,7 @@
             </div>
             <div>
               <label>Gender</label>
-              <p class="mobile-no"><i class='bx bx-body'></i> {{customer?.gender}}</p>
+              <p class="mobile-no"><i class='bx bx-body'></i> {{customer?.gender | translateGender}}</p>
             </div>
             <div>
               <label>Address</label>
@@ -54,7 +54,7 @@
             <div [ngSwitch]="activeTab">
               <div *ngSwitchCase="'A'">
                 <div class="profile-posts tab">
-                  <p style="color: black;">aa</p>
+                  <app-customer-my-order></app-customer-my-order>
                 </div>
               </div>
               <div *ngSwitchCase="'B'" class="profile-reviews tab">

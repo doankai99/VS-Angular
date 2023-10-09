@@ -11,6 +11,5 @@ export class HeaderComponent {
 
   ngOnInit() {
     this.image = localStorage.getItem('image');
-    console.log(this.image);
   }
 }

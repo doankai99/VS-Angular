@@ -20,7 +20,6 @@ export class PopUpManagementOrderComponent {
   }
 
   public ngOnInit() {
-    console.log(this.status);
     this.setForm();
   }
 

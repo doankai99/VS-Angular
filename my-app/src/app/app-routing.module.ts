@@ -32,6 +32,7 @@ import { SettingBodyMeasurementComponent } from './page-for-Customer/shared/comp
 import { SupplierManagementComponent } from './supplier-management/supplier-management.component';
 import { DraftOrderComponent } from './order-process/draft-order/draft-order.component';
 import { OrderDetailComponent } from './page-for-Customer/crm-product-customer/detail-product/order-detail/order-detail.component';
+import { OrderDetailCustomerComponent } from './page-for-Customer/view-profile-customer/order-detail-customer/order-detail-customer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -70,7 +71,8 @@ const routes: Routes = [
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'appointment', component: ListBookedAppointmentComponent },
   { path: `detail-product/:id`, component: DetailProductComponent },
-  { path: `setting-body-measurement/:id`, component: SettingBodyMeasurementComponent }
+  { path: `setting-body-measurement/:id`, component: SettingBodyMeasurementComponent },
+  { path: `order/:id/order-detail`, component: OrderDetailCustomerComponent }
 ];
 
 @NgModule({

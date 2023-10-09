@@ -40,7 +40,6 @@ export class DetailProductComponent {
     this.productService.detailPriceOfProduct(id).subscribe((data) => {
       if (data) {
         this.productDetail = data.detailPriceProduct
-        console.log(this.productDetail);
         const startDate = new Date(this.productDetail[0]?.startDate);
         const endDate = new Date(this.productDetail[0]?.endDate);
         this.dateSale(startDate, endDate);

@@ -83,7 +83,6 @@ export class SignUpCustomerComponent {
     formData.append('city', this.form.controls['city']?.value);
     formData.append('country', this.form.controls['country']?.value);
     this.createAccountCustomer(formData);
-    console.log(formData);
   }
 
   public createAccountCustomer(data: any): void {

@@ -42,9 +42,6 @@ export class PriceOfProductComponent {
   }
 
   public dateSale(startDate: Date, endDate: Date) {
-    console.log(startDate);
-    console.log(endDate);
-
     const currentDate = new Date();
     if (currentDate >= startDate && currentDate <= endDate) {
       this.isWithinDateRange = true;

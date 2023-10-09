@@ -83,6 +83,8 @@ import { TranslateGenderPipe } from './shared/tranforms/translateGender.pipe';
 import { TranslateStatusAppointmentPipe } from './shared/tranforms/translateStatusAppointment.pipe';
 import { OrderDetailComponent } from './page-for-Customer/crm-product-customer/detail-product/order-detail/order-detail.component';
 import { TranslateShippingMethodPipe } from './shared/tranforms/translateShippingMethod.pipe';
+import { CustomerMyOrderComponent } from './page-for-Customer/view-profile-customer/customer-my-order/customer-my-order.component';
+import { OrderDetailCustomerComponent } from './page-for-Customer/view-profile-customer/order-detail-customer/order-detail-customer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -153,6 +155,8 @@ import { TranslateShippingMethodPipe } from './shared/tranforms/translateShippin
     TranslateShippingMethodPipe,
     CustomerOrderComponent,
     OrderDetailComponent,
+    CustomerMyOrderComponent,
+    OrderDetailCustomerComponent
   ],
   imports: [
     BrowserModule,

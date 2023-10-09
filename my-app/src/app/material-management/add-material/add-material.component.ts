@@ -86,7 +86,6 @@ export class AddMaterialComponent {
     formData.append('size', this.form.controls['size']?.value);
     formData.append('price', this.form.controls['price']?.value);
     formData.append('description', this.form.controls['description']?.value);
-    console.log(formData);
 
     this.fetchData.emit(formData)
     this.toggleDetailUser();
