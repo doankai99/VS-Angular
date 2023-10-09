@@ -23,8 +23,6 @@ export class ProfileComponent {
     const id = this.userId;
     this.authService.detailUser(id).subscribe((data) => {
       this.userInfo = data.message
-      console.log(this.userInfo);
-
     })
   }
 }

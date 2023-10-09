@@ -19,12 +19,9 @@ export class ListBookedAppointmentComponent {
   ngOnInit() {
     this.customerId = localStorage.getItem('id');
     this.getAppointment();
-    console.log(this.dateAppointment);
 
   }
   public checkStatusAppointment(status: number) {
-    console.log(status);
-
     if (status !== 0) {
       return true
     } else {
@@ -50,10 +47,6 @@ export class ListBookedAppointmentComponent {
       // Nếu không phải, hãy thử chuyển đổi date thành đối tượng Date
       date = new Date(date);
     }
-
-    console.log(date);
-    console.log(currentDate);
-
     if (currentDate.getTime() < date.getTime()) {
       this.dateAppointment = true;
     } else {

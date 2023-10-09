@@ -23,7 +23,6 @@ export class ViewProfileCustomerComponent {
   public getInforCustomer(): void {
     const id = this.customerId;
     this.profileCustomerService.getDetailCustomer(id).subscribe((data) => {
-      console.log(data);
       if (data) {
         this.customer = data.message;
       } else {

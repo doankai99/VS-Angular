@@ -68,7 +68,6 @@ export class CreateNewCustomerComponent {
   }
 
   public updateBasicInformation(params: any) {
-    console.log(params);
     debugger
     this.customerService.addCustomer(params).subscribe((data) => {
       this.toast.success('Add new customer success')

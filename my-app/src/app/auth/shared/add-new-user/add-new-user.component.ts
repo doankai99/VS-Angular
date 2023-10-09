@@ -83,8 +83,6 @@ export class AddNewUserComponent {
     formData.append('city', this.form.controls['city']?.value);
     formData.append('country', this.form.controls['country']?.value);
     this.fetchData.emit(formData);
-    console.log(formData);
-
     this.toggleDetailUser();
   }
 }

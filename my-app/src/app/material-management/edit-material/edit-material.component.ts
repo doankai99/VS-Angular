@@ -92,13 +92,11 @@ export class EditMaterialComponent {
     formData.append('size', this.form.controls['size']?.value);
     formData.append('price', this.form.controls['price']?.value);
     formData.append('description', this.form.controls['description']?.value);
-    console.log(formData);
     this.editMaterial(formData)
     this.popUpEdit();
   }
 
   public editMaterial(queryParams: any) {
-    console.log(queryParams);
     this.isOpenEdit = !this.isOpenEdit;
     const id = this.materialId;
     this.materialService.editMaterial(queryParams, id).subscribe((data) => {
@@ -123,7 +121,6 @@ export class EditMaterialComponent {
       this.supplierService.getCompanyMaster().subscribe((data) => {
         if (data) {
           this.masterCompany = data.masterCompany
-          console.log(this.masterCompany);
         } else {
           this.toast.error(data.message)
         }

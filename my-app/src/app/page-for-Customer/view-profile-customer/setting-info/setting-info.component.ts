@@ -31,9 +31,7 @@ export class SettingInfoComponent {
   public showBodyOfCustomer(): void {
     const id = this.customerId;
     this.profileCustomerService.showBodyOfCustomer(id).pipe().subscribe((data) => {
-      console.log(data.bodyCustomer);
       this.bodyCustomers = data.bodyCustomer
-      console.log(this.bodyCustomers.chest);
       this.setFormBody();
     })
   }
@@ -54,8 +52,6 @@ export class SettingInfoComponent {
   }
 
   public setFormBody(): void {
-    console.log(this.bodyCustomers);
-
     this.formBody = new FormGroup({
       chest: new FormControl(''),
       waist: new FormControl(''),

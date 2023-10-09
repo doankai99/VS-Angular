@@ -25,7 +25,6 @@ export class MenuCustomerComponent {
 
   public logout() {
     const token = this.isToken
-    console.log(token);
     if (token) {
       localStorage.removeItem('token');
       this.router.navigateByUrl('login')

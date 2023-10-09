@@ -14,7 +14,7 @@ export class TranslateGenderPipe implements PipeTransform {
       case 2:
         return 'Other';
       default:
-        return gender.toString();
+        return gender?.toString();
     }
   }
 }

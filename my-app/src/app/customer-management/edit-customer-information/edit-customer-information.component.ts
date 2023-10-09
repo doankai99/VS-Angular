@@ -20,8 +20,6 @@ export class EditCustomerInformationComponent {
   }
 
   public ngOnInit() {
-    console.log(this.userId);
-
   }
 
   public toggleFilter() {
@@ -44,7 +42,6 @@ export class EditCustomerInformationComponent {
 
   public deleteCustomer() {
     const id = this.userId
-    console.log(id);
     this.authService.deleteAccount(id).subscribe((data) => {
       if (data) {
         this.toast.success('Delete user success')

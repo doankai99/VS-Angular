@@ -29,14 +29,12 @@ export class OrderDetailComponent {
     const currentDate = new Date();
     startDate = new Date(currentDate)
     endDate = new Date(currentDate)
-    console.log(startDate);
 
     if (currentDate >= startDate && currentDate <= endDate) {
       this.isWithinDateRange = true;
     } else {
       this.isWithinDateRange = false;
     }
-    console.log(this.isWithinDateRange);
 
   }
 
@@ -45,8 +43,6 @@ export class OrderDetailComponent {
     this.orderService.orderDetail(id).subscribe((data) => {
       if (data.order._id) {
         this.order = data.order
-        console.log(data.order);
-
         this.dateSale(data.order?.product[0]?.startDate, data.order?.product[0]?.endDate)
       } else {
         this.toast.error("order false")
