@@ -39,4 +39,9 @@ export class OrderService {
   public orderCustomer(id: any): Observable<any> {
     return this.httpClient.get(`http://localhost:8080/v1/order/listOrderCustomer/${id}`)
   }
+
+  //Update status order
+  public handleUpdateStatus(id: any, data: any): Observable<any> {
+    return this.httpClient.put(`http://localhost:8080/v1/order/updateStatusOrder/${id}`, data)
+  }
 }

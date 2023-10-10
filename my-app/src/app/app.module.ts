@@ -85,6 +85,9 @@ import { OrderDetailComponent } from './page-for-Customer/crm-product-customer/d
 import { TranslateShippingMethodPipe } from './shared/tranforms/translateShippingMethod.pipe';
 import { CustomerMyOrderComponent } from './page-for-Customer/view-profile-customer/customer-my-order/customer-my-order.component';
 import { OrderDetailCustomerComponent } from './page-for-Customer/view-profile-customer/order-detail-customer/order-detail-customer.component';
+import { AppointmentManagementComponent } from './appointment-management/appointment-management.component';
+import { AppointmentActiveInactiveComponent } from './appointment-management/component/appointment-active-inactive/appointment-active-inactive.component';
+import { HistoryAppointmentComponent } from './appointment-management/component/history-appointment/history-appointment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -156,7 +159,10 @@ import { OrderDetailCustomerComponent } from './page-for-Customer/view-profile-c
     CustomerOrderComponent,
     OrderDetailComponent,
     CustomerMyOrderComponent,
-    OrderDetailCustomerComponent
+    OrderDetailCustomerComponent,
+    AppointmentManagementComponent,
+    AppointmentActiveInactiveComponent,
+    HistoryAppointmentComponent
   ],
   imports: [
     BrowserModule,
