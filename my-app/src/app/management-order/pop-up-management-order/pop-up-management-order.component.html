@@ -1,58 +1,29 @@
 <div class="content-wrapper package-filter-wrapper">
   <div class="package-filter-button mt-2 mt-sm-0">
-      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="popUpEdit()">Update status</span>
+      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="popUpEdit()">Update</span>
   </div>
 
   <div class="filter-backdrop" *ngIf="isOpenEdit"></div>
   <div class="pop-up-edit" *ngIf="isOpenEdit" #filterPopup>
     <div class="filter-header-icon">
       <div class="filter-text">
-        Edit User
+        Update status order
       </div>
       <div class="close-icon cursor-pointer" (click)="popUpEdit()">
         <img src="../../assets/icons/icon_close.svg" alt="">
       </div>
     </div>
     <div class="pop-up-body">
-      <form [formGroup]="form" (submit)="updateOrder()">
-        <div class="row">
-          <div class="package-filter-content-wrapper">
-            <div class="filter-row">
-              <div class="package-filter-wrapper w-20" *ngIf="status !== 0">
-                <label>Close</label>
-                <input type="radio">
-              </div>
-              <div class="package-filter-wrapper w-20" *ngIf="status !== 1">
-                <label>Inactive</label>
-                <input type="radio">
-              </div>
-              <div class="package-filter-wrapper w-20" *ngIf="status !== 2">
-                <label>Active</label>
-                <input type="radio">
-              </div>
-              <div class="package-filter-wrapper w-20" *ngIf="status !== 3">
-                <label>Doing</label>
-                <input type="radio">
-              </div>
-              <div class="package-filter-wrapper w-20" *ngIf="status !== 4">
-                <label>Delivering</label>
-                <input type="radio">
-              </div>
-              <div class="package-filter-wrapper w-20" *ngIf="status !== 5">
-                <label>Done</label>
-                <input type="radio">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="pop-up-Edit">
-          <button type="button" class="buttons__reset" (click)="popUpEdit()">
-            Close
-          </button>
-          <button type="submit" class="buttons__apply">
-            Update
-          </button>
-        </div>
+      <form (submit)="updateOrder()">
+          <select formControlName="status">
+            <option [value]= 0>Close</option>
+            <option [value]= 1>Inactive</option>
+            <option [value]= 2>Active</option>
+            <option [value]= 3>Doing</option>
+            <option [value]= 4>Delivery</option>
+            <option [value]= 5>Done</option>
+          </select>
+          <button type="submit">Save</button>
       </form>
     </div>
   </div>

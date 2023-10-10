@@ -42,7 +42,9 @@
             <td>{{ order?.totalCount }}</td>
             <td>
               <app-pop-up-management-order
-              [status] = "order?.status"
+              [defaultStatus] = "order?.status"
+              [orderId] = "order?._id"
+              (fetchData)="handleLoadData()"
               >
               </app-pop-up-management-order>
             </td>

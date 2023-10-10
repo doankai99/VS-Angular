@@ -55,7 +55,7 @@ export class ManagementOrderComponent {
     })
   }
 
-  public handleChangeStatus(id: any) {
-
+  public handleLoadData() {
+    this.handleLoadDataOrderActive
   }
 }
