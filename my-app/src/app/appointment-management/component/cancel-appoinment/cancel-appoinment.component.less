@@ -2,8 +2,8 @@
   border: 1px solid #327a81;
   border-radius: 10px;
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
-  margin: 1em auto;
   max-width: calc(100% - 2em);
+  margin: 1em auto;
   max-height: 520px;
   width: 100%;
   overflow-x: auto;
@@ -35,12 +35,8 @@ table {
 
   tr {
      &:nth-child(2n) { background-color: white; }
-     &:nth-child(2n+1) { background-color: lighten(#6389fa, 55%) }
+     &:nth-child(2n+1) { background-color: lighten(#398B93, 55%) }
   }
-}
-img{
-  max-width: 100px;
-  border-radius: 50%;
 }
 @media screen and (max-width: 900px) {
   .avatar {
@@ -50,6 +46,10 @@ img{
     max-width: 780px !important;
   }
 }
+img{
+  max-width: 100px;
+  border-radius: 50%;
+}
 .pagination {
   display: flex;
   justify-content: flex-end;
@@ -57,5 +57,14 @@ img{
   button {
     // width: 80px;
     border: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .avatar {
+    display: none;
+  }
+  .table-users {
+    max-width: 380px !important;
   }
 }

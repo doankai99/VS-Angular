@@ -33,6 +33,8 @@ import { SupplierManagementComponent } from './supplier-management/supplier-mana
 import { DraftOrderComponent } from './order-process/draft-order/draft-order.component';
 import { OrderDetailComponent } from './page-for-Customer/crm-product-customer/detail-product/order-detail/order-detail.component';
 import { OrderDetailCustomerComponent } from './page-for-Customer/view-profile-customer/order-detail-customer/order-detail-customer.component';
+import { AppointmentActiveInactiveComponent } from './appointment-management/component/appointment-active-inactive/appointment-active-inactive.component';
+import { AppointmentManagementComponent } from './appointment-management/appointment-management.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -54,6 +56,7 @@ const routes: Routes = [
   { path: 'list-account', component: ListAccountComponent },
   { path: 'material-management', component: MaterialManagementComponent },
   { path: 'supplier-management', component: SupplierManagementComponent },
+  { path: 'appointment-management', component: AppointmentManagementComponent },
 
   //Router link Customer
   { path: 'sign-up', component: SignUpCustomerComponent },

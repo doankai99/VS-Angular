@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./appointment-management.component.less']
 })
 export class AppointmentManagementComponent {
-
+  public activeTab: string = 'A'
 }

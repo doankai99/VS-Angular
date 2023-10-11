@@ -2,7 +2,33 @@
   <div class="menu">
     <app-menu></app-menu>
   </div>
-  <div>
-
+  <div class="content">
+    <app-header></app-header>
+    <div class="swith-tab">
+      <div class="nav">
+        <ul>
+          <li (click)="activeTab = 'A'" class="user-post active" [ngClass]="{'active': activeTab === 'A'}" style="color: rgb(36, 36, 36);">Active</li>
+          <li (click)="activeTab = 'B'" class="user-setting" [ngClass]="{'active': activeTab === 'B'}"  style="color: rgb(36, 36, 36);">Done</li>
+          <li (click)="activeTab = 'C'" class="user-setting" [ngClass]="{'active': activeTab === 'C'}"  style="color: rgb(36, 36, 36);">Close</li>
+        </ul>
+      </div>
+      <div class="profile-body">
+        <div [ngSwitch]="activeTab">
+          <div *ngSwitchCase="'A'">
+            <div class="profile-posts tab">
+              <app-appointment-active-inactive></app-appointment-active-inactive>
+            </div>
+          </div>
+          <div *ngSwitchCase="'B'" class="profile-reviews tab">
+            <app-history-appointment></app-history-appointment>
+          </div>
+          <div *ngSwitchCase="'C'" class="profile-settings tab">
+            <div class="account-setting">
+              <app-cancel-appoinment></app-cancel-appoinment>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
