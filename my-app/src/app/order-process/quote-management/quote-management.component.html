@@ -20,6 +20,7 @@
             <th>Delivery Date</th>
             <th>totalCount</th>
             <th>Option</th>
+            <th>Export PDF</th>
           </tr>
         </thead>
         <tbody>
@@ -38,6 +39,9 @@
               [orderId] = "order._id"
               >
               </app-edit-confirm-order-inactive>
+            </td>
+            <td>
+              <a routerLink="/Generatepdf/{{order._id}}">PDF</a>
             </td>
           </tr>
         </tbody>

@@ -89,6 +89,7 @@ import { AppointmentManagementComponent } from './appointment-management/appoint
 import { AppointmentActiveInactiveComponent } from './appointment-management/component/appointment-active-inactive/appointment-active-inactive.component';
 import { HistoryAppointmentComponent } from './appointment-management/component/history-appointment/history-appointment.component';
 import { CancelAppoinmentComponent } from './appointment-management/component/cancel-appoinment/cancel-appoinment.component';
+import { TemplateExportPdfComponent } from './order-process/quote-management/component/template-export-pdf/template-export-pdf.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -164,7 +165,8 @@ import { CancelAppoinmentComponent } from './appointment-management/component/ca
     AppointmentManagementComponent,
     AppointmentActiveInactiveComponent,
     HistoryAppointmentComponent,
-    CancelAppoinmentComponent
+    CancelAppoinmentComponent,
+    TemplateExportPdfComponent
   ],
   imports: [
     BrowserModule,

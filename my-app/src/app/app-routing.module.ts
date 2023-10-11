@@ -35,6 +35,7 @@ import { OrderDetailComponent } from './page-for-Customer/crm-product-customer/d
 import { OrderDetailCustomerComponent } from './page-for-Customer/view-profile-customer/order-detail-customer/order-detail-customer.component';
 import { AppointmentActiveInactiveComponent } from './appointment-management/component/appointment-active-inactive/appointment-active-inactive.component';
 import { AppointmentManagementComponent } from './appointment-management/appointment-management.component';
+import { TemplateExportPdfComponent } from './order-process/quote-management/component/template-export-pdf/template-export-pdf.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: 'new-order', component: NewOrderComponent },
   { path: 'order/draft-order', component: DraftOrderComponent },
   { path: 'quote-management', component: QuoteManagementComponent },
+  { path: 'Generatepdf/:id', component: TemplateExportPdfComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'list-account', component: ListAccountComponent },
   { path: 'material-management', component: MaterialManagementComponent },

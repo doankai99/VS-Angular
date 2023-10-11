@@ -23,6 +23,8 @@
     "@angular/router": "^16.1.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "localStorage": "^1.0.4",
     "lodash": "^4.17.21",
     "material": "^0.5.3",
