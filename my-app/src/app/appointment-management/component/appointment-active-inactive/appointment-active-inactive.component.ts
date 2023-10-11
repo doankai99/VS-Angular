@@ -33,9 +33,19 @@ export class AppointmentActiveInactiveComponent {
   public handleDataAppointment(): void {
     this.appointmentService.handleDataAppointment().subscribe((data) => {
       if (data.appointmentActive) {
-        this.activeAppointment = data.activeAppointment
+        this.activeAppointment = data.appointmentActive
       } else {
         this.toast.warning('appointment not found')
+      }
+    })
+  }
+
+  public changeStatusToDone(id: any) {
+    this.appointmentService.updateStatusActiveToDone(id).subscribe((data) => {
+      if (data) {
+        this.toast.success('Change status appointment success')
+      } else {
+        this.toast.error(data.message);
       }
     })
   }

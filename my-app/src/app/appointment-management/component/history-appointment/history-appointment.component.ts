@@ -33,7 +33,7 @@ export class HistoryAppointmentComponent {
   public handleDataAppointment(): void {
     this.appointmentService.handleDataAppointment().subscribe((data) => {
       if (data.appointmentClose) {
-        this.appointmentDone = data.appointmentClose
+        this.appointmentDone = data.appointmentDone
       } else {
         this.toast.warning('appointment not found')
       }

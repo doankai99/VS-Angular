@@ -7,6 +7,18 @@
   max-height: 520px;
   width: 100%;
   overflow-x: auto;
+  button{
+    border-radius: 6px;
+    color: white;
+    padding: 4px;
+    width: 50px;
+    background-color: rgb(42, 74, 13);
+    border: 1px solid #ccc;
+    &:hover{
+      width: 80px;
+      transform-style: flat;
+    }
+  }
 }
 
 table {
@@ -41,6 +53,7 @@ table {
 img{
   max-width: 100px;
   border-radius: 50%;
+  max-height: 100px;
 }
 @media screen and (max-width: 900px) {
   .avatar {
