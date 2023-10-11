@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../shared/product.service';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-management',
@@ -14,7 +15,7 @@ export class ProductManagementComponent {
   public currentPage: number = 1;
   public pageSize: number = 3;
 
-  public constructor(private productService: ProductService) {
+  public constructor(private productService: ProductService, private toast: ToastrService) {
 
   }
 
@@ -56,7 +57,7 @@ export class ProductManagementComponent {
     this.isLoading = true;
     this.productService.addProduct(queryParams).subscribe((data) => {
       if (data) {
-        alert('Add new product success');
+        this.toast.success('Add product success')
         this.getAllProduct();
       } else {
         alert('Add new product faild')

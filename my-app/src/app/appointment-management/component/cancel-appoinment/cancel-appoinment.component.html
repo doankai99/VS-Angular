@@ -14,7 +14,7 @@
       <td>City</td>
       <td>Country</td>
     </tr>
-    <tr *ngFor= "let items of appointmentDone?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+    <tr *ngFor= "let items of cancelAppointment?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
       <td>{{i + 1}}</td>
         <td> <img [src] = "items.customerId.image" alt=""></td>
         <td>{{items?.name}}</td>
@@ -31,6 +31,6 @@
   </table>
 </div>
 <div class="pagination">
-  <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
-  <button [disabled]="currentPage * pageSize >= appointmentDone?.length" (click)="nextPage()">Trang sau</button>
-  </div>
+<button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
+<button [disabled]="currentPage * pageSize >= cancelAppointment?.length" (click)="nextPage()">Trang sau</button>
+</div>

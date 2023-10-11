@@ -1,1 +1,36 @@
-<p>appointment-active-inactive works!</p>
+<div class="table-users">
+  <table cellspacing="0">
+    <tr>
+      <td>Id</td>
+      <td>Image</td>
+      <td>Name</td>
+      <td>Phone</td>
+      <td>Email</td>
+      <td>book date</td>
+      <td>Meeting date</td>
+      <td>Time</td>
+      <td>Status</td>
+      <td>Area</td>
+      <td>City</td>
+      <td>Country</td>
+    </tr>
+    <tr *ngFor= "let items of activeAppointment?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+      <td>{{i + 1}}</td>
+        <td> <img [src] = "items.customerId.image" alt=""></td>
+        <td>{{items?.name}}</td>
+        <td>{{items?.phone}}</td>
+        <td>{{items?.email}}</td>
+        <td>{{items?.createdAt|date}}</td>
+        <td>{{items?.date | date}}</td>
+        <td>{{items?.time}}</td>
+        <td>{{items?.status | translateStatusAppointment}}</td>
+        <td>{{items?.area}}</td>
+        <td>{{items?.city}}</td>
+        <td>{{items?.country}}</td>
+    </tr>
+  </table>
+</div>
+<div class="pagination">
+<button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
+<button [disabled]="currentPage * pageSize >= activeAppointment?.length" (click)="nextPage()">Trang sau</button>
+</div>

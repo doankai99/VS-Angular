@@ -38,10 +38,11 @@
             <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" appToggleDropdown>
               <i class='bx bx-cart-add'></i> Order Process
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li *ngIf="isAdmin"><a class="dropdown-item" routerLink="/new-order"><i class='bx bxs-cart-add'></i> New Order</a></li>
+                <li *ngIf="!isAdmin"><a class="dropdown-item" routerLink="/new-order"><i class='bx bxs-cart-add'></i> New Order</a></li>
                 <li><a class="dropdown-item" routerLink="/order/draft-order"><i class='bx bxs-cart-add'></i> Draft Order</a></li>
-                <li><a class="dropdown-item" routerLink="/quote-management"><i class='bx bx-folder-open'></i> Quote Management</a></li>
                 <li><a class="dropdown-item" routerLink="/management-order"><i class='bx bxs-shopping-bags'></i> Management Order</a></li>
+                <li><a class="dropdown-item" routerLink="/appointment-management"><i class='bx bxs-shopping-bags'></i> Apppointment Management</a></li>
+                <li><a class="dropdown-item" routerLink="/quote-management"><i class='bx bx-folder-open'></i> Quote Management</a></li>
               </ul>
             </a>
           </li>
@@ -88,8 +89,9 @@
       <ul *ngIf="isSubMenuOpen['orderProcess']">
         <li *ngIf="!isAdmin"><a routerLink="/new-order"><i class='bx bxs-cart-add'></i> <span>New Order</span></a></li>
         <li><a routerLink="/order/draft-order"><i class='bx bx-receipt'></i> <span>Draft Order</span></a></li>
-        <li><a routerLink="/quote-management"><i class='bx bx-folder-open'></i> <span>Quote Management</span></a></li>
         <li><a routerLink="/management-order"><i class='bx bxs-shopping-bags'></i> <span>Management Order</span></a></li>
+        <li><a routerLink="/appointment-management"><i class='bx bxs-shopping-bags'></i> <span>Apppointment Management</span></a></li>
+        <li><a routerLink="/quote-management"><i class='bx bx-folder-open'></i> <span>Quote Management</span></a></li>
       </ul>
     </li>
     <li><a routerLink="/customer-management"><i class='bx bxs-group'></i> <span>Customer Management</span></a></li>

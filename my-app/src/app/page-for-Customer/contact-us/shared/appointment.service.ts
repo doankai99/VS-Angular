@@ -24,4 +24,8 @@ export class AppointmentService {
   public updateStatusAppointment(id: any): Observable<any> {
     return this.httpClient.put(`http://localhost:8080/v1/appointment/updateStatusAppointment/${id}`, [])
   }
+
+  public handleDataAppointment(): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/v1/appointment/getListAppointment')
+  }
 }
