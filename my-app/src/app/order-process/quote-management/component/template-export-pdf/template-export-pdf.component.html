@@ -9,15 +9,13 @@
     <div class="buttons">
       <button (click)="generatePDF()">Generate</button>
     </div>
-    <section class="h-custom" id="invoice" #invoice>
+    <section class="h-custom">
       <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-lg-8 col-xl-6">
-            <div class="card border-top border-bottom border-3" style="border-color: #f37a27 !important;">
+            <div class="card border-top border-bottom border-3" style="border-color: #f37a27 !important;" id="invoice" #invoice>
               <div class="card-body p-5">
-
                 <p class="lead fw-bold mb-5" style="color: #f37a27;">Purchase Reciept</p>
-
                 <div class="row">
                   <div class="col mb-3">
                     <p class="small text-muted mb-1">Order Date</p>
@@ -29,31 +27,55 @@
                   </div>
                 </div>
 
-                <div class="mx-n5 px-5 py-4" style="background-color: #f2f2f2;">
-                  <div class="row">
-                    <div class="col-md-8 col-lg-9">
-                      <p>Name Product</p>
-                      <p *ngFor="let item of order?.product">{{item?.productId?.name}}</p>
-                    </div>
-                    <div class="col-md-4 col-lg-3">
-                      <p>Price</p>
-                      <p  *ngFor="let item of order?.product">${{isWithinDateRange ? (item?.price - item?.price * item?.discount / 100) : item?.price }}</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-8 col-lg-9">
-                      <p class="mb-0">Delivery date</p>
-                    </div>
-                    <div class="col-md-4 col-lg-3">
-                      <p class="mb-0">{{order?.endTime | date}}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row my-4">
-                  <div class="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
-                    <p class="lead fw-bold mb-0" style="color: #f37a27;">${{order?.totalCount}}</p>
-                  </div>
+                <div class="mx-n5 px-5 py-4">
+                  <table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
+                    <thead>
+                      <tr>
+                        <th class="woocommerce-table__product-name product-name">Product</th>
+                        <th class="woocommerce-table__product-table product-total">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="woocommerce-table__line-item order_item">
+                        <td class="woocommerce-table__product-name product-name">{{order?.product[0]?.productId?.name}}</td>
+                        <td class="woocommerce-table__product-total product-total">
+                          <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">
+                            $</span>
+                            {{order?.product[0]?.price}}
+                            </span>
+                        </td>
+                      </tr>
+                      <tr class="woocommerce-table__line-item order_item">
+                        <td class="woocommerce-table__product-name product-name">DisCount:</td>
+                        <td class="woocommerce-table__product-total product-total">
+                          <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">
+                            </span>
+                            {{isWithinDateRange ? order?.product[0]?.discount : 0}}%
+                            </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th scope="row">Subtotal:</th>
+                        <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">
+                          </span>
+                          ${{ isWithinDateRange ? (order?.product[0]?.price - order?.product[0]?.price * order?.product[0]?.discount / 100) : order?.product[0]?.price }}
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Payment method:</th>
+                        <td>{{order?.paymentMethod | translatePaymentMethod}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Total:</th>
+                        <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">
+                          </span>${{order?.totalCount}}</span>
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
                 </div>
                 <p class="mt-4 pt-2 mb-0">Want any help? <a routerLink="/contact-us" style="color: #f37a27;">VestSraft</a></p>
               </div>
