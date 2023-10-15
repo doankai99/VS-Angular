@@ -25,16 +25,16 @@
           <p class="text-gray-400">
             <span>status:</span>
             <span>
-              {{checkStatusAppointment(item.status) ? 'Active' : 'Cancelled'}}
+              {{item?.status | translateStatusAppointment}}
             </span>
             <span class="icon-status" [ngClass]="{'inactive-status' : !checkStatusAppointment(item.status)}"></span>
           </p>
           <div class="h-3 w-3 mr-2 bg-red-500 buttons">
             <span *ngIf="checkStatusAppointment(item.status)">
-              <button class="button__cancel" (click)="updateStatusAppointment(item._id)">Cancel</button>
+              <button class="button__cancel" (click)="updateStatusAppointment(item._id)" *ngIf="item?.status === 1">Cancel</button>
             </span>
-            <span *ngIf="!checkStatusAppointment(item.status) && isCurrentTimeBeforeAppointment(item.date)">
-              <button class="button__Reset" (click)="updateStatusAppointment(item._id)">Reset</button>
+            <span *ngIf="checkStatusAppointment(item.status) && isCurrentTimeBeforeAppointment(item.date)">
+              <button class="button__Reset" (click)="updateStatusAppointment(item._id)" *ngIf="item?.status === 0">Reset</button>
             </span>
             <span>
               <button class="button__delete" (click)="deleteAppointent(item._id)">Delete</button>

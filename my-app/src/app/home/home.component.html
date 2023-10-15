@@ -3,12 +3,27 @@
     <app-menu></app-menu>
   </div>
   <div class="content">
-    <div id="clock">
-      <p class="date">{{ date | date}}</p>
-      <hr>
-      <p class="time">{{ time.hours }} : {{time.minutes}} : {{time.seconds}}</p>
-      <p class="text">Vest Scraft</p>
-  </div>
+    <div class="avatar">
+      <app-header></app-header>
+    </div>
+    <div class="statistical-order">
+      <app-statistical-order></app-statistical-order>
+    </div>
+    <div class="chart-statistical">
+      <div class="bar-chart">
+        <app-bar-chart
+        ></app-bar-chart>
+        <p>Order statistics chart for the year</p>
+      </div>
+      <div class="line-chart">
+        <app-line-chart></app-line-chart>
+        <p>Customer and appointment statistics chart for the year</p>
+      </div>
+      <div class="pie-chart">
+        <app-pie-chart></app-pie-chart>
+        <p>Order status summary chart</p>
+      </div>
+    </div>
   </div>
 </body>
 

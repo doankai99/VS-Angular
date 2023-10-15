@@ -13,6 +13,7 @@
       <td>Area</td>
       <td>City</td>
       <td>Country</td>
+      <td></td>
     </tr>
     <tr *ngFor= "let items of activeAppointment?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
       <td>{{i + 1}}</td>
@@ -27,6 +28,9 @@
         <td>{{items?.area}}</td>
         <td>{{items?.city}}</td>
         <td>{{items?.country}}</td>
+        <td>
+          <button (click)="changeStatusToDone(items._id)"><i class='bx bx-check-double'></i></button>
+        </td>
     </tr>
   </table>
 </div>
