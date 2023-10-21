@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./setting.component.less']
 })
 export class SettingComponent {
+  public userId: any;
+  constructor() { }
 
+  ngOninit() {
+    this.userId = localStorage.getItem('id')
+    console.log(this.userId);
+
+  }
 }

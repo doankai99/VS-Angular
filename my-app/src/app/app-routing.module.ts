@@ -36,6 +36,7 @@ import { OrderDetailCustomerComponent } from './page-for-Customer/view-profile-c
 import { AppointmentActiveInactiveComponent } from './appointment-management/component/appointment-active-inactive/appointment-active-inactive.component';
 import { AppointmentManagementComponent } from './appointment-management/appointment-management.component';
 import { TemplateExportPdfComponent } from './order-process/quote-management/component/template-export-pdf/template-export-pdf.component';
+import { AddBodyMeasurementsComponent } from './customer-management/create-new-customer/add-body-measurements/add-body-measurements.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -49,7 +50,7 @@ const routes: Routes = [
   { path: 'product-management', component: ProductManagementComponent },
   { path: 'price-of-products', component: PriceOfProductComponent },
   { path: 'add-order', component: NewOrderComponent },
-  { path: 'add-customer', component: CreateNewCustomerComponent },
+  { path: 'add-body-customer/:id', component: AddBodyMeasurementsComponent },
   { path: 'new-order', component: NewOrderComponent },
   { path: 'order/draft-order', component: DraftOrderComponent },
   { path: 'quote-management', component: QuoteManagementComponent },

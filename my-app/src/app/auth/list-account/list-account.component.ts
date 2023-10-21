@@ -75,4 +75,14 @@ export class ListAccountComponent {
 
   public changeAdmin(isAdmin: boolean, userId: string) {
   }
+
+  public handleFilterUser(queryParam: any) {
+    this.authService.handleFilterDataUser(queryParam).subscribe((data) => {
+      if (data) {
+        this.listUser = data
+        console.log(this.listUser);
+
+      }
+    })
+  }
 }

@@ -61,17 +61,17 @@ export class EditMaterialComponent {
   }
 
   public onFileChange(event: any) {
-    if (event.target?.files?.length > 0) {
-      const file = event.target?.files[0];
+    if (event?.target?.files?.length > 0) {
+      const file = event?.target?.files[0];
       // Kiểm tra xem tệp đã chọn có phải là hình ảnh không
-      if (file.type.match(/image\/*/) !== null) {
+      if (file?.type.match(/image\/*/) !== null) {
         this.form.patchValue({
           fileSource: file
         });
         this.form.get('fileSource')?.updateValueAndValidity();
         const reader = new FileReader();
         reader.onload = (e: any) => {
-          this.selectedImageURL = e.target.result;
+          this.selectedImageURL = e.target?.result;
         };
         reader.readAsDataURL(file);
       } else {
@@ -82,17 +82,47 @@ export class EditMaterialComponent {
 
   public applyEdit() {
     const formData: FormData = new FormData();
+
     if (this.form.controls['fileSource']?.value) {
       formData.append('image', this.form.controls['fileSource']?.value);
     }
-    formData.append('material', this.form.controls['material']?.value);
-    formData.append('companyId', this.form.controls['companyId']?.value);
-    formData.append('name', this.form.controls['name']?.value);
-    formData.append('color', this.form.controls['color']?.value);
-    formData.append('size', this.form.controls['size']?.value);
-    formData.append('price', this.form.controls['price']?.value);
-    formData.append('description', this.form.controls['description']?.value);
-    this.editMaterial(formData)
+
+    const material = this.form.controls['material']?.value;
+    if (material) {
+      formData.append('material', material);
+    }
+
+    const companyId = this.form.controls['companyId']?.value;
+    if (companyId) {
+      formData.append('companyId', companyId);
+    }
+
+    const name = this.form.controls['name']?.value;
+    if (name) {
+      formData.append('name', name);
+    }
+
+    const color = this.form.controls['color']?.value;
+    if (color) {
+      formData.append('color', color);
+    }
+
+    const size = this.form.controls['size']?.value;
+    if (size) {
+      formData.append('size', size);
+    }
+
+    const price = this.form.controls['price']?.value;
+    if (price) {
+      formData.append('price', price);
+    }
+
+    const description = this.form.controls['description']?.value;
+    if (description) {
+      formData.append('description', description);
+    }
+
+    this.editMaterial(formData);
     this.popUpEdit();
   }
 
@@ -128,15 +158,4 @@ export class EditMaterialComponent {
     })
   }
 
-  public clean(param: any) {
-    for (const propName in param) {
-      if (typeof param[propName] === 'string') {
-        param[propName] = param[propName].trim();
-      }
-      if (param[propName] === null || param[propName] === "") {
-        delete param[propName];
-      }
-    }
-    return param;
-  }
 }

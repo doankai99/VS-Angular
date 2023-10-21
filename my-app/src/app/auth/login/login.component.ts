@@ -78,7 +78,7 @@ export class LoginComponent {
 
   public loginByCustomer(queryParam: any) {
     this.authService.customerLogin(queryParam).subscribe((data) => {
-      if (data) {
+      if (data.data) {
         const token = data.data?.access_token
         localStorage.setItem('accessToken', token);
         localStorage.setItem('id', data.data?.id);

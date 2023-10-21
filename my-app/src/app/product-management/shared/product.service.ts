@@ -21,6 +21,12 @@ export class ProductService {
     return this.httpClient.delete(`http://localhost:8080/v1/product/delete/${productId}`)
   }
 
+  public updateProduct(id: any, params: any): Observable<any> {
+    return this.httpClient.put(`http://localhost:8080/v1/product/update/${id}`, params)
+  }
+
+  //....................................................................
+
   public getAllPriceOfPriduct(): Observable<any> {
     return this.httpClient.get('http://localhost:8080/v1/price/getAllPriceProduct')
   }

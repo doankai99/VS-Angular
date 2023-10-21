@@ -44,6 +44,11 @@ export class AuthService {
     return this.httpClient.post<any>('http://localhost:8080/v1/user/createUser', addNewUserRequestPayload)
   }
 
+  //handle filter data user
+  public handleFilterDataUser(queryParams: any): Observable<any> {
+    return this.httpClient.post('http://localhost:8080/v1/user/filterUser', queryParams)
+  }
+
   public createCustomer(data: any): Observable<any> {
     return this.httpClient.post('http://localhost:8080/v1/customer/createCustomer', data)
   }
@@ -86,4 +91,5 @@ export class AuthService {
       return false;
     }
   }
+
 }

@@ -4,10 +4,17 @@
   </div>
   <div class="content">
     <app-header></app-header>
-    <div class="col-md-12">
-      <app-add-new-user
-          (fetchData)="handleAddUser($event)"
-          ></app-add-new-user>
+    <div class="col-md-12 hendle-button-user">
+      <div class="handle-filter">
+        <app-filter-user
+        (fetchData)="handleFilterUser($event)"
+        ></app-filter-user>
+      </div>
+      <div class="handle-add-user">
+        <app-add-new-user
+        (fetchData)="handleAddUser($event)"
+        ></app-add-new-user>
+      </div>
     </div>
     <div class="filter-backdrop" *ngIf="isLoading">
       <div *ngIf="isLoading" class="loading"></div>
