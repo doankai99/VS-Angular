@@ -5,7 +5,9 @@
   <div class="content">
     <app-header></app-header>
       <div class="col-md-12">
-
+        <div class="handle-add-customer">
+          <app-create-new-customer></app-create-new-customer>
+        </div>
       </div>
       <div class="filter-backdrop" *ngIf="isLoading">
         <div *ngIf="isLoading" class="loading"></div>

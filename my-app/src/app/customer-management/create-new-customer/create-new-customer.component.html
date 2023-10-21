@@ -1,173 +1,109 @@
-<div class="flex gap">
-  <div class="col-md-12">
-    <div class="container-xl">
-      <div class="row navbar navbar-expand-lg navbar-light bg-light">
-        <div class="col-md-12">
-          <div class="Title navbar-brand">
-            <h2>Create new Customer</h2>
-            <i>customer information</i>
-          </div>
-        </div>
+<div class="content-wrapper package-filter-wrapper">
+  <div class="package-filter-button mt-2 mt-sm-0">
+    <button #filterButton class="filter-button" [ngClass]="{'open': isOpen}" (click)="toggleDetailUser()">
+      <i class='bx bx-plus'></i>
+      <span> Add User </span>
+    </button>
+  </div>
+
+  <div class="filter-backdrop" *ngIf="isOpen"></div>
+  <div class="laas-package-filter" *ngIf="isOpen" #filterPopup>
+    <div class="filter-header-icon">
+      <div class="filter-text">
+        Add Customer
       </div>
-      <div class="row p-32">
-        <div class="controltab">
-          <button (click)="activeTab = 'A'">Basic infomation</button>
-          <button (click)="activeTab = 'B'">Body measurements</button>
-        </div>
+      <div class="close-icon cursor-pointer" (click)="toggleDetailUser()">
+        <img src="../../assets/icons/icon_close.svg" alt="">
       </div>
-      <div class="row">
-        <div [ngSwitch]="activeTab">
-          <div *ngSwitchCase="'A'">
-            <div class="contentTab">
-              <form [formGroup]="form" (submit)="applyForm()">
-                <div class="row p-16">
-                    <div class="package-filter-content-wrapper">
-                      <div class="section">
-                        <p class="title">Basic information</p>
-                        <div class="filter-row">
-                          <div class="package-filter-wrapper w-33">
-                            <label>First Name</label><br>
-                            <input type="text" placeholder="First Name" formControlName = "firstName">
-                          </div>
-                          <div class="package-filter-wrapper w-33">
-                            <label>Last Name</label><br>
-                            <input type="text" formControlName = "lastName">
-                          </div>
-                          <div class="package-filter-wrapper w-33">
-                            <label for="gender-select">Gender</label><br>
-                            <select class="select" id="gender-select" formControlName="gender">
-                              <option value="male">Male</option>
-                              <option value="female">Female</option>
-                              <option value="other">Other</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="filter-row">
-                          <div class="package-filter-wrapper w-33">
-                            <label>Email</label><br>
-                            <input type="text" formControlName="email">
-                          </div>
-                          <div class="package-filter-wrapper w-33">
-                            <label>Phone Number</label><br>
-                            <input type="text" formControlName="numberPhone">
-                          </div>
-                          <div class="package-filter-wrapper w-33">
-                            <label for="class-select">Customer class</label><br>
-                            <select class="select" id="class-select" formControlName = "priceGroup">
-                              <option value="a">A</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="section">
-                        <p class="title">Payment Address</p>
-                        <div class="filter-row">
-                          <div class="package-filter-wrapper w-33">
-                            <label>Street names</label><br>
-                            <input type="text" formControlName = "paymentStreet">
-                          </div>
-                          <div class="package-filter-wrapper w-33">
-                            <label>Ward</label><br>
-                            <input type="text" formControlName = "paymentWard">
-                          </div>
-                          <div class="package-filter-wrapper w-33">
-                            <label>District</label><br>
-                            <input type="text" formControlName = "paymentDistrict">
-                          </div>
-                        </div>
-                        <div class="filter-row">
-                          <div class="package-filter-wrapper w-33">
-                            <label>City</label><br>
-                            <input type="text" formControlName = "paymentCity">
-                          </div>
-                          <div class="package-filter-wrapper w-33">
-                            <label>Bang</label><br>
-                            <input type="text" formControlName = "paymentBang">
-                          </div>
-                          <div class="package-filter-wrapper w-33">
-                            <label>Country</label><br>
-                            <input type="text" formControlName = "paymentCountry">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="section">
-                        <p class="title">Delivery Address</p>
-                        <div class="filter-row">
-                          <div class="package-filter-wrapper w-33">
-                            <label>Street names</label><br>
-                            <input type="text" formControlName = "deliveryStreet">
-                          </div>
-                          <div class="package-filter-wrapper w-33">
-                            <label>Ward</label><br>
-                            <input type="text" formControlName = "deliveryWard">
-                          </div>
-                          <div class="package-filter-wrapper w-33">
-                            <label>District</label><br>
-                            <input type="text" formControlName = "deliveryDistrict">
-                          </div>
-                        </div>
-                        <div class="filter-row">
-                          <div class="package-filter-wrapper w-33">
-                            <label>City</label><br>
-                            <input type="text" formControlName = "deliveryCity">
-                          </div>
-                          <div class="package-filter-wrapper w-33">
-                            <label>Bang</label><br>
-                            <input type="text" formControlName = "deliveryBang">
-                          </div>
-                          <div class="package-filter-wrapper w-33">
-                            <label>Country</label><br>
-                            <input type="text" formControlName = "deliveryCountry" >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="buttons submit-filter-delegate">
-                    <button type="button" class="buttons__reset" (click)="resetInformation()">
-                      Reset filters
-                    </button>
-                    <button type="submit" class="buttons__apply">
-                      Apply
-                    </button>
-                  </div>
-              </form>
-            </div>
-          </div>
-          <div *ngSwitchCase="'B'">
-            <div class="contentTab">
-              <div class="row p-16">
-                <div class="col-md-9">
-                  <span class="titleTable">Body Measurements</span>
-                </div>
-                <div class="col-md-3">
-                  <app-add-body-measurements></app-add-body-measurements>
+    </div>
+    <div class="pop-up-body">
+      <form [formGroup]="form" (submit)="applyForm()">
+        <div class="row">
+          <div class="package-filter-content-wrapper">
+            <div class="filter-row">
+              <div class="package-filter-wrapper  w-100">
+                <div class="showImage">
+                  <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../../assets/images/defaultthumbnail.jpg" >
+                  <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
+                  <label for="fileInput" class="file-label">
+                  <i class='bx bx-image-add'></i>
+                  </label>
+                <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
                 </div>
               </div>
-              <div class="row p-16">
-                <table class="table table-striped table-hover">
-                  <thead>
-                    <tr>
-                      <td>Name</td>
-                      <td>Date created</td>
-                      <td>Date update</td>
-                      <td>Option</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>First Name <span style="color: rgb(217, 34, 34);">*</span></label>
+                <input type="text" formControlName="firstName" placeholder="First Name">
+              </div>
+              <div class="package-filter-wrapper w-50">
+                <label>Last Name <span style="color: rgb(217, 34, 34);">*</span></label>
+                <input type="text" formControlName="lastName" placeholder="last name">
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>Email <span style="color: #d92222;">*</span></label>
+                <input type="email" formControlName="email" placeholder="@gmail.com">
+              </div>
+              <div class="package-filter-wrapper w-50">
+                <label>Password <span style="color: rgb(217, 34, 34);">*</span></label>
+                <span>
+                  <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="password">
+                  <i class="{{ !showPassword ? 'bi-eye-slash' : 'bi-eye' }}"(click)="togglePasswordVisibility()"></i>
+                </span>
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>Number Phone <span style="color: rgb(217, 34, 34);">*</span></label>
+                <input type="text" formControlName="numberPhone">
+              </div>
+              <div class="package-filter-wrapper w-50">
+                <label>gender <span style="color: rgb(217, 34, 34);">*</span></label>
+                <select formControlName="gender">
+                  <option>Male</option>
+                  <option>Famale</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-33">
+                <label>Street</label>
+                <input type="text" formControlName="street">
+              </div>
+              <div class="package-filter-wrapper w-33">
+                <label>Ward</label>
+                <input type="text" formControlName="ward">
+              </div>
+              <div class="package-filter-wrapper w-33">
+                <label>District</label>
+                <input type="text" formControlName="district">
+              </div>
+            </div>
+            <div class="filter-row">
+              <div class="package-filter-wrapper w-50">
+                <label>City</label>
+                <input type="text" formControlName="city">
+              </div>
+              <div class="package-filter-wrapper w-50">
+                <label>Country</label>
+                <input type="text" formControlName="country">
               </div>
             </div>
           </div>
         </div>
-      </div>
+        <div class="buttons">
+          <button type="button" class="buttons__reset" (click)="toggleDetailUser()">
+            Close
+          </button>
+          <button type="submit" class="buttons__apply">
+            Apply
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

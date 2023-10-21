@@ -10,8 +10,11 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./create-new-customer.component.less']
 })
 export class CreateNewCustomerComponent {
+  public isOpen: boolean = false;
+  public showPassword: boolean = false;
   public activeTab: string = 'A';
   public form !: FormGroup;
+  public selectedImageURL: any;
   params: any = {};
 
   public constructor(private customerService: CustomerService, private toast: ToastrService, private router: Router) { }
@@ -20,60 +23,76 @@ export class CreateNewCustomerComponent {
     this.setForm();
   }
 
+  public toggleDetailUser() {
+    this.isOpen = !this.isOpen
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+  public onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      // Kiểm tra xem tệp đã chọn có phải là hình ảnh không
+      if (file.type.match(/image\/*/) !== null) {
+        this.form.patchValue({
+          fileSource: file
+        });
+        this.form.get('fileSource')?.updateValueAndValidity();
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.selectedImageURL = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        console.error('Chọn một tệp hình ảnh.');
+      }
+    }
+  }
+
   public setForm() {
     this.form = new FormGroup({
+      fileSource: new FormControl(''),
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
       gender: new FormControl(''),
       email: new FormControl('', Validators.required),
       numberPhone: new FormControl('', Validators.required),
-      priceGroup: new FormControl('', Validators.required),
-      paymentStreet: new FormControl(''),
-      paymentWard: new FormControl(''),
-      paymentDistrict: new FormControl(''),
-      paymentCity: new FormControl(''),
-      paymentBang: new FormControl(''),
-      paymentCountry: new FormControl(''),
-      deliveryStreet: new FormControl(''),
-      deliveryWard: new FormControl(''),
-      deliveryDistrict: new FormControl(''),
-      deliveryCity: new FormControl(''),
-      deliveryBang: new FormControl(''),
-      deliveryCountry: new FormControl(''),
+      street: new FormControl(''),
+      ward: new FormControl(''),
+      district: new FormControl(''),
+      city: new FormControl(''),
+      country: new FormControl(''),
     })
   }
 
   public applyForm(): void {
-    const params = {
-      firstName: this.form.controls['firstName']?.value,
-      lastName: this.form.controls['lastName']?.value,
-      gender: this.form.controls['gender']?.value,
-      email: this.form.controls['email']?.value,
-      numberPhone: this.form.controls['numberPhone']?.value,
-      priceGroup: this.form.controls['priceGroup']?.value,
-      paymentStreet: this.form.controls['paymentStreet']?.value,
-      paymentWard: this.form.controls['paymentWard']?.value,
-      paymentDistrict: this.form.controls['paymentDistrict']?.value,
-      paymentCity: this.form.controls['paymentCity']?.value,
-      paymentBang: this.form.controls['paymentBang']?.value,
-      paymentCountry: this.form.controls['paymentCountry']?.value,
-      deliveryStreet: this.form.controls['deliveryStreet']?.value,
-      deliveryWard: this.form.controls['deliveryWard']?.value,
-      deliveryDistrict: this.form.controls['deliveryDistrict']?.value,
-      deliveryCity: this.form.controls['deliveryCity']?.value,
-      deliveryBang: this.form.controls['deliveryBang']?.value,
-      deliveryCountry: this.form.controls['deliveryCountry']?.value
+    const formData: FormData = new FormData();
+    if (this.form.controls['fileSource']?.value) {
+      formData.append('image', this.form.controls['fileSource']?.value);
     }
-    this.updateBasicInformation(params)
+    formData.append('email', this.form.controls['email']?.value);
+    formData.append('password', this.form.controls['password']?.value);
+    formData.append('firstName', this.form.controls['firstName']?.value);
+    formData.append('lastnnme', this.form.controls['lastName']?.value);
+    formData.append('numberPhone', this.form.controls['numberPhone']?.value);
+    formData.append('gender', this.form.controls['gender']?.value);
+    formData.append('street', this.form.controls['street']?.value);
+    formData.append('ward', this.form.controls['ward']?.value);
+    formData.append('district', this.form.controls['district']?.value);
+    formData.append('city', this.form.controls['city']?.value);
+    formData.append('country', this.form.controls['country']?.value);
+    this.updateBasicInformation(formData)
   }
 
   public updateBasicInformation(params: any) {
-    debugger
     this.customerService.addCustomer(params).subscribe((data) => {
-      this.toast.success('Add new customer success')
-      this.router.navigateByUrl('/customer-management')
+      if (data) {
+        this.toast.success('Add new customer success')
+        this.router.navigateByUrl('/add-body-customer')
+      }
     })
-
   }
   public resetInformation() {
 

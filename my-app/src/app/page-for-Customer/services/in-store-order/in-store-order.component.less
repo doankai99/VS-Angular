@@ -12,21 +12,215 @@ img {
 }
 
 body {
-  background: rgb(76, 75, 75);
-  color: white;
+  background: #f1f1f1;
+  color: rgb(33, 33, 33);
   width: 95%;
   max-width: 1500px;
   margin: 0 auto;
-}
-
-section {
-  margin: 5rem 2rem;
-}
-
-body {
   font-family: "Poppins", sans-serif !important;
 }
 
+// body {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+//   font-family: "Roboto", sans-serif;
+//   background-color: #02162b;
+//   min-height: 100vh;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+.timeline-main {
+  width: 100%;
+  padding: 25px;
+  margin-top: 55px;
+  .timeline-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: calc(100% - 10px);
+      background-color: #00283a;
+      animation: line 5s linear;
+      @media (max-width: 767px) {
+        left: 95%;
+      }
+    }
+    .timeline-card {
+      width: 50%;
+      margin-right: auto;
+      position: relative;
+      @media (max-width: 767px) {
+        width: 95%;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        right: -10px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        background: #00283a;
+        animation: fadeIn 1.5s;
+        animation-fill-mode: both;
+      }
+      .timeline-card-wrap {
+        height: 100%;
+        margin-right: 35px;
+        background-color: #00283a;
+        border-radius: 10px;
+        position: relative;
+        padding: 30px;
+        animation: fadeInRight 2.5s;
+        animation-fill-mode: both;
+        @media (max-width: 767px) {
+          padding: 20px;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: 30px;
+          top: -8px;
+          height: 8px;
+          width: calc(100% - 60px);
+          background-color: #00283a;
+          border-radius: 5px 5px 0 0;
+          opacity: 0.3;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 10px;
+          right: -8px;
+          width: 20px;
+          height: 20px;
+          background-color: #00283a;
+          border-radius: 5px;
+          transform: rotate(45deg);
+        }
+        .card-head-wrap {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          @media (max-width: 1199px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+          }
+          .timeline-card-head {
+            font-size: 28px;
+            line-height: 38px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 0;
+            @media (max-width: 767px) {
+              font-size: 18px;
+              line-height: 28px;
+            }
+          }
+          .timeline-card-subhead {
+            font-size: 16px;
+            line-height: 26px;
+            font-weight: 400;
+            color: #bdbdbd;
+            margin-bottom: 0;
+            font-style: italic;
+            @media (max-width: 767px) {
+              font-size: 14px;
+              line-height: 24px;
+            }
+          }
+        }
+
+        .timeline-card-text {
+          font-size: 14px;
+          line-height: 24px;
+          font-weight: 400;
+          color: #919ca1;
+          margin: 25px 0 0;
+          @media (max-width: 767px) {
+            font-size: 12px;
+            line-height: 22px;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        @media (min-width: 768px) {
+          margin-left: auto;
+          margin-right: 0;
+          &::after {
+            right: unset;
+            left: -10px;
+            animation-delay: 2.6s;
+          }
+          .timeline-card-wrap {
+            margin-right: 0;
+            margin-left: 35px;
+            animation: fadeInLeft 2.5s;
+            animation-fill-mode: both;
+            animation-delay: 2.5s;
+            &::after {
+              right: unset;
+              border-left: none;
+              left: -8px;
+              border-right: 10px solid #00283a;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes line {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: calc(100% - 10px);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 
 

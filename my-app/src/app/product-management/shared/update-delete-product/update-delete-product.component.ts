@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { ToastrService } from 'ngx-toastr';
 import { MaterialService } from 'src/app/material-management/shared/material.service';
+import { FormDataServiceService } from 'src/app/shared/UI/form-data-service.service';
 
 @Component({
   selector: 'app-update-delete-product',
@@ -22,7 +23,12 @@ export class UpdateDeleteProductComponent {
 
 
   public form !: FormGroup;
-  constructor(private productServcie: ProductService, private toast: ToastrService, private materialService: MaterialService) {
+  constructor(
+    private productServcie: ProductService,
+    private toast: ToastrService,
+    private materialService: MaterialService,
+    private formDataService: FormDataServiceService
+  ) {
 
   }
   ngOnInit() {
@@ -76,19 +82,26 @@ export class UpdateDeleteProductComponent {
 
   public editProduct() {
     const formData: FormData = new FormData();
-    if (this.form.controls['fileSource']?.value) {
-      formData.append('image', this.form.controls['fileSource']?.value);
-    }
-    formData.append('name', this.form.controls['name']?.value);
-    formData.append('product_type', this.form.controls['product_type']?.value);
-    formData.append('fabricId', this.form.controls['fabricId']?.value);
-    formData.append('summary', this.form.controls['summary']?.value);
+    this.formDataService.appendIfValue(formData, 'image', this.form.controls['fileSource']?.value);
+    this.formDataService.appendIfValue(formData, 'name', this.form.controls['name']?.value);
+    this.formDataService.appendIfValue(formData, 'product_type', this.form.controls['product_type']?.value);
+    this.formDataService.appendIfValue(formData, 'fabricId', this.form.controls['fabricId']?.value);
+    this.formDataService.appendIfValue(formData, 'summary', this.form.controls['summary']?.value);
     this.handleEditProduct(formData);
     this.popUpEdit();
   }
 
+
   public handleEditProduct(data: any) {
-    // this.
+    const id = this.productId
+    this.productServcie.updateProduct(id, data).subscribe((data) => {
+      if (data.data) {
+        this.toast.success(`update product id: ${id}, name: ${this.productData.name} success`)
+        this.data.emit();
+      } else {
+        this.toast.error(`update product id: ${id}, name: ${this.productData.name} false`)
+      }
+    })
   }
 
   public deleteProduct() {

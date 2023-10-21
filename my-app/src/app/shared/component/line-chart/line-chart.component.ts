@@ -25,10 +25,6 @@ export class LineChartComponent {
   }
 
   public createChart(customer: any, appointment: any) {
-    console.log(customer);
-
-    console.log(appointment);
-
     const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     // Lấy giá trị totalOrders từ data.dashboard và chuyển thành mảng
     const customerData = labels.map((label, index) => {

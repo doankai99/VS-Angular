@@ -88,10 +88,10 @@
       <a><i class='bx bx-cart-add'></i> Order Process <div [ngClass]="{'fa-caret-up': isSubMenuOpen['orderProcess'], 'fa-caret-down': !isSubMenuOpen['orderProcess']}" class='fa right'></div></a>
       <ul *ngIf="isSubMenuOpen['orderProcess']">
         <li *ngIf="!isAdmin"><a routerLink="/new-order"><i class='bx bxs-cart-add'></i> <span>New Order</span></a></li>
-        <li><a routerLink="/order/draft-order"><i class='bx bx-receipt'></i> <span>Draft Order</span></a></li>
-        <li><a routerLink="/management-order"><i class='bx bxs-shopping-bags'></i> <span>Management Order</span></a></li>
+        <li><a routerLink="/order/draft-order"><i class='bx bx-receipt'></i> <span>Inactive Order</span></a></li>
+        <li><a routerLink="/management-order"><i class='bx bxs-shopping-bags'></i> <span>Active Order</span></a></li>
+        <li><a routerLink="/quote-management"><i class='bx bx-folder-open'></i> <span>Delivering Order</span></a></li>
         <li><a routerLink="/appointment-management"><i class='bx bxs-shopping-bags'></i> <span>Apppointment Management</span></a></li>
-        <li><a routerLink="/quote-management"><i class='bx bx-folder-open'></i> <span>Quote Management</span></a></li>
       </ul>
     </li>
     <li><a routerLink="/customer-management"><i class='bx bxs-group'></i> <span>Customer Management</span></a></li>

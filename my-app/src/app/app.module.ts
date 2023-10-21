@@ -94,6 +94,7 @@ import { BarChartComponent } from './shared/component/bar-chart/bar-chart.compon
 import { StatisticalOrderComponent } from './shared/component/statistical-order/statistical-order.component';
 import { LineChartComponent } from './shared/component/line-chart/line-chart.component';
 import { PieChartComponent } from './shared/component/pie-chart/pie-chart.component';
+import { FilterUserComponent } from './auth/shared/component/user/filter-user/filter-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -174,7 +175,8 @@ import { PieChartComponent } from './shared/component/pie-chart/pie-chart.compon
     BarChartComponent,
     StatisticalOrderComponent,
     LineChartComponent,
-    PieChartComponent
+    PieChartComponent,
+    FilterUserComponent
   ],
   imports: [
     BrowserModule,

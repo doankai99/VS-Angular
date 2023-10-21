@@ -20,13 +20,16 @@ export class CrmProductCustomerComponent {
 
   public dateSale(startDate: Date, endDate: Date) {
     const currentDate = new Date();
-    startDate = new Date(currentDate);
-    endDate = new Date(currentDate)
+    // console.log(currentDate);
+    // startDate = new Date(currentDate);
+    // endDate = new Date(currentDate)
     if (currentDate >= startDate && currentDate <= endDate) {
       this.isWithinDateRange = true;
     } else {
       this.isWithinDateRange = false;
     }
+    console.log(this.isWithinDateRange);
+
   }
 
   public getListProduct() {

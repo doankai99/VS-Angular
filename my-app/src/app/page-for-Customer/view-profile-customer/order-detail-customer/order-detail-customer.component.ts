@@ -26,7 +26,6 @@ export class OrderDetailCustomerComponent {
     this.orderService.orderDetail(id).subscribe((data) => {
       if (data.order) {
         this.order = data.order
-        console.log(this.order);
         const startDates = this.order.product.map((product: any) => product.startDate)
         const endDates = this.order.product.map((product: any) => product.endDate)
         this.dateSale(startDates, endDates)

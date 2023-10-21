@@ -20,7 +20,7 @@ export class MaterialService {
   }
 
   public editMaterial(queryParams: any, id: string) {
-    return this.httpClient.put(`http://localhost:8080/v1/fabric/update/${id}`, queryParams)
+    return this.httpClient.put(`http://localhost:8080/v1/fabric/updateFabric/${id}`, queryParams)
   }
 
   public deleteMaterial(id: any): Observable<any> {
