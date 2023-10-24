@@ -1,0 +1,60 @@
+<body>
+  <div class="menu">
+    <app-menu></app-menu>
+  </div>
+  <div class="content">
+    <div class="header-top">
+      <app-header></app-header>
+    </div>
+    <div class="filter-backdrop" *ngIf="isLoading">
+      <div *ngIf="isLoading" class="loading"></div>
+    </div>
+    <div class="table-users">
+      <table cellspacing="0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>image</th>
+            <th>Name Customer</th>
+            <th>Number Phone</th>
+            <th>Order id</th>
+            <th>Shipping Address</th>
+            <th>Status</th>
+            <th>Order Date</th>
+            <th>Delivery Date</th>
+            <th>totalCount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orderCreated?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+            <td>{{ i + 1}}</td>
+            <td>
+              <img src="../../../assets/images/defauthAvatar.jpg" *ngIf="!order.customer?.image" alt="">
+              <img [src]="order.customer?.image" *ngIf="order.customer?.image" alt="">
+            </td>
+            <td>{{ order.customer?.firstName }} {{ order.customer?.lastName }}</td>
+            <td>{{ order.customer?.numberPhone }}</td>
+            <td>{{order._id}}</td>
+            <td>{{ order?.shippingAddress }}</td>
+            <td>{{ order?.status }}</td>
+            <td>{{ order?.startTime | date }}</td>
+            <td>{{ order?.endTime | date }}</td>
+            <td>{{ order?.totalCount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination">
+      <button [disabled]="currentPage === 1" (click)="previousPage()">
+        Trang trước
+      </button>
+      <button
+        [disabled]="currentPage * pageSize >= orderCreated?.length"
+        (click)="nextPage()"
+      >
+        Trang sau
+      </button>
+    </div>
+  </div>
+</body>
+

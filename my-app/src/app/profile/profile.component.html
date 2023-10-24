@@ -6,6 +6,9 @@
     <app-header
     ></app-header>
     <div>
+      <div class="col-md-12 button-edit d-flex justify-content-end">
+        <button (click)="changeDisable()">Edit</button>
+      </div>
       <form>
         <div class="container rounded bg-white">
           <div class="row">
@@ -21,19 +24,22 @@
                           <h4 class="text-right">Profile</h4>
                       </div>
                       <div class="row mt-2">
-                          <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" [value]="userInfo.firstname" readonly></div>
-                          <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" [value]="userInfo.lastname" placeholder="surname" readonly></div>
+                          <div class="col-md-6"><label class="labels">Name</label><input type="text" formControlName="firstName" class="form-control" placeholder="first name" [value]="userInfo.firstname"  [disabled]="disabledName"></div>
+                          <div class="col-md-6"><label class="labels">Surname</label><input type="text" formControlName="firstLast" class="form-control" [value]="userInfo.lastname" placeholder="surname"  [disabled]="disabledName"></div>
                       </div>
                       <div class="row mt-3">
-                          <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" [value]="userInfo.email"readonly></div>
-                          <div class="col-md-12"><label class="labels">Position</label><input type="text" class="form-control" placeholder="enter address line 2" [value]="userInfo.position" readonly></div>
-                          <div class="col-md-12"><label class="labels">Street</label><input type="text" class="form-control" placeholder="enter address line 1" [value]="userInfo.street" readonly></div>
-                          <div class="col-md-12"><label class="labels">Ward</label><input type="text" class="form-control" placeholder="enter address line 2" [value]="userInfo.ward" readonly></div>
-                          <div class="col-md-12"><label class="labels">District</label><input type="text" class="form-control" placeholder="District" [value]="userInfo.district" readonly></div>
+                          <div class="col-md-12"><label class="labels">Email ID</label><input type="text" formControlName="email" class="form-control" placeholder="enter email id" [value]="userInfo.email" [disabled]="disabledName"></div>
+                          <div class="col-md-12"><label class="labels">Position</label><input type="text" formControlName="position" class="form-control" placeholder="enter position" [value]="userInfo.position"  [disabled]="disabledName"></div>
+                          <div class="col-md-12"><label class="labels">Street</label><input type="text" formControlName="street" class="form-control" placeholder="enter street" [value]="userInfo.street"  [disabled]="disabledName"></div>
+                          <div class="col-md-12"><label class="labels">Ward</label><input type="text" formControlName="ư" class="form-control" placeholder="enter ward" [value]="userInfo.ward"  [disabled]="disabledName"></div>
+                          <div class="col-md-12"><label class="labels">District</label><input type="text" class="form-control" placeholder="District" [value]="userInfo.district"  [disabled]="disabledName"></div>
                       </div>
                       <div class="row mt-3">
-                        <div class="col-md-6"><label class="labels">City</label><input type="text" class="form-control" [value]="userInfo.city" placeholder="city" readonly></div>
-                          <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" [value]="userInfo.country" readonly></div>
+                        <div class="col-md-6"><label class="labels">City</label><input type="text" class="form-control" [value]="userInfo.city" placeholder="city"  [disabled]="disabledName"></div>
+                          <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" [value]="userInfo.country"  [disabled]="disabledName"></div>
+                      </div>
+                      <div class="mt-5 text-center">
+                        <button class="btn btn-primary profile-button" type="button">Save</button>
                       </div>
                   </div>
               </div>

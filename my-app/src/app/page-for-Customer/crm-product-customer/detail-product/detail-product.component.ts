@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/product-management/shared/product.servic
 export class DetailProductComponent {
   public productid: any;
   public productDetail: any;
+  public activeTab: string = 'A'
   public isWithinDateRange: boolean = false;
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private toast: ToastrService) {
