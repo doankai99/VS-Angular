@@ -95,6 +95,8 @@ import { StatisticalOrderComponent } from './shared/component/statistical-order/
 import { LineChartComponent } from './shared/component/line-chart/line-chart.component';
 import { PieChartComponent } from './shared/component/pie-chart/pie-chart.component';
 import { FilterUserComponent } from './auth/shared/component/user/filter-user/filter-user.component';
+import { OrderCreatedByStaffComponent } from './profile/order-created-by-staff/order-created-by-staff.component';
+import { FeedbackProductComponent } from './page-for-Customer/crm-product-customer/detail-product/feedback-product/feedback-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -176,7 +178,9 @@ import { FilterUserComponent } from './auth/shared/component/user/filter-user/fi
     StatisticalOrderComponent,
     LineChartComponent,
     PieChartComponent,
-    FilterUserComponent
+    FilterUserComponent,
+    OrderCreatedByStaffComponent,
+    FeedbackProductComponent
   ],
   imports: [
     BrowserModule,

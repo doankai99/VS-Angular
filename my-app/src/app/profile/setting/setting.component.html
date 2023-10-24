@@ -6,11 +6,22 @@
     <app-header
     ></app-header>
     <div>
-      <form>
+      <form [formGroup]="form">
         <div class="container rounded bg-white">
           <div class="row">
               <div class="col-md-4 border-right">
-                  <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" alt=""><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+                  <!-- <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5"
+                    width="150px"
+                    id="selectedImage"
+                    [src]="avatarUser"
+                    alt="">
+                    <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
+                    <label for="fileInput" class="file-label">
+                      <i class='bx bx-image-add'></i>
+                    </label>
+                    <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
+                    <span> </span></div> -->
               </div>
               <div class="col-md-8 border-right">
                   <div class="p-3">
@@ -18,19 +29,54 @@
                           <h4 class="text-right">Profile Settings</h4>
                       </div>
                       <div class="row mt-2">
-                          <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                          <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                          <div class="col-md-6">
+                            <label class="labels">Name</label>
+                            <input type="text"
+                            class="form-control"
+                            placeholder="first name"
+                            formControlName="firstname"
+                            value="">
+                          </div>
+                          <div class="col-md-6">
+                            <label class="labels">Surname</label>
+                            <input type="text"
+                            class="form-control"
+                            value=""
+                            formControlName="lastname"
+                            placeholder="surname">
+                          </div>
                       </div>
                       <div class="row mt-3">
-                          <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-                          <div class="col-md-12"><label class="labels">Position</label><input type="text" class="form-control" placeholder="enter Position" value=""></div>
-                          <div class="col-md-12"><label class="labels">Street</label><input type="text" class="form-control" placeholder="enter street" value=""></div>
-                          <div class="col-md-12"><label class="labels">Ward</label><input type="text" class="form-control" placeholder="enter ward" value=""></div>
-                          <div class="col-md-12"><label class="labels">District</label><input type="text" class="form-control" placeholder="enter district" value=""></div>
+                          <div class="col-md-12">
+                            <label class="labels">Email ID</label>
+                            <input type="text" class="form-control" formControlName="email" placeholder="enter email id" value="">
+                          </div>
+                          <div class="col-md-12">
+                            <label class="labels">Position</label>
+                            <input type="text" class="form-control" formControlName="position" placeholder="enter Position" value="">
+                          </div>
+                          <div class="col-md-12">
+                            <label class="labels">Street</label>
+                            <input type="text" class="form-control" formControlName="street" placeholder="enter street" value="">
+                          </div>
+                          <div class="col-md-12">
+                            <label class="labels">Ward</label>
+                            <input type="text" class="form-control" formControlName="ward" placeholder="enter ward" value="">
+                          </div>
+                          <div class="col-md-12">
+                            <label class="labels">District</label>
+                            <input type="text" class="form-control" formControlName="district" placeholder="enter district" value="">
+                          </div>
                       </div>
                       <div class="row mt-3">
-                        <div class="col-md-6"><label class="labels">City</label><input type="text" class="form-control" value="" placeholder="enter city"></div>
-                          <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
+                        <div class="col-md-6">
+                          <label class="labels">City</label>
+                          <input type="text" class="form-control" formControlName="city" value="" placeholder="enter city">
+                        </div>
+                          <div class="col-md-6">
+                            <label class="labels">Country</label>
+                            <input type="text" class="form-control" formControlName="country" placeholder="country" value="">
+                          </div>
                       </div>
                       <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
                   </div>

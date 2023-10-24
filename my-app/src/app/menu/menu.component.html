@@ -104,7 +104,7 @@
       <ul *ngIf="isSubMenuOpen['profile']">
         <li><a routerLink="/profile"><i class='bx bx-user'></i> <span>Profile</span></a></li>
         <li *ngIf="isAdmin"><a routerLink="/list-account"><i class='bx bx-user'></i> <span>Management User</span></a></li>
-        <li *ngIf="!isAdmin"><a href='#settings'><i class='bx bx-bookmark-alt-minus'></i> <span>Order</span></a></li>
+        <li *ngIf="!isAdmin"><a routerLink="/order-created"><i class='bx bx-bookmark-alt-minus'></i> <span>Order</span></a></li>
         <li><a routerLink="/setting"><i class='bx bx-cog'></i> <span>Setting</span></a></li>
       </ul>
     </li>

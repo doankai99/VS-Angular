@@ -37,6 +37,7 @@ import { AppointmentActiveInactiveComponent } from './appointment-management/com
 import { AppointmentManagementComponent } from './appointment-management/appointment-management.component';
 import { TemplateExportPdfComponent } from './order-process/quote-management/component/template-export-pdf/template-export-pdf.component';
 import { AddBodyMeasurementsComponent } from './customer-management/create-new-customer/add-body-measurements/add-body-measurements.component';
+import { OrderCreatedByStaffComponent } from './profile/order-created-by-staff/order-created-by-staff.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -60,6 +61,7 @@ const routes: Routes = [
   { path: 'material-management', component: MaterialManagementComponent },
   { path: 'supplier-management', component: SupplierManagementComponent },
   { path: 'appointment-management', component: AppointmentManagementComponent },
+  { path: 'order-created', component: OrderCreatedByStaffComponent },
 
   //Router link Customer
   { path: 'sign-up', component: SignUpCustomerComponent },

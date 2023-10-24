@@ -44,6 +44,11 @@ export class AuthService {
     return this.httpClient.post<any>('http://localhost:8080/v1/user/createUser', addNewUserRequestPayload)
   }
 
+  //handle udpate profile staff
+  public handleUpdateUser(id: any, data: any): Observable<any> {
+    return this.httpClient.put<any>(`http://localhost:8080/user/update/${id}`, data)
+  }
+
   //handle filter data user
   public handleFilterDataUser(queryParams: any): Observable<any> {
     return this.httpClient.post('http://localhost:8080/v1/user/filterUser', queryParams)
