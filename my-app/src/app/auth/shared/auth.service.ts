@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { map, Observable } from 'rxjs';
@@ -67,6 +67,12 @@ export class AuthService {
   }
   public updateAdmin(userId: string, addNewUserRequestPayload: addNewUserRequestPayload): Observable<any> {
     return this.httpClient.put<any>(`http://localhost:8080/v1/user/update/${userId}`, addNewUserRequestPayload)
+  }
+
+  //change status admin -> staff or staff -> admin
+  public changeStatusAdmin(id: any): Observable<any> {
+    // const params = new HttpParams().set('id', id);
+    return this.httpClient.get(`http://localhost:8080/v1/user/updateStatusAdmin/${id}`)
   }
 
   public detailUser(id: any): Observable<any> {

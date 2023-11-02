@@ -47,6 +47,7 @@ img {
   margin: 1em auto;
   max-height: 520px;
   width: 100%;
+  overflow-x: auto;
 }
 
 table {
@@ -79,7 +80,31 @@ table {
      &:nth-child(2n+1) { background-color: lighten(#398B93, 55%) }
   }
 }
-
+.buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  button {
+    flex-basis: calc(50% - 8px);
+    border: 1px solid rgb(229, 229, 229);
+    background: white;
+    border-radius: 50px;
+    max-width: 80px;
+    padding: 4px;
+  }
+  .button_inactive{
+    background-color: #e5edee;
+  }
+  .button_active {
+    background-color: rgb(143, 245, 134);
+  }
+  .button_Doing {
+    background-color: rgb(89, 162, 246);
+  }
+  .button_delivery {
+    background-color: #ffec41;
+  }
+}
 @media screen and (max-width: 900px) {
   .avatar {
     display: none;
@@ -88,7 +113,11 @@ table {
     max-width: 780px !important;
   }
 }
-
+@media screen and (max-width: 500px) {
+  .table-users {
+    max-width: 380px !important;
+  }
+}
 .pagination {
   display: flex;
   justify-content: flex-end;

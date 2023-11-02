@@ -4,7 +4,7 @@
   </div>
   <div class="content">
     <app-header></app-header>
-    <div class="col-md-12">
+    <div class="col-md-12" *ngIf="isAdmin">
       <app-add-price (fetchData)="handleAddPriceforProduct($event)"></app-add-price>
     </div>
     <div class="filter-backdrop" *ngIf="isLoading">
@@ -23,7 +23,7 @@
           <td>Start time discount</td>
           <td>End time discount</td>
           <td>Price</td>
-          <td>Option</td>
+          <td >Option</td>
         </tr>
         <tr *ngFor="let data of priceData?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
           <td>{{i + 1}}</td>
@@ -41,7 +41,7 @@
           <td>
             ${{ isWithinDateRange ? (data?.price - data?.price * data?.discount / 100) : data?.price }}
           </td>
-          <td>
+          <td *ngIf="isAdmin">
             <app-update-delete-price [isLoading]="isLoading" [dataPrice]="data" [priceId]="data._id"
               (data)=handleCallPrice()></app-update-delete-price>
           </td>

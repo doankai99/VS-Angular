@@ -90,6 +90,7 @@ export class CreateNewCustomerComponent {
     this.customerService.addCustomer(params).subscribe((data) => {
       if (data) {
         this.toast.success('Add new customer success')
+
         this.router.navigateByUrl('/add-body-customer')
       }
     })

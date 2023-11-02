@@ -52,10 +52,10 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/product-management"><i class='bx bxs-archive' ></i> Product Management</a>
           </li>
-          <li class="nav-item" *ngIf="isAdmin">
+          <li class="nav-item">
             <a class="nav-link" routerLink="/price-of-products"><i class='bx bx-wallet'></i> Price of Product</a>
           </li>
-          <li class="nav-item" *ngIf="isAdmin">
+          <li class="nav-item">
             <a class="nav-link" routerLink="/material-management"><i class='bx bxs-bookmark'></i> Fabric Management</a>
           </li>
           <li class="nav-item">
@@ -65,8 +65,10 @@
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" appToggleDropdown>
               <i class='bx bxs-user-circle'></i> Profile Management
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" routerLink="/profile"><i class='bx bx-user-circle'></i> My Profile</a></li>
+                <li><a class="dropdown-item" routerLink="/profile"><i class='bx bx-user-circle'></i> Profile </a></li>
                 <li *ngIf="isAdmin"><a class="dropdown-item" routerLink="/list-account"><i class='bx bxs-user-account'></i> Management User</a></li>
+                <li *ngIf="!isAdmin"><a class="dropdown-item" routerLink="/order-created"><i class='bx bxs-user-account'></i> Order</a></li>
+                <li><a class="dropdown-item" routerLink="/setting"><i class='bx bxs-user-account'></i> Setting</a></li>
               </ul>
             </a>
           </li>
@@ -95,10 +97,10 @@
       </ul>
     </li>
     <li><a routerLink="/customer-management"><i class='bx bxs-group'></i> <span>Customer Management</span></a></li>
-    <li *ngIf="isAdmin"><a routerLink="/price-of-products"><i class='bx bx-wallet'></i> <span>Price of Product</span></a></li>
+    <li><a routerLink="/price-of-products"><i class='bx bx-wallet'></i> <span>Price of Product</span></a></li>
     <li><a routerLink="/product-management"><i class='bx bxs-archive' ></i> <span>Product Management</span></a></li>
-    <li *ngIf="isAdmin"><a routerLink="/material-management"><i class='bx bxs-bookmark'></i> <span>Fabric Management</span></a></li>
-    <li *ngIf="isAdmin"><a routerLink="/supplier-management"><i class='bx bx-buildings'></i> <span>3rd-party Management</span></a></li>
+    <li><a routerLink="/material-management"><i class='bx bxs-bookmark'></i> <span>Fabric Management</span></a></li>
+    <li><a routerLink="/supplier-management"><i class='bx bx-buildings'></i> <span>3rd-party Management</span></a></li>
     <li class='sub-menu' (click)="toggleSubMenu('profile')">
       <a><i class='bx bxs-user-circle'></i> <span>Profile Management</span><div [ngClass]="{'fa-caret-up': isSubMenuOpen['profile'], 'fa-caret-down': !isSubMenuOpen['profile']}" class='fa right'></div></a>
       <ul *ngIf="isSubMenuOpen['profile']">

@@ -24,4 +24,8 @@ export class DashboardService {
   public pieChartDataOrder(): Observable<any> {
     return this.httpClient.get('http://localhost:8080/v1/dashboard/pieChartStatusOrder')
   }
+
+  public handleStatistical(): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/v1/dashboard/totalStatistics')
+  }
 }

@@ -16,12 +16,14 @@ export class PriceOfProductComponent {
   public productData: any;
   currentPage: number = 1;
   pageSize: number = 4;
+  public isAdmin: any;
 
   public currentDate: Date = new Date();
 
   constructor(private productService: ProductService, private toastrService: ToastrService) { }
 
   ngOnInit() {
+    this.isAdmin = Number(localStorage.getItem('isAdmin'))
     this.allPriceOfProducts()
   }
   public handleCallPrice() {

@@ -22,7 +22,7 @@
             <th>Order Date</th>
             <th>Delivery Date</th>
             <th>totalCount</th>
-            <th>Option</th>
+            <th *ngIf="isAdmin">Option</th>
           </tr>
         </thead>
         <tbody>
@@ -36,7 +36,7 @@
             <td>{{ order?.startTime | date }}</td>
             <td>{{ order?.endTime | date }}</td>
             <td>{{ order?.totalCount }}</td>
-            <td>
+            <td  *ngIf="isAdmin">
               <app-edit-confirm-order-inactive
               [orderId] = "order._id"
               >

@@ -10,8 +10,8 @@ import { ToastrService } from 'ngx-toastr';
 export class DraftOrderComponent {
 
   public isLoading: boolean = false;
-
   public inactiveOrder: any;
+  public isAdmin: any;
 
   currentPage: number = 1;
   pageSize: number = 8;
@@ -21,6 +21,8 @@ export class DraftOrderComponent {
   }
 
   ngOnInit() {
+    this.isAdmin = Number(localStorage.getItem('isAdmin'))
+    console.log(this.isAdmin);
     this.handleLoadDataInactiveOrder()
   }
 

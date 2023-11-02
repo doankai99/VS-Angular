@@ -42,15 +42,16 @@
           <td>
             <app-detail-user
             [getDetailUser] = "item"
-            [userId] = "item._id"
+            [userId] = "item?._id"
             ></app-detail-user>
           </td>
           <td>{{item.email}}</td>
           <td>{{item.position}}</td>
-          <td><span>{{item.street}},{{item.ward}},{{item.district}}, {{item.city}}, {{item.country}}</span></td>
+          <td><span>{{item?.street}},{{item?.ward}},{{item?.district}}, {{item?.city}}, {{item?.country}}</span></td>
           <td>
             <div class="form-check form-switch">
               <input
+                (click)="handleUpdateStatusAdmin(item?._id)"
                 mdbCheckbox
                 class="form-check-input"
                 type="checkbox"
