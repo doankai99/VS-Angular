@@ -26,8 +26,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let order of activeOrder">
-            <td>{{ order._id }}</td>
+          <tr *ngFor="let order of activeOrder, let i = index">
+            <td>{{ i + 1 }}</td>
             <td>{{ order.user?.firstname}} {{ order.user?.lastname}}</td>
             <td>{{ order.customer?.firstName }} {{ order.customer?.LastName }}</td>
             <td>{{ order.customer?.numberPhone }}</td>
@@ -40,12 +40,18 @@
             <td>{{ order?.endTime | date }}</td>
             <td>{{ order?.totalCount }}</td>
             <td>
-              <app-pop-up-management-order
+              <div class="buttons">
+                <button class="button_inactive" (click) = "handleUpdateStatusOrder(order?._id, statusOrder.INACTIVE_STATUS)" *ngIf="order?.status !== 1">Inactive</button>
+                <button class="button_active" (click) = "handleUpdateStatusOrder(order?._id, statusOrder.ACTIVE_STATUS)" *ngIf="order?.status !== 2">Active</button>
+                <button class="button_doing" (click) = "handleUpdateStatusOrder(order?._id, statusOrder.DOING_STATUS)" *ngIf="order?.status !== 3">Doing</button>
+                <button class="button_delivery" (click) = "handleUpdateStatusOrder(order?._id, statusOrder.DELIVERY_STATUS)" *ngIf="order?.status !== 4">Delivery</button>
+              </div>
+              <!-- <app-pop-up-management-order
               [defaultStatus] = "order?.status"
               [orderId] = "order?._id"
               (fetchData)="handleLoadData()"
               >
-              </app-pop-up-management-order>
+              </app-pop-up-management-order> -->
             </td>
           </tr>
         </tbody>
@@ -53,13 +59,13 @@
     </div>
     <div class="pagination">
       <button [disabled]="currentPage === 1" (click)="previousPage()">
-        Trang trước
+        back
       </button>
       <button
         [disabled]="currentPage * pageSize >= activeOrder?.length"
         (click)="nextPage()"
       >
-        Trang sau
+        next
       </button>
     </div>
   </div>

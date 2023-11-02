@@ -14,12 +14,14 @@ export class ProductManagementComponent {
   public isLoading: boolean = false;
   public currentPage: number = 1;
   public pageSize: number = 3;
+  public isAdmin: any;
 
   public constructor(private productService: ProductService, private toast: ToastrService) {
 
   }
 
   public ngOnInit() {
+    this.isAdmin = Number(localStorage.getItem('isAdmin'))
     this.getAllProduct();
   }
 

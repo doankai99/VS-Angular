@@ -4,7 +4,7 @@
   </div>
   <div class="content">
     <app-header></app-header>
-    <div class="col-md-12">
+    <div class="col-md-12" *ngIf="isAdmin">
       <app-add-new-supplier
       (fetchData)="handleAddCompany($event)"
       ></app-add-new-supplier>
@@ -48,7 +48,7 @@
           </td>
           <td>{{items?.country}}</td>
           <td><a [href]="items?.logoUrl"><span>link</span></a></td>
-          <td>
+          <td *ngIf="isAdmin">
             <app-update-delete-supplier
             [masterCompany] = "masterCompany"
             [companyId] = "items._id"

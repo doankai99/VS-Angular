@@ -13,12 +13,14 @@ export class SupplierManagementComponent {
 
   public masterCompany: any;
 
-  currentPage: number = 1;
-  pageSize: number = 3;
+  public currentPage: number = 1;
+  public pageSize: number = 3;
+  public isAdmin: any;
 
   constructor(private supplierService: SupplierService, private toast: ToastrService) { }
 
   ngOnInit() {
+    this.isAdmin = Number(localStorage.getItem('isAdmin'))
     this.getMasterCompany()
   }
 

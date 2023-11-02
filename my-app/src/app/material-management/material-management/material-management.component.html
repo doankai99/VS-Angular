@@ -4,7 +4,7 @@
   </div>
   <div class="content">
     <app-header></app-header>
-    <div class="col-md-12">
+    <div class="col-md-12" *ngIf="isAdmin">
       <app-add-material
         (fetchData)="handleAddMaterial($event)"
         ></app-add-material>
@@ -40,7 +40,7 @@
             <td>{{items?.companyId?.companyName}}</td>
             <td>{{items?.companyId?.email}}</td>
             <td>{{items?.createdAt | date}}</td>
-            <td><app-edit-material
+            <td *ngIf="isAdmin"><app-edit-material
               [materialData]= "items"
               [materialId] = "items._id"
               (data) = "handledata()"

@@ -22,6 +22,15 @@ export class QuoteManagementComponent {
     this.handleLoadDataInactiveOrder();
   }
 
+  public statusOrder = {
+    CLOSE_STATUS: 0,
+    INACTIVE_STATUS: 1,
+    ACTIVE_STATUS: 2,
+    DOING_STATUS: 3,
+    DELIVERY_STATUS: 4,
+    DONE_STATUS: 5
+  }
+
   public previousPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
@@ -43,6 +52,18 @@ export class QuoteManagementComponent {
         this.toast.error('faile 404')
       }
       this.isLoading = false
+    })
+  }
+
+  public handleUpdateStatusOrder(id: any, status: number): void {
+    const data = {
+      status: status
+    }
+    this.orderService.handleUpdateStatus(id, data).subscribe(() => {
+      this.toast.success('change status order success')
+      this.handleLoadDataInactiveOrder();
+    }, () => {
+      this.toast.error('change status order false')
     })
   }
 }

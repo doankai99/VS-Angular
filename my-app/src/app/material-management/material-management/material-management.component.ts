@@ -13,13 +13,15 @@ export class MaterialManagementComponent {
 
   public isLoading: boolean = false;
   public materials: any;
-  currentPage: number = 1;
-  pageSize: number = 3;
+  public currentPage: number = 1;
+  public pageSize: number = 3;
+  public isAdmin: any;
 
   constructor(private materialService: MaterialService, private toast: ToastrService, private router: Router) {
   }
 
   ngOnInit() {
+    this.isAdmin = Number(localStorage.getItem('isAdmin'))
     this.getAllMaterial()
   }
 

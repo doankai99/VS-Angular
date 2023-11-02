@@ -12,9 +12,11 @@
         <!-- <input type="search" formControlName="">
         <button ></button> -->
       </div>
-      <app-add-new-product
-      (fetchData)="handleAddProduct($event)"
-      ></app-add-new-product>
+      <div *ngIf="isAdmin">
+        <app-add-new-product
+        (fetchData)="handleAddProduct($event)"
+        ></app-add-new-product>
+      </div>
     </div>
     <div class="filter-backdrop" *ngIf="isLoading">
       <div *ngIf="isLoading" class="loading"></div>
@@ -46,7 +48,7 @@
               <td>{{data.fabricId?.material}}</td>
               <td>{{data.createdAt | date: 'MM/dd/yyyy'}}</td>
               <td>{{data.published_on | date: 'MM/dd/yyyy'}}</td>
-              <td>
+              <td *ngIf="isAdmin">
                 <app-update-delete-product
                 [productData] = "data"
                 [productId] =  "data?._id"

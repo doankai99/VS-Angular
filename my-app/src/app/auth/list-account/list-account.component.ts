@@ -11,7 +11,7 @@ import { addNewUserRequestPayload } from '../shared/add-new-user/add-new-user-re
   styleUrls: ['./list-account.component.less']
 })
 export class ListAccountComponent {
-  @ViewChild('pageLoader') protected pageLoader !: ElementRef;
+  // @ViewChild('pageLoader') protected pageLoader !: ElementRef;
 
   public isPageInitialized !: boolean;
   private pageInitialized = false;
@@ -69,11 +69,17 @@ export class ListAccountComponent {
       } else {
         this.toastr.error('add new user false')
       }
-      this.cd.detectChanges
     })
   }
 
-  public changeAdmin(isAdmin: boolean, userId: string) {
+  //Change status user staff -> admin or admin -> staff
+  public handleUpdateStatusAdmin(userId: string) {
+    this.authService.changeStatusAdmin(userId).subscribe((data) => {
+        this.toastr.success(data.message)
+        this.getAllAccount()
+    }, () => {
+      this.toastr.error()
+    })
   }
 
   public handleFilterUser(queryParam: any) {

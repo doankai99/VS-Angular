@@ -35,10 +35,10 @@
             <td>{{ order?.endTime | date }}</td>
             <td>{{ order?.totalCount }}</td>
             <td>
-              <app-edit-confirm-order-inactive
-              [orderId] = "order._id"
-              >
-              </app-edit-confirm-order-inactive>
+              <div class="buttons">
+                <button class="button_active" (click) = "handleUpdateStatusOrder(order?._id, statusOrder.ACTIVE_STATUS)">Active</button>
+                <button class="button_done" (click) = "handleUpdateStatusOrder(order?._id, statusOrder.DONE_STATUS)">Done</button>
+              </div>
             </td>
             <td>
               <a routerLink="/Generatepdf/{{order._id}}">PDF</a>
