@@ -3,7 +3,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 p-2">
         <div class="card animate-slide-fade bg-white rounded shadow" *ngFor="let item of appointment, let i = index">
           <div class="flex items-center header-title">
-            <span class="h-3 w-3 mr-2 rounded-full bg-red-500" [ngClass]="{'status-appointment': !checkStatusAppointment(item.status)}">{{i+1}}</span>
+            <span class="h-3 w-3 mr-2 rounded-full bg-red-500" [ngClass]="{'status-appointment': item.status !== 1}">{{i+1}}</span>
             <span class="font-semibold">createAt: {{item.createdAt | date:'yyyy MMM dd - HH:mm'}}</span>
           </div>
           <p class="text-gray-400">
@@ -27,14 +27,14 @@
             <span>
               {{item?.status | translateStatusAppointment}}
             </span>
-            <span class="icon-status" [ngClass]="{'inactive-status' : !checkStatusAppointment(item.status)}"></span>
+            <span class="icon-status" [ngClass]="{'inactive-status' : item.status !== 1}"></span>
           </p>
           <div class="h-3 w-3 mr-2 bg-red-500 buttons">
-            <span *ngIf="checkStatusAppointment(item.status)">
-              <button class="button__cancel" (click)="updateStatusAppointment(item._id)" *ngIf="item?.status === 1">Cancel</button>
+            <span *ngIf="item.status === 1">
+              <button class="button__cancel" (click)="updateStatusAppointment(item._id)" >Cancel</button>
             </span>
-            <span *ngIf="checkStatusAppointment(item.status) && isCurrentTimeBeforeAppointment(item.date)">
-              <button class="button__Reset" (click)="updateStatusAppointment(item._id)" *ngIf="item?.status === 0">Reset</button>
+            <span *ngIf="item.status === 0 && isCurrentTimeBeforeAppointment(item.date)">
+              <button class="button__Reset" (click)="updateStatusAppointment(item._id)">Reset</button>
             </span>
             <span>
               <button class="button__delete" (click)="deleteAppointent(item._id)">Delete</button>

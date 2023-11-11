@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomerService } from "../shared/customer.service";
 import { ToastrService } from 'ngx-toastr';
 import { Route, Router } from '@angular/router';
+import {AddBodyMeasurementsComponent} from "./add-body-measurements/add-body-measurements.component";
 
 @Component({
   selector: 'app-create-new-customer',
@@ -90,8 +91,8 @@ export class CreateNewCustomerComponent {
     this.customerService.addCustomer(params).subscribe((data) => {
       if (data) {
         this.toast.success('Add new customer success')
-
-        this.router.navigateByUrl('/add-body-customer')
+        // AddBodyMeasurementsComponent{}
+        // this.router.navigateByUrl('/add-body-customer')
       }
     })
   }

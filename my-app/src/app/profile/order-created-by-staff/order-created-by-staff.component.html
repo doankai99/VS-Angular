@@ -36,7 +36,7 @@
             <td>{{ order.customer?.numberPhone }}</td>
             <td>{{order._id}}</td>
             <td>{{ order?.shippingAddress }}</td>
-            <td>{{ order?.status }}</td>
+            <td>{{ order?.status | translateStatus}}</td>
             <td>{{ order?.startTime | date }}</td>
             <td>{{ order?.endTime | date }}</td>
             <td>{{ order?.totalCount }}</td>
@@ -46,13 +46,13 @@
     </div>
     <div class="pagination">
       <button [disabled]="currentPage === 1" (click)="previousPage()">
-        Trang trước
+        back
       </button>
       <button
         [disabled]="currentPage * pageSize >= orderCreated?.length"
         (click)="nextPage()"
       >
-        Trang sau
+        next
       </button>
     </div>
   </div>

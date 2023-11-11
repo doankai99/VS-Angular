@@ -62,6 +62,7 @@ const routes: Routes = [
   { path: 'supplier-management', component: SupplierManagementComponent },
   { path: 'appointment-management', component: AppointmentManagementComponent },
   { path: 'order-created', component: OrderCreatedByStaffComponent },
+  { path: 'customer/:id/measurementbody', component: AddBodyMeasurementsComponent },
 
   //Router link Customer
   { path: 'sign-up', component: SignUpCustomerComponent },
@@ -81,6 +82,8 @@ const routes: Routes = [
   { path: `detail-product/:id`, component: DetailProductComponent },
   { path: `setting-body-measurement/:id`, component: SettingBodyMeasurementComponent },
   { path: `order/:id/order-detail`, component: OrderDetailCustomerComponent }
+
+  //
 ];
 
 @NgModule({

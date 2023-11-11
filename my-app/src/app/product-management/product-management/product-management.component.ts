@@ -13,7 +13,7 @@ export class ProductManagementComponent {
   public dataProduct: any;
   public isLoading: boolean = false;
   public currentPage: number = 1;
-  public pageSize: number = 3;
+  public pageSize: number = 5;
   public isAdmin: any;
 
   public constructor(private productService: ProductService, private toast: ToastrService) {

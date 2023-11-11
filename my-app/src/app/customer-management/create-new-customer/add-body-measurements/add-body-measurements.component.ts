@@ -11,9 +11,11 @@ export class AddBodyMeasurementsComponent {
 
   public form !: FormGroup;
 
-  constructor() { }
+  constructor(
+  ) {
+  }
 
-  public OnInit() { }
+  public ngOnInit(): void { }
 
   public addBodyMeasurements() {
 
