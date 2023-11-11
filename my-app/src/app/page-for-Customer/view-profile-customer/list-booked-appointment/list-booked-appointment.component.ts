@@ -22,6 +22,7 @@ export class ListBookedAppointmentComponent {
 
   }
   public checkStatusAppointment(status: number) {
+    console.log(status);
     if (status === 0 || status === 2) {
       return true
     } else {
