@@ -1,7 +1,19 @@
 <div class="content-wrapper package-filter-wrapper">
   <div class="package-filter-button mt-2 mt-sm-0">
-      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="isPopUpEdit()" *ngIf="!isAdmin">Edit</span>
-      <span class="filter-button" [ngClass]="{'open': isOpenConfirm}" (click)="isPopUpConfirm()" *ngIf="isAdmin">Confirm</span>
+    <span
+      class="filter-button"
+      [ngClass]="{ open: isOpenEdit }"
+      (click)="isPopUpEdit()"
+      *ngIf="!isAdmin"
+      >Edit</span
+    >
+    <span
+      class="filter-button"
+      [ngClass]="{ open: isOpenConfirm }"
+      (click)="isPopUpConfirm()"
+      *ngIf="isAdmin"
+      >Confirm</span
+    >
   </div>
 
   <div class="filter-backdrop" *ngIf="isOpenConfirm || isOpenEdit"></div>
@@ -9,22 +21,31 @@
   <!-- pop-up delete -->
   <div class="laas-package-filter" *ngIf="isOpenConfirm" #filterPopup>
     <div class="filter-header-icon">
-      <div class="filter-text">
-        Confirm Order
-      </div>
+      <div class="filter-text">Confirm Order</div>
     </div>
-    <div class = "filter-body-content">
+    <div class="filter-body-content">
       <div class="display-infor-User">
-        <p class="d-flex justify-content-center">Bạn có muốn chuyển order sang active</p>
+        <p class="d-flex justify-content-center">
+          Bạn có muốn chuyển order sang active
+        </p>
         <p class="d-flex justify-content-center">Click Save</p>
-        <p class="d-flex justify-content-center" style="color: rgb(36, 198, 66);"><i class='bx bxs-arrow-to-bottom bx-fade-down' ></i></p>
+        <p
+          class="d-flex justify-content-center"
+          style="color: rgb(36, 198, 66)"
+        >
+          <i class="bx bxs-arrow-to-bottom bx-fade-down"></i>
+        </p>
       </div>
       <div class="buttons pop-up-delete">
         <button type="button" class="buttons__reset" (click)="isPopUpConfirm()">
           Close
         </button>
-        <button type="submit" class="buttons__apply" (click)="confirmActiveOrder()">
-            Save
+        <button
+          type="submit"
+          class="buttons__apply"
+          (click)="confirmActiveOrder()"
+        >
+          Save
         </button>
       </div>
     </div>
@@ -34,48 +55,68 @@
 
   <div class="pop-up-edit" *ngIf="isOpenEdit" #filterPopup>
     <div class="filter-header-icon">
-      <div class="filter-text">
-        Edit Order
-      </div>
+      <div class="filter-text">Edit Order</div>
       <div class="close-icon cursor-pointer" (click)="isPopUpEdit()">
-        <img src="../../assets/icons/icon_close.svg" alt="">
+        <img src="../../assets/icons/icon_close.svg" alt="" />
       </div>
     </div>
     <div class="pop-up-body">
-      <form [formGroup] = "form" (submit)="editOrder()">
+      <form [formGroup]="form" (submit)="editOrder()">
         <div class="row">
           <div class="package-filter-content-wrapper">
-
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
                 <label>Customer</label>
                 <select formControlName="customer">
-                  <option *ngFor="let item of customer" [value]="item?._id">{{item?.email}}</option>
+                  <option *ngFor="let item of customer" [value]="item?._id">
+                    {{ item?.email }}
+                  </option>
                 </select>
               </div>
               <div class="package-filter-wrapper w-50">
                 <label>Product</label>
-                  <mat-select formControlName="product" multiple>
-                    <mat-option *ngFor="let data of product" [value]="data?._id">{{data?.products[0]?.name}}</mat-option>
-                  </mat-select>
+                <mat-select formControlName="product" multiple>
+                  <mat-option
+                    *ngFor="let data of product"
+                    [value]="data?._id"
+                    >{{ data?.products[0]?.name }}</mat-option
+                  >
+                </mat-select>
               </div>
             </div>
 
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
                 <label>Order Date</label>
-                <input type="date" class="inputs" formControlName="startTime" placeholder="startTime" required>
+                <input
+                  type="date"
+                  class="inputs"
+                  formControlName="startTime"
+                  placeholder="startTime"
+                  required
+                />
               </div>
               <div class="package-filter-wrapper w-50">
                 <label>Delivery Date</label>
-                <input type="date"  class="inputs" formControlName="endTime" placeholder="endTime" required>
+                <input
+                  type="date"
+                  class="inputs"
+                  formControlName="endTime"
+                  placeholder="endTime"
+                  required
+                />
               </div>
             </div>
 
             <div class="filter-row">
               <div class="package-filter-wrapper w-100">
                 <label>Shipping Address</label>
-                <input type="text"  class="inputs" formControlName="shippingAddress" placeholder="shipping address">
+                <input
+                  type="text"
+                  class="inputs"
+                  formControlName="shippingAddress"
+                  placeholder="shipping address"
+                />
               </div>
             </div>
 
@@ -83,15 +124,28 @@
               <div class="filter-row">
                 <div class="package-filter-wrapper w-33">
                   <label>Direct Bank Transfer</label>
-                  <input type="radio" formControlName="paymentMethod" value="0" checked>
+                  <input
+                    type="radio"
+                    formControlName="paymentMethod"
+                    value="0"
+                    checked
+                  />
                 </div>
                 <div class="package-filter-wrapper w-33">
                   <label>Cash on Delivery</label>
-                  <input type="radio" formControlName="paymentMethod" value="1">
+                  <input
+                    type="radio"
+                    formControlName="paymentMethod"
+                    value="1"
+                  />
                 </div>
                 <div class="package-filter-wrapper w-33">
                   <label>Paypal</label>
-                  <input type="radio" formControlName="paymentMethod" value="2">
+                  <input
+                    type="radio"
+                    formControlName="paymentMethod"
+                    value="2"
+                  />
                 </div>
               </div>
             </div>
@@ -101,9 +155,7 @@
           <button type="button" class="buttons__reset" (click)="isPopUpEdit()">
             Close
           </button>
-          <button type="submit" class="buttons__apply">
-            Apply
-          </button>
+          <button type="submit" class="buttons__apply">Apply</button>
         </div>
       </form>
     </div>

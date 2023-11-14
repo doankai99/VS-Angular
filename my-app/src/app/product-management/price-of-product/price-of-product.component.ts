@@ -19,6 +19,8 @@ export class PriceOfProductComponent {
   public isAdmin: any;
 
   public currentDate: Date = new Date();
+  public startDates: any;
+  public endDates: any;
 
   constructor(private productService: ProductService, private toastrService: ToastrService) { }
 
@@ -43,12 +45,17 @@ export class PriceOfProductComponent {
     }
   }
 
-  public dateSale(startDate: Date, endDate: Date) {
+  public dateSale(startDate: Date, endDate: Date): boolean {
     const currentDate = new Date();
-    if (currentDate >= startDate && currentDate <= endDate) {
-      this.isWithinDateRange = true;
+    console.log(currentDate);
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    console.log(startDate);
+    console.log(endDate);
+    if (currentDate >= start && currentDate <= end) {
+      return true;
     } else {
-      this.isWithinDateRange = false;
+      return false;
     }
   }
 
@@ -57,10 +64,9 @@ export class PriceOfProductComponent {
     this.productService.getAllPriceOfPriduct().subscribe((data) => {
       if (data) {
         this.priceData = data.priceOfProducts
-        const startDate = new Date(data.priceOfProducts?.startDate);
-        const endDate = new Date(data.priceOfProducts?.endDate);
-
-        this.dateSale(startDate, endDate);
+        this.startDates = data.priceOfProducts.map((product: any) => product.startDate);
+        this.endDates = data.priceOfProducts.map((product: any) => product.endDate);
+        this.dateSale(this.startDates, this.endDates);
       } else {
         this.toastrService.success('Lấy thông tin giá sản phẩm thất bại')
       }

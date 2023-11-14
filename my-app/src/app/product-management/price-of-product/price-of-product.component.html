@@ -5,7 +5,9 @@
   <div class="content">
     <app-header></app-header>
     <div class="col-md-12" *ngIf="isAdmin">
-      <app-add-price (fetchData)="handleAddPriceforProduct($event)"></app-add-price>
+      <app-add-price
+        (fetchData)="handleAddPriceforProduct($event)"
+      ></app-add-price>
     </div>
     <div class="filter-backdrop" *ngIf="isLoading">
       <div *ngIf="isLoading" class="loading"></div>
@@ -23,34 +25,65 @@
           <td>Start time discount</td>
           <td>End time discount</td>
           <td>Price</td>
-          <td >Option</td>
+          <td>Option</td>
         </tr>
-        <tr *ngFor="let data of priceData?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
-          <td>{{i + 1}}</td>
+        <tr
+          *ngFor="
+            let data of priceData?.slice(
+              (currentPage - 1) * pageSize,
+              currentPage * pageSize
+            );
+            let i = index
+          "
+        >
+          <td>{{ i + 1 }}</td>
           <td>
-            <img *ngIf="!data.productId?.image" src="../../../assets/images/defaultthumbnail.jpg" alt="">
-            <img *ngIf="data.productId?.image" [src]="data.productId?.image" alt="">
+            <img
+              *ngIf="!data.productId?.image"
+              src="../../../assets/images/defaultthumbnail.jpg"
+              alt=""
+            />
+            <img
+              *ngIf="data.productId?.image"
+              [src]="data.productId?.image"
+              alt=""
+            />
           </td>
-          <td>{{data.productId?.name}}</td>
-          <td>{{data._id}}</td>
-          <td>{{data.price}} $</td>
-          <td>{{data.discount}}%</td>
-          <td>{{data.taxRate}}</td>
-          <td>{{data.startDate}}</td>
-          <td>{{data.endDate}}</td>
+          <td>{{ data.productId?.name }}</td>
+          <td>{{ data._id }}</td>
+          <td>{{ data.price }} $</td>
+          <td>{{ data.discount }}%</td>
+          <td>{{ data.taxRate }}</td>
+          <td>{{ data.startDate }}</td>
+          <td>{{ data.endDate }}</td>
           <td>
-            ${{ isWithinDateRange ? (data?.price - data?.price * data?.discount / 100) : data?.price }}
+            ${{
+              dateSale(startDates[i], endDates[i])
+                ? data?.price - (data?.price * data?.discount) / 100
+                : data?.price
+            }}
           </td>
           <td *ngIf="isAdmin">
-            <app-update-delete-price [isLoading]="isLoading" [dataPrice]="data" [priceId]="data._id"
-              (data)=handleCallPrice()></app-update-delete-price>
+            <app-update-delete-price
+              [isLoading]="isLoading"
+              [dataPrice]="data"
+              [priceId]="data._id"
+              (data)="handleCallPrice()"
+            ></app-update-delete-price>
           </td>
         </tr>
       </table>
     </div>
     <div class="pagination">
-      <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
-      <button [disabled]="currentPage * pageSize >= priceData?.length" (click)="nextPage()">Trang sau</button>
+      <button [disabled]="currentPage === 1" (click)="previousPage()">
+        Trang trước
+      </button>
+      <button
+        [disabled]="currentPage * pageSize >= priceData?.length"
+        (click)="nextPage()"
+      >
+        Trang sau
+      </button>
     </div>
   </div>
 </body>

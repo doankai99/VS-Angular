@@ -6,7 +6,7 @@
     <app-header></app-header>
     <div class="col-md-12" *ngIf="isAdmin">
       <app-add-new-supplier
-      (fetchData)="handleAddCompany($event)"
+        (fetchData)="handleAddCompany($event)"
       ></app-add-new-supplier>
     </div>
     <div class="filter-backdrop" *ngIf="isLoading">
@@ -26,43 +26,64 @@
           <td>logoUrl</td>
           <td>Option</td>
         </tr>
-        <tr *ngFor= "let items of masterCompany?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
-          <td>{{i + 1}}</td>
-          <td>{{items?.companyName}}</td>
-          <td>{{items?.email}}</td>
-          <td>{{items?.numberPhone}}</td>
+        <tr
+          *ngFor="
+            let items of masterCompany?.slice(
+              (currentPage - 1) * pageSize,
+              currentPage * pageSize
+            );
+            let i = index
+          "
+        >
+          <td>{{ i + 1 }}</td>
+          <td>{{ items?.companyName }}</td>
+          <td>{{ items?.email }}</td>
+          <td>{{ items?.numberPhone }}</td>
           <td>
             <ul>
-              <li *ngFor="let business of items?.businessType">{{ business }}</li>
+              <li *ngFor="let business of items?.businessType">
+                {{ business }}
+              </li>
             </ul>
           </td>
           <td>
             <ul>
-              <li *ngFor="let category of items?.productCategories">{{ category }}</li>
+              <li *ngFor="let category of items?.productCategories">
+                {{ category }}
+              </li>
             </ul>
           </td>
           <td>
             <span>
-              {{items?.street}}, {{items?.ward}}, {{items?.district}}, {{items?.city}}
+              {{ items?.street }}, {{ items?.ward }}, {{ items?.district }},
+              {{ items?.city }}
             </span>
           </td>
-          <td>{{items?.country}}</td>
-          <td><a [href]="items?.logoUrl"><span>link</span></a></td>
+          <td>{{ items?.country }}</td>
+          <td>
+            <a [href]="items?.logoUrl"><span>link</span></a>
+          </td>
           <td *ngIf="isAdmin">
             <app-update-delete-supplier
-            [masterCompany] = "masterCompany"
-            [companyId] = "items._id"
-            (data)="handleCompany()"
-            (fetchData)="handleEditCompany($event, items._id)"
+              [masterCompany]="masterCompany"
+              [companyId]="items._id"
+              (data)="handleCompany()"
+              (fetchData)="handleEditCompany($event, items._id)"
             ></app-update-delete-supplier>
           </td>
         </tr>
       </table>
     </div>
     <div class="pagination">
-      <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
-      <button [disabled]="currentPage * pageSize >= masterCompany?.length" (click)="nextPage()">Trang sau</button>
+      <button [disabled]="currentPage === 1" (click)="previousPage()">
+        Trang trước
+      </button>
+      <button
+        [disabled]="currentPage * pageSize >= masterCompany?.length"
+        (click)="nextPage()"
+      >
+        Trang sau
+      </button>
     </div>
   </div>
 </body>
-

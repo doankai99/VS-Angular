@@ -7,9 +7,30 @@
     <div class="swith-tab">
       <div class="nav">
         <ul>
-          <li (click)="activeTab = 'A'" class="user-post active" [ngClass]="{'active': activeTab === 'A'}" style="color: rgb(36, 36, 36);">Active</li>
-          <li (click)="activeTab = 'B'" class="user-setting" [ngClass]="{'active': activeTab === 'B'}"  style="color: rgb(36, 36, 36);">Done</li>
-          <li (click)="activeTab = 'C'" class="user-setting" [ngClass]="{'active': activeTab === 'C'}"  style="color: rgb(36, 36, 36);">Close</li>
+          <li
+            (click)="activeTab = 'A'"
+            class="user-post active"
+            [ngClass]="{ active: activeTab === 'A' }"
+            style="color: rgb(36, 36, 36)"
+          >
+            Active
+          </li>
+          <li
+            (click)="activeTab = 'B'"
+            class="user-setting"
+            [ngClass]="{ active: activeTab === 'B' }"
+            style="color: rgb(36, 36, 36)"
+          >
+            Done
+          </li>
+          <li
+            (click)="activeTab = 'C'"
+            class="user-setting"
+            [ngClass]="{ active: activeTab === 'C' }"
+            style="color: rgb(36, 36, 36)"
+          >
+            Close
+          </li>
         </ul>
       </div>
       <div class="profile-body">

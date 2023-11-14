@@ -1,15 +1,30 @@
 <header>
-  <h1 class="logo" routerLink="/homeCustomer"><i class='bx bx-spa bx-burst' ></i> VestScraft</h1>
-  <input type="checkbox" class="nav-toggle" id="nav-toggle">
+  <h1 class="logo" routerLink="/homeCustomer">
+    <i class="bx bx-spa bx-burst"></i> VestScraft
+  </h1>
+  <input type="checkbox" class="nav-toggle" id="nav-toggle" />
   <nav>
     <ul>
       <li class="nav-item"><a routerLink="/crm-product">Product</a></li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown">Services
+        <a class="nav-link dropdown-toggle" id="navbarDropdown"
+          >Services
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="/in-store-order">In-store Order</a></li>
-            <li><a class="dropdown-item" routerLink="/online-order">Online order</a></li>
-            <li><a class="dropdown-item" routerLink="/door-to-door">Door-to-door</a></li>
+            <li>
+              <a class="dropdown-item" routerLink="/in-store-order"
+                >In-store Order</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/online-order"
+                >Online order</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/door-to-door"
+                >Door-to-door</a
+              >
+            </li>
           </ul>
         </a>
       </li>
@@ -17,13 +32,17 @@
       <li><a routerLink="/contact-us">Contact</a></li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown">
-        <mat-icon>account_circle</mat-icon>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" routerLink="/customer-profile">Profile</a></li>
-          <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
-        </ul>
-      </a>
-    </li>
+          <mat-icon>account_circle</mat-icon>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/customer-profile"
+                >Profile</a
+              >
+            </li>
+            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+          </ul>
+        </a>
+      </li>
     </ul>
   </nav>
   <label for="nav-toggle" class="nav-toggle-label">

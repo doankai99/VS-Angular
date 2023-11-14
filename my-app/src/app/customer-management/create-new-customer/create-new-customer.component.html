@@ -1,7 +1,12 @@
 <div class="content-wrapper package-filter-wrapper">
   <div class="package-filter-button mt-2 mt-sm-0">
-    <button #filterButton class="filter-button" [ngClass]="{'open': isOpen}" (click)="toggleDetailUser()">
-      <i class='bx bx-plus'></i>
+    <button
+      #filterButton
+      class="filter-button"
+      [ngClass]="{ open: isOpen }"
+      (click)="toggleDetailUser()"
+    >
+      <i class="bx bx-plus"></i>
       <span> Add Customer </span>
     </button>
   </div>
@@ -9,11 +14,9 @@
   <div class="filter-backdrop" *ngIf="isOpen"></div>
   <div class="laas-package-filter" *ngIf="isOpen" #filterPopup>
     <div class="filter-header-icon">
-      <div class="filter-text">
-        Add Customer
-      </div>
+      <div class="filter-text">Add Customer</div>
       <div class="close-icon cursor-pointer" (click)="toggleDetailUser()">
-        <img src="../../assets/icons/icon_close.svg" alt="">
+        <img src="../../assets/icons/icon_close.svg" alt="" />
       </div>
     </div>
     <div class="pop-up-body">
@@ -21,47 +24,95 @@
         <div class="row">
           <div class="package-filter-content-wrapper">
             <div class="filter-row">
-              <div class="package-filter-wrapper  w-100">
+              <div class="package-filter-wrapper w-100">
                 <div class="showImage">
-                  <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../../assets/images/defaultthumbnail.jpg" >
-                  <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
+                  <img
+                    *ngIf="!selectedImageURL"
+                    id="selectedImage"
+                    alt=""
+                    src="../../../../assets/images/defaultthumbnail.jpg"
+                  />
+                  <img
+                    *ngIf="selectedImageURL"
+                    id="selectedImage"
+                    alt=""
+                    [src]="selectedImageURL"
+                  />
                   <label for="fileInput" class="file-label">
-                  <i class='bx bx-image-add'></i>
+                    <i class="bx bx-image-add"></i>
                   </label>
-                <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
+                  <input
+                    type="file"
+                    id="fileInput"
+                    formControlName="image"
+                    (change)="onFileChange($event)"
+                    style="display: none"
+                  />
                 </div>
               </div>
             </div>
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
-                <label>First Name <span style="color: rgb(217, 34, 34);">*</span></label>
-                <input type="text" formControlName="firstName" placeholder="First Name">
+                <label
+                  >First Name
+                  <span style="color: rgb(217, 34, 34)">*</span></label
+                >
+                <input
+                  type="text"
+                  formControlName="firstName"
+                  placeholder="First Name"
+                />
               </div>
               <div class="package-filter-wrapper w-50">
-                <label>Last Name <span style="color: rgb(217, 34, 34);">*</span></label>
-                <input type="text" formControlName="lastName" placeholder="last name">
+                <label
+                  >Last Name
+                  <span style="color: rgb(217, 34, 34)">*</span></label
+                >
+                <input
+                  type="text"
+                  formControlName="lastName"
+                  placeholder="last name"
+                />
               </div>
             </div>
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
-                <label>Email <span style="color: #d92222;">*</span></label>
-                <input type="email" formControlName="email" placeholder="@gmail.com">
+                <label>Email <span style="color: #d92222">*</span></label>
+                <input
+                  type="email"
+                  formControlName="email"
+                  placeholder="@gmail.com"
+                />
               </div>
               <div class="package-filter-wrapper w-50">
-                <label>Password <span style="color: rgb(217, 34, 34);">*</span></label>
+                <label
+                  >Password
+                  <span style="color: rgb(217, 34, 34)">*</span></label
+                >
                 <span>
-                  <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="password">
-                  <i class="{{ !showPassword ? 'bi-eye-slash' : 'bi-eye' }}"(click)="togglePasswordVisibility()"></i>
+                  <input
+                    type="{{ showPassword ? 'text' : 'password' }}"
+                    formControlName="password"
+                  />
+                  <i
+                    class="{{ !showPassword ? 'bi-eye-slash' : 'bi-eye' }}"
+                    (click)="togglePasswordVisibility()"
+                  ></i>
                 </span>
               </div>
             </div>
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
-                <label>Number Phone <span style="color: rgb(217, 34, 34);">*</span></label>
-                <input type="text" formControlName="numberPhone">
+                <label
+                  >Number Phone
+                  <span style="color: rgb(217, 34, 34)">*</span></label
+                >
+                <input type="text" formControlName="numberPhone" />
               </div>
               <div class="package-filter-wrapper w-50">
-                <label>gender <span style="color: rgb(217, 34, 34);">*</span></label>
+                <label
+                  >gender <span style="color: rgb(217, 34, 34)">*</span></label
+                >
                 <select formControlName="gender">
                   <option>Male</option>
                   <option>Famale</option>
@@ -72,36 +123,38 @@
             <div class="filter-row">
               <div class="package-filter-wrapper w-33">
                 <label>Street</label>
-                <input type="text" formControlName="street">
+                <input type="text" formControlName="street" />
               </div>
               <div class="package-filter-wrapper w-33">
                 <label>Ward</label>
-                <input type="text" formControlName="ward">
+                <input type="text" formControlName="ward" />
               </div>
               <div class="package-filter-wrapper w-33">
                 <label>District</label>
-                <input type="text" formControlName="district">
+                <input type="text" formControlName="district" />
               </div>
             </div>
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
                 <label>City</label>
-                <input type="text" formControlName="city">
+                <input type="text" formControlName="city" />
               </div>
               <div class="package-filter-wrapper w-50">
                 <label>Country</label>
-                <input type="text" formControlName="country">
+                <input type="text" formControlName="country" />
               </div>
             </div>
           </div>
         </div>
         <div class="buttons">
-          <button type="button" class="buttons__reset" (click)="toggleDetailUser()">
+          <button
+            type="button"
+            class="buttons__reset"
+            (click)="toggleDetailUser()"
+          >
             Close
           </button>
-          <button type="submit" class="buttons__apply">
-            Apply
-          </button>
+          <button type="submit" class="buttons__apply">Apply</button>
         </div>
       </form>
     </div>

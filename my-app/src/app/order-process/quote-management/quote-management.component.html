@@ -24,10 +24,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let order of order?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+          <tr
+            *ngFor="
+              let order of order?.slice(
+                (currentPage - 1) * pageSize,
+                currentPage * pageSize
+              );
+              let i = index
+            "
+          >
             <td>{{ order._id }}</td>
-            <td>{{ order.user?.firstname}} {{ order.user?.lastname}}</td>
-            <td>{{ order.customer?.firstName }} {{ order.customer?.LastName }}</td>
+            <td>{{ order.user?.firstname }} {{ order.user?.lastname }}</td>
+            <td>
+              {{ order.customer?.firstName }} {{ order.customer?.LastName }}
+            </td>
             <td>{{ order.customer?.numberPhone }}</td>
             <td>{{ order?.shippingAddress }}</td>
             <td>{{ order?.status }}</td>
@@ -36,12 +46,29 @@
             <td>{{ order?.totalCount }}</td>
             <td>
               <div class="buttons">
-                <button class="button_active" (click) = "handleUpdateStatusOrder(order?._id, statusOrder.ACTIVE_STATUS)">Active</button>
-                <button class="button_done" (click) = "handleUpdateStatusOrder(order?._id, statusOrder.DONE_STATUS)">Done</button>
+                <button
+                  class="button_active"
+                  (click)="
+                    handleUpdateStatusOrder(
+                      order?._id,
+                      statusOrder.ACTIVE_STATUS
+                    )
+                  "
+                >
+                  Active
+                </button>
+                <button
+                  class="button_done"
+                  (click)="
+                    handleUpdateStatusOrder(order?._id, statusOrder.DONE_STATUS)
+                  "
+                >
+                  Done
+                </button>
               </div>
             </td>
             <td>
-              <a routerLink="/Generatepdf/{{order._id}}">PDF</a>
+              <a routerLink="/Generatepdf/{{ order._id }}">PDF</a>
             </td>
           </tr>
         </tbody>

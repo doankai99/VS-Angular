@@ -1,7 +1,12 @@
 <div class="content-wrapper package-filter-wrapper">
   <div class="package-filter-button mt-2 mt-sm-0">
-    <button #filterButton class="filter-button" [ngClass]="{'open': isOpen}" (click)="toggleDetailUser()">
-      <i class='bx bx-plus'></i>
+    <button
+      #filterButton
+      class="filter-button"
+      [ngClass]="{ open: isOpen }"
+      (click)="toggleDetailUser()"
+    >
+      <i class="bx bx-plus"></i>
       <span> Add Material </span>
     </button>
   </div>
@@ -10,11 +15,9 @@
 <div class="filter-backdrop" *ngIf="isOpen"></div>
 <div class="laas-package-filter" *ngIf="isOpen" #filterPopup>
   <div class="filter-header-icon">
-    <div class="filter-text">
-      Add new user
-    </div>
+    <div class="filter-text">Add new user</div>
     <div class="close-icon cursor-pointer" (click)="toggleDetailUser()">
-      <img src="../../assets/icons/icon_close.svg" alt="">
+      <img src="../../assets/icons/icon_close.svg" alt="" />
     </div>
   </div>
   <div class="pop-up-body">
@@ -23,46 +26,69 @@
         <div class="package-filter-content-wrapper">
           <div class="filter-row">
             <div class="package-filter-wrapper item-center w-100">
-              <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../assets/images/defaultthumbnail.jpg" >
-              <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
+              <img
+                *ngIf="!selectedImageURL"
+                id="selectedImage"
+                alt=""
+                src="../../../assets/images/defaultthumbnail.jpg"
+              />
+              <img
+                *ngIf="selectedImageURL"
+                id="selectedImage"
+                alt=""
+                [src]="selectedImageURL"
+              />
               <label for="fileInput" class="file-label">
-                <i class='bx bx-image-add'></i>
+                <i class="bx bx-image-add"></i>
               </label>
-              <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
+              <input
+                type="file"
+                id="fileInput"
+                formControlName="image"
+                (change)="onFileChange($event)"
+                style="display: none"
+              />
             </div>
           </div>
           <div class="filter-row">
             <div class="package-filter-wrapper w-100">
               <label>Material Name</label>
-              <input type="text" formControlName="name">
+              <input type="text" formControlName="name" />
             </div>
           </div>
           <div class="filter-row">
             <div class="package-filter-wrapper w-50">
               <label>Company name</label>
               <select formControlName="companyId">
-                <option *ngFor="let items of masterCompany" [value]="items._id">{{items?.companyName}}</option>
+                <option *ngFor="let items of masterCompany" [value]="items._id">
+                  {{ items?.companyName }}
+                </option>
               </select>
             </div>
             <div class="package-filter-wrapper w-50">
               <label>Fabric Categories</label>
               <select formControlName="material">
-                <option *ngFor="let categorys of fabricCategories" [value]="categorys">{{categorys}}</option>
+                <option
+                  *ngFor="let categorys of fabricCategories"
+                  [value]="categorys"
+                >
+                  {{ categorys }}
+                </option>
               </select>
             </div>
           </div>
           <div class="filter-row">
             <div class="package-filter-wrapper w-33">
               <label>Color</label>
-              <input type="text" formControlName="color">
+              <input type="text" formControlName="color" />
             </div>
             <div class="package-filter-wrapper w-33">
               <label>Size</label>
-              <input type="text" formControlName="size">
+              <input type="text" formControlName="size" />
             </div>
             <div class="package-filter-wrapper w-33">
               <label>Price</label>
-              <input type="text" formControlName="price">
+              <input type="text" formControlName="price" />
             </div>
           </div>
           <div class="filter-row">
@@ -74,12 +100,14 @@
         </div>
       </div>
       <div class="buttons pop-up-Edit">
-        <button type="button" class="buttons__reset" (click)="toggleDetailUser()">
+        <button
+          type="button"
+          class="buttons__reset"
+          (click)="toggleDetailUser()"
+        >
           Close
         </button>
-        <button type="submit" class="buttons__apply">
-          Apply
-        </button>
+        <button type="submit" class="buttons__apply">Apply</button>
       </div>
     </form>
   </div>

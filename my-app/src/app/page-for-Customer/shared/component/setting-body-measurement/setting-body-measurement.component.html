@@ -2,8 +2,11 @@
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          class="img-fluid" alt="Sample image">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid"
+          alt="Sample image"
+        />
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form [formGroup]="form" (ngSubmit)="bodyMeasurementCustomer()">
@@ -14,49 +17,72 @@
           <div class="form-outline mb-4">
             <label class="form-label">Gender</label>
             <select formControlName="gender">
-              <option value= 0>Male</option>
-              <option value= 1>Female</option>
+              <option value="0">Male</option>
+              <option value="1">Female</option>
             </select>
           </div>
 
           <!-- Height input -->
           <div class="form-outline mb-3">
             <label class="form-label">Height</label>
-            <input type="number" class="form-control form-control-lg" [formControlName]="'height'"
-              placeholder="Enter heght" />
+            <input
+              type="number"
+              class="form-control form-control-lg"
+              [formControlName]="'height'"
+              placeholder="Enter heght"
+            />
           </div>
 
           <!-- Weight input -->
           <div class="form-outline mb-3">
             <label class="form-label">Weight</label>
-            <input type="number" class="form-control form-control-lg" [formControlName]="'weight'"
-              placeholder="Enter weight" />
+            <input
+              type="number"
+              class="form-control form-control-lg"
+              [formControlName]="'weight'"
+              placeholder="Enter weight"
+            />
           </div>
 
           <!-- Chest input -->
           <div class="form-outline mb-3">
             <label class="form-label">Chest</label>
-            <input type="number" class="form-control form-control-lg" [formControlName]="'chest'"
-              placeholder="Enter chest" />
+            <input
+              type="number"
+              class="form-control form-control-lg"
+              [formControlName]="'chest'"
+              placeholder="Enter chest"
+            />
           </div>
 
           <!-- Ward input -->
           <div class="form-outline mb-3">
             <label class="form-label">Waist</label>
-            <input type="number" class="form-control form-control-lg" [formControlName]="'waist'"
-              placeholder="Enter ward" />
+            <input
+              type="number"
+              class="form-control form-control-lg"
+              [formControlName]="'waist'"
+              placeholder="Enter ward"
+            />
           </div>
 
           <!-- Hips input -->
           <div class="form-outline mb-3">
             <label class="form-label">Hips</label>
-            <input type="number" class="form-control form-control-lg" [formControlName]="'hips'"
-              placeholder="Enter hips" />
+            <input
+              type="number"
+              class="form-control form-control-lg"
+              [formControlName]="'hips'"
+              placeholder="Enter hips"
+            />
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="submit" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem"
+            >
               Apply
             </button>
           </div>

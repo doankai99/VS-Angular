@@ -4,81 +4,110 @@
   </div>
   <div style="margin: 0 auto; max-width: 900px; padding: 50px">
     <div class="woocommerce-order">
-        <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">Thank you. Your order has been received.</p>
-        <section class="woocommerce-order-details">
-          <h2 class="woocommerce-order-details__title">Order details</h2>
-            <table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
-              <thead>
-                <tr>
-                  <th class="woocommerce-table__product-name product-name">Product</th>
-                  <th class="woocommerce-table__product-table product-total">Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="woocommerce-table__line-item order_item">
-                  <td class="woocommerce-table__product-name product-name">{{order?.product[0]?.productId?.name}}</td>
-                  <td class="woocommerce-table__product-total product-total">
-                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">
-                      $</span>
-                      {{order?.product[0]?.price}}
-                      </span>
-                  </td>
-                </tr>
-                <tr class="woocommerce-table__line-item order_item">
-                  <td class="woocommerce-table__product-name product-name">DisCount:</td>
-                  <td class="woocommerce-table__product-total product-total">
-                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">
-                      </span>
-                      {{isWithinDateRange ? order?.product[0]?.discount : 0}}%
-                      </span>
-                  </td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th scope="row">Subtotal:</th>
-                  <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">
-                    </span>
-                    ${{ isWithinDateRange ? (order?.product[0]?.price - order?.product[0]?.price * order?.product[0]?.discount / 100) : order?.product[0]?.price }}
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Payment method:</th>
-                  <td>{{order?.paymentMethod | translatePaymentMethod}}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Total:</th>
-                  <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">
-                    </span>${{order?.totalCount}}</span>
-                  </td>
-                </tr>
-              </tfoot>
-            </table>
-            <section class="woocommerce-customer-details">
-              <h2>Customer details</h2>
-              <table class="woocommerce-table woocommerce-table--customer-details shop_table customer_details">
-                <tbody>
-                  <tr>
-                    <th>Email:</th>
-                    <td>{{order?.customer?.email}}</td>
-                  </tr>
-                  <tr>
-                    <th>Phone:</th>
-                    <td>{{order?.customer?.numberPhone
-                    }}</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h2 class="woocommerce-column__title">Shipping</h2>
-              <p>Shippping Address: {{order?.shippingAddress}}</p>
-              <h3>Home Address</h3>
-              <p>Area: {{order?.customer?.street}}, {{order?.customer?.ward}}, {{order?.customer?.district}}</p>
-              <p>City: {{order?.customer?.city}}</p>
-              <p>Country: {{order?.customer?.country}}</p>
-            </section>
+      <p
+        class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"
+      >
+        Thank you. Your order has been received.
+      </p>
+      <section class="woocommerce-order-details">
+        <h2 class="woocommerce-order-details__title">Order details</h2>
+        <table
+          class="woocommerce-table woocommerce-table--order-details shop_table order_details"
+        >
+          <thead>
+            <tr>
+              <th class="woocommerce-table__product-name product-name">
+                Product
+              </th>
+              <th class="woocommerce-table__product-table product-total">
+                Total
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="woocommerce-table__line-item order_item">
+              <td class="woocommerce-table__product-name product-name">
+                {{ order?.product[0]?.productId?.name }}
+              </td>
+              <td class="woocommerce-table__product-total product-total">
+                <span class="woocommerce-Price-amount amount"
+                  ><span class="woocommerce-Price-currencySymbol"> $</span>
+                  {{ order?.product[0]?.price }}
+                </span>
+              </td>
+            </tr>
+            <tr class="woocommerce-table__line-item order_item">
+              <td class="woocommerce-table__product-name product-name">
+                DisCount:
+              </td>
+              <td class="woocommerce-table__product-total product-total">
+                <span class="woocommerce-Price-amount amount"
+                  ><span class="woocommerce-Price-currencySymbol"> </span>
+                  {{ isWithinDateRange ? order?.product[0]?.discount : 0 }}%
+                </span>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Subtotal:</th>
+              <td>
+                <span class="woocommerce-Price-amount amount"
+                  ><span class="woocommerce-Price-currencySymbol"> </span> ${{
+                    isWithinDateRange
+                      ? order?.product[0]?.price -
+                        (order?.product[0]?.price *
+                          order?.product[0]?.discount) /
+                          100
+                      : order?.product[0]?.price
+                  }}
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Payment method:</th>
+              <td>{{ order?.paymentMethod | translatePaymentMethod }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Total:</th>
+              <td>
+                <span class="woocommerce-Price-amount amount"
+                  ><span class="woocommerce-Price-currencySymbol"> </span>${{
+                    order?.totalCount
+                  }}</span
+                >
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+        <section class="woocommerce-customer-details">
+          <h2>Customer details</h2>
+          <table
+            class="woocommerce-table woocommerce-table--customer-details shop_table customer_details"
+          >
+            <tbody>
+              <tr>
+                <th>Email:</th>
+                <td>{{ order?.customer?.email }}</td>
+              </tr>
+              <tr>
+                <th>Phone:</th>
+                <td>{{ order?.customer?.numberPhone }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 class="woocommerce-column__title">Shipping</h2>
+          <p>Shippping Address: {{ order?.shippingAddress }}</p>
+          <h3>Home Address</h3>
+          <p>
+            Area: {{ order?.customer?.street }}, {{ order?.customer?.ward }},
+            {{ order?.customer?.district }}
+          </p>
+          <p>City: {{ order?.customer?.city }}</p>
+          <p>Country: {{ order?.customer?.country }}</p>
         </section>
-      </div> <!-- woocommerce-order -->
+      </section>
     </div>
-
+    <!-- woocommerce-order -->
+  </div>
 </body>

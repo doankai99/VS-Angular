@@ -13,6 +13,8 @@ export class DetailProductComponent {
   public productDetail: any;
   public activeTab: string = 'A'
   public isWithinDateRange: boolean = false;
+  public startDate!: Date;
+  public endDate!: Date;
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private toast: ToastrService) {
 
@@ -25,14 +27,17 @@ export class DetailProductComponent {
     this.detailProduct();
   }
 
-  public dateSale(startDate: Date, endDate: Date) {
+  public dateSale(startDate: Date, endDate: Date): boolean {
     const currentDate = new Date();
-    startDate = new Date(currentDate)
-    endDate = new Date(currentDate)
-    if (currentDate >= startDate && currentDate <= endDate) {
-      this.isWithinDateRange = true;
+    console.log(currentDate);
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    console.log(startDate);
+    console.log(endDate);
+    if (currentDate >= start && currentDate <= end) {
+      return true;
     } else {
-      this.isWithinDateRange = false;
+      return false;
     }
   }
 
@@ -41,9 +46,9 @@ export class DetailProductComponent {
     this.productService.detailPriceOfProduct(id).subscribe((data) => {
       if (data) {
         this.productDetail = data.detailPriceProduct
-        const startDate = new Date(this.productDetail[0]?.startDate);
-        const endDate = new Date(this.productDetail[0]?.endDate);
-        this.dateSale(startDate, endDate);
+        this.startDate = new Date(this.productDetail.startDate);
+        this.endDate = new Date(this.productDetail.endDate);
+        this.dateSale(this.startDate, this.endDate);
       } else {
         this.toast.error("K tìm thấy product")
       }

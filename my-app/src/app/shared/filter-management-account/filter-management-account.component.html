@@ -1,7 +1,18 @@
 <div class="content-wrapper package-filter-wrapper">
   <div class="package-filter-button mt-2 mt-sm-0">
-      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="popUpEdit()">Edit</span>
-      <span class="filter-button" [ngClass]="{'open': isOpenDelete}" (click)="toggleFilter()"> Delete </span>
+    <span
+      class="filter-button"
+      [ngClass]="{ open: isOpenEdit }"
+      (click)="popUpEdit()"
+      >Edit</span
+    >
+    <span
+      class="filter-button"
+      [ngClass]="{ open: isOpenDelete }"
+      (click)="toggleFilter()"
+    >
+      Delete
+    </span>
   </div>
 
   <div class="filter-backdrop" *ngIf="isOpenDelete || isOpenEdit"></div>
@@ -9,27 +20,31 @@
   <!-- pop-up delete -->
   <div class="laas-package-filter" *ngIf="isOpenDelete" #filterPopup>
     <div class="filter-header-icon">
-      <div class="filter-text">
-        Delete User
-      </div>
+      <div class="filter-text">Delete User</div>
       <div class="close-icon cursor-pointer" (click)="toggleFilter()">
-        <img src="../../assets/icons/icon_close.svg" alt="">
+        <img src="../../assets/icons/icon_close.svg" alt="" />
       </div>
     </div>
-    <div class = "filter-body-content">
+    <div class="filter-body-content">
       <div class="display-infor-User">
         <div class="avatar">
-          <img *ngIf="!getDetailUser.image" src="../../../assets/images/defauthAvatar.jpg" alt="avatar {{getDetailUser.firstname}}">
-          <img *ngIf="getDetailUser.image" [src] = "getDetailUser.image" alt="">
+          <img
+            *ngIf="!getDetailUser.image"
+            src="../../../assets/images/defauthAvatar.jpg"
+            alt="avatar {{ getDetailUser.firstname }}"
+          />
+          <img *ngIf="getDetailUser.image" [src]="getDetailUser.image" alt="" />
         </div>
-        <p class="d-flex justify-content-center">{{getDetailUser.firstname}} {{getDetailUser.lastname}}</p>
+        <p class="d-flex justify-content-center">
+          {{ getDetailUser.firstname }} {{ getDetailUser.lastname }}
+        </p>
         <div class="">
           <label>Email: </label>
-          <p>{{getDetailUser.email}}</p>
+          <p>{{ getDetailUser.email }}</p>
         </div>
         <div class="">
           <label>Position: </label>
-          <p>{{getDetailUser.position}}</p>
+          <p>{{ getDetailUser.position }}</p>
         </div>
       </div>
       <div class="buttons pop-up-delete">
@@ -47,11 +62,9 @@
 
   <div class="pop-up-edit" *ngIf="isOpenEdit" #filterPopup>
     <div class="filter-header-icon">
-      <div class="filter-text">
-        Edit User
-      </div>
+      <div class="filter-text">Edit User</div>
       <div class="close-icon cursor-pointer" (click)="popUpEdit()">
-        <img src="../../assets/icons/icon_close.svg" alt="">
+        <img src="../../assets/icons/icon_close.svg" alt="" />
       </div>
     </div>
     <div class="pop-up-body">
@@ -61,58 +74,74 @@
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
                 <label>First Name</label>
-                <input type="text" formControlName="firstname">
+                <input type="text" formControlName="firstname" />
               </div>
-                <div class="package-filter-wrapper w-50">
-                  <label>Last Name</label>
-                  <input type="text" formControlName="lastname">
-                </div>
+              <div class="package-filter-wrapper w-50">
+                <label>Last Name</label>
+                <input type="text" formControlName="lastname" />
+              </div>
             </div>
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
                 <label>Email</label>
-                <input type="text" formControlName="email" placeholder="enter email">
+                <input
+                  type="text"
+                  formControlName="email"
+                  placeholder="enter email"
+                />
               </div>
               <div class="package-filter-wrapper w-50">
                 <label>Position</label>
-                <input type="text" formControlName="position" placeholder="position">
+                <input
+                  type="text"
+                  formControlName="position"
+                  placeholder="position"
+                />
               </div>
             </div>
             <div class="filter-row">
               <div class="package-filter-wrapper w-33">
                 <label>Street</label>
-                <input type="text" formControlName="street">
+                <input type="text" formControlName="street" />
               </div>
               <div class="package-filter-wrapper w-33">
                 <label>Ward</label>
-                <input type="text" formControlName="ward">
+                <input type="text" formControlName="ward" />
               </div>
               <div class="package-filter-wrapper w-33">
                 <label>District</label>
-                <input type="text" formControlName="district">
+                <input type="text" formControlName="district" />
               </div>
             </div>
             <div class="filter-row">
               <div class="package-filter-wrapper w-50">
                 <label>City</label>
-                <input type="text" formControlName="city" placeholder="Enter city">
+                <input
+                  type="text"
+                  formControlName="city"
+                  placeholder="Enter city"
+                />
               </div>
               <div class="package-filter-wrapper w-50">
                 <label>Country</label>
-                <input type="text" formControlName="country" placeholder="Enter Country">
+                <input
+                  type="text"
+                  formControlName="country"
+                  placeholder="Enter Country"
+                />
               </div>
             </div>
             <div class="filter-row">
-                <label>Admin</label>
-                <div class="form-check form-switch">
-                  <input
-                    mdbCheckbox
-                    class="form-check-input"
-                    type="checkbox"
-                    formControlName="isAdmin"
-                    [checked]="true"
-                  />
-                </div>
+              <label>Admin</label>
+              <div class="form-check form-switch">
+                <input
+                  mdbCheckbox
+                  class="form-check-input"
+                  type="checkbox"
+                  formControlName="isAdmin"
+                  [checked]="true"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -120,9 +149,7 @@
           <button type="button" class="buttons__reset" (click)="popUpEdit()">
             Close
           </button>
-          <button type="submit" class="buttons__apply">
-            Edit
-          </button>
+          <button type="submit" class="buttons__apply">Edit</button>
         </div>
       </form>
     </div>

@@ -1,7 +1,18 @@
 <div class="content-wrapper package-filter-wrapper">
   <div class="package-filter-button mt-2 mt-sm-0">
-      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="popUpEdit()">Edit</span>
-      <span class="filter-button" [ngClass]="{'open': isOpenDelete}" (click)="toggleFilter()"> Delete </span>
+    <span
+      class="filter-button"
+      [ngClass]="{ open: isOpenEdit }"
+      (click)="popUpEdit()"
+      >Edit</span
+    >
+    <span
+      class="filter-button"
+      [ngClass]="{ open: isOpenDelete }"
+      (click)="toggleFilter()"
+    >
+      Delete
+    </span>
   </div>
 
   <div class="filter-backdrop" *ngIf="isOpenDelete || isOpenEdit"></div>
@@ -9,13 +20,13 @@
   <!-- pop-up delete -->
   <div class="laas-package-filter" *ngIf="isOpenDelete" #filterPopup>
     <div class="filter-header-icon">
-      <div class="filter-text">
-        Delete Material
-      </div>
+      <div class="filter-text">Delete Material</div>
     </div>
-    <div class = "filter-body-content">
+    <div class="filter-body-content">
       <div class="display-infor-User">
-        <p class="d-flex justify-content-center">Bạn có muốn xóa material {{materialData.name}}</p>
+        <p class="d-flex justify-content-center">
+          Bạn có muốn xóa material {{ materialData.name }}
+        </p>
       </div>
       <div class="buttons pop-up-delete">
         <button type="button" class="buttons__reset" (click)="toggleFilter()">
@@ -32,11 +43,9 @@
 
   <div class="pop-up-edit" *ngIf="isOpenEdit" #filterPopup>
     <div class="filter-header-icon">
-      <div class="filter-text">
-        Edit Material {{materialData?.name}}
-      </div>
+      <div class="filter-text">Edit Material {{ materialData?.name }}</div>
       <div class="close-icon cursor-pointer" (click)="popUpEdit()">
-        <img src="../../assets/icons/icon_close.svg" alt="">
+        <img src="../../assets/icons/icon_close.svg" alt="" />
       </div>
     </div>
     <div class="pop-up-body">
@@ -46,12 +55,28 @@
             <div class="upload-image">
               <div class="filter-row">
                 <div class="package-filter-wrapper item-center w-100">
-                  <img *ngIf="!selectedImageURL" id="selectedImage" alt="" src="../../../assets/images/defaultthumbnail.jpg" >
-                  <img *ngIf="selectedImageURL" id="selectedImage" alt="" [src]="selectedImageURL" >
+                  <img
+                    *ngIf="!selectedImageURL"
+                    id="selectedImage"
+                    alt=""
+                    src="../../../assets/images/defaultthumbnail.jpg"
+                  />
+                  <img
+                    *ngIf="selectedImageURL"
+                    id="selectedImage"
+                    alt=""
+                    [src]="selectedImageURL"
+                  />
                   <label for="fileInput" class="file-label">
-                    <i class='bx bx-image-add'></i>
+                    <i class="bx bx-image-add"></i>
                   </label>
-                  <input type="file" id="fileInput" formControlName="image" (change)="onFileChange($event)" style="display: none;">
+                  <input
+                    type="file"
+                    id="fileInput"
+                    formControlName="image"
+                    (change)="onFileChange($event)"
+                    style="display: none"
+                  />
                 </div>
               </div>
             </div>
@@ -59,35 +84,49 @@
               <div class="filter-row">
                 <div class="package-filter-wrapper w-100">
                   <label>Material Name</label>
-                  <input type="text" formControlName="name" placeholder="material">
+                  <input
+                    type="text"
+                    formControlName="name"
+                    placeholder="material"
+                  />
                 </div>
               </div>
               <div class="filter-row">
                 <div class="package-filter-wrapper w-50">
                   <label>Company name</label>
                   <select formControlName="companyId">
-                    <option *ngFor="let items of masterCompany" [value]="items?._id">{{items?.companyName}}</option>
+                    <option
+                      *ngFor="let items of masterCompany"
+                      [value]="items?._id"
+                    >
+                      {{ items?.companyName }}
+                    </option>
                   </select>
                 </div>
                 <div class="package-filter-wrapper w-50">
                   <label>Fabric Categories</label>
                   <select formControlName="material">
-                    <option *ngFor="let categorys of fabricCategories" [value]="categorys">{{categorys}}</option>
+                    <option
+                      *ngFor="let categorys of fabricCategories"
+                      [value]="categorys"
+                    >
+                      {{ categorys }}
+                    </option>
                   </select>
                 </div>
               </div>
               <div class="filter-row">
                 <div class="package-filter-wrapper w-33">
                   <label>Color</label>
-                  <input type="text" formControlName="color">
+                  <input type="text" formControlName="color" />
                 </div>
                 <div class="package-filter-wrapper w-33">
                   <label>Size</label>
-                  <input type="text" formControlName="size">
+                  <input type="text" formControlName="size" />
                 </div>
                 <div class="package-filter-wrapper w-33">
                   <label>Price</label>
-                  <input type="text" formControlName="price">
+                  <input type="text" formControlName="price" />
                 </div>
               </div>
               <div class="filter-row">
@@ -103,9 +142,7 @@
           <button type="button" class="buttons__reset" (click)="popUpEdit()">
             Close
           </button>
-          <button type="submit" class="buttons__apply">
-            Apply
-          </button>
+          <button type="submit" class="buttons__apply">Apply</button>
         </div>
       </form>
     </div>
