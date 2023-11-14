@@ -1,12 +1,12 @@
 <body>
-	<div class="container">
-		<div class="col-md-12" id="fbcomment">
-			<div class="header_comment">
-				<div class="row">
-					<div class="col-md-6 text-left">
-					  <span class="count_comment">{{feedback?.length}} Comments</span>
-					</div>
-					<!-- <div class="col-md-6 text-right">
+  <div class="container">
+    <div class="col-md-12" id="fbcomment">
+      <div class="header_comment">
+        <div class="row">
+          <div class="col-md-6 text-left">
+            <span class="count_comment">{{ feedback?.length }} Comments</span>
+          </div>
+          <!-- <div class="col-md-6 text-right">
 					  <span class="sort_title">Sort by</span>
 					  <select class="sort_by">
 						<option>Top</option>
@@ -14,45 +14,60 @@
 						<option>Oldest</option>
 					  </select>
 					</div> -->
-				</div>
-			</div>
+        </div>
+      </div>
 
-			<div class="body_comment">
-				<div class="row form-comment">
-					<div class="avatar_comment col-md-1">
-					  <img [src]="avatar" alt="avatar"/>
-					</div>
+      <div class="body_comment">
+        <div class="row form-comment">
+          <div class="avatar_comment col-md-1">
+            <img [src]="avatar" alt="avatar" />
+          </div>
           <form [formGroup]="form" (submit)="sendFeedback()">
             <div class="box_comment col-md-11">
-              <textarea formControlName="description" class="commentar" placeholder="Add a comment..."></textarea>
+              <textarea
+                formControlName="description"
+                class="commentar"
+                placeholder="Add a comment..."
+              ></textarea>
               <div class="box_post">
-              <div class="pull-right">
-                <button type="submit">Post</button>
-              </div>
+                <div class="pull-right">
+                  <button type="submit">Post</button>
+                </div>
               </div>
             </div>
           </form>
-				</div>
-				<div class="row list-all-comment">
-					<ul id="list_comment" class="col-md-12">
-						<!-- Start List Comment 1 -->
-						<li class="box_result row" *ngFor="let item of feedback?.slice((currentPage - 1) * currentFeedback, currentPage * currentFeedback)">
-							<div class="avatar_comment col-md-1">
-								<img [src]="item.customer?.image" alt="avatar"/>
-							</div>
-							<div class="result_comment col-md-11">
+        </div>
+        <div class="row list-all-comment">
+          <ul id="list_comment" class="col-md-12">
+            <!-- Start List Comment 1 -->
+            <li
+              class="box_result row"
+              *ngFor="
+                let item of feedback?.slice(
+                  (currentPage - 1) * currentFeedback,
+                  currentPage * currentFeedback
+                )
+              "
+            >
+              <div class="avatar_comment col-md-1">
+                <img [src]="item.customer?.image" alt="avatar" />
+              </div>
+              <div class="result_comment col-md-11">
                 <span class="header-comment">
-                  <h4>{{item?.customer?.firstName}} {{item?.customer?.lastName}}</h4>
+                  <h4>
+                    {{ item?.customer?.firstName }}
+                    {{ item?.customer?.lastName }}
+                  </h4>
                   <span>26m</span>
                 </span>
-								<p>{{item?.description}}</p>
-								<!-- <div class="tools_comment">
+                <p>{{ item?.description }}</p>
+                <!-- <div class="tools_comment">
 									<a class="like" href="#">Like</a>
 									<span aria-hidden="true"> · </span>
 									<i class="fa fa-thumbs-o-up"></i> <span class="count">1</span>
 									<span aria-hidden="true"> · </span>
 								</div> -->
-								<!-- <ul class="child_replay">
+                <!-- <ul class="child_replay">
 									<li class="box_reply row">
 										<div class="avatar_comment col-md-1">
 											<img src="https://static.xx.fbcdn.net/rsrc.php/v1/yi/r/odA9sNLrE86.jpg" alt="avatar"/>
@@ -73,12 +88,18 @@
 										</div>
 									</li>
 								</ul> -->
-							</div>
-						</li>
-					</ul>
-				<button class="show_more" type="button" (click)="handleShowAllComment(feedback)">Load all comments</button>
-				</div>
-			</div>
-		</div>
-	</div>
+              </div>
+            </li>
+          </ul>
+          <button
+            class="show_more"
+            type="button"
+            (click)="handleShowAllComment(feedback)"
+          >
+            Load all comments
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>

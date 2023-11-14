@@ -4,22 +4,51 @@
   </div>
   <div class="content-product">
     <ul class="mystyle-products">
-      <li class="product" *ngFor="let item of viewProduct" [routerLink]="'/detail-product/' + item._id">
-          <a>
-              <span class="onsale" *ngIf="isWithinDateRange">Sale!</span>
-              <img alt="" class="attachment-shop_catalog " [src]="item.productId.image" />
-              <h3>{{item.productId.name}}</h3>
-              <span class="price">
-                  <del> <span class="amount">${{item?.price}} </span> </del>
-                  <ins> <span class="amount">${{ isWithinDateRange ? (item?.price - item?.price * item?.discount / 100) : item?.price }}</span> </ins>
-                  <span class="sale-tag sale-tag-square">{{item?.discount}}%</span>
-              </span>
-          </a>
-          <a class="button add_to_cart_button product_type_simple" rel="nofollow" href="#">
-              Mua ngay
-          </a>
-          <a href="#" class="btn btn-dark btn-circle btn-review" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="ion ion-ios-move"></i></a>
+      <li
+        class="product"
+        *ngFor="let item of viewProduct; let i = index"
+        [routerLink]="'/detail-product/' + item._id"
+      >
+        <a>
+          <span class="onsale" *ngIf="isWithinDateRange">Sale!</span>
+          <img
+            alt=""
+            class="attachment-shop_catalog"
+            [src]="item.productId.image"
+          />
+          <h3>{{ item.productId.name }}</h3>
+          <span class="price">
+            <del>
+              <span class="amount">${{ item?.price }} </span>
+            </del>
+            <ins>
+              <span class="amount"
+                >${{
+                  dateSale(startDates[i], endDates[i])
+                    ? item?.price - (item?.price * item?.discount) / 100
+                    : item?.price
+                }}</span
+              >
+            </ins>
+            <span class="sale-tag sale-tag-square">{{ item?.discount }}%</span>
+          </span>
+        </a>
+        <a
+          class="button add_to_cart_button product_type_simple"
+          rel="nofollow"
+          href="#"
+        >
+          Mua ngay
+        </a>
+        <a
+          href="#"
+          class="btn btn-dark btn-circle btn-review"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Quick View"
+          ><i class="ion ion-ios-move"></i
+        ></a>
       </li>
-  </ul>
+    </ul>
   </div>
 </body>

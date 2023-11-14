@@ -3,58 +3,152 @@
     <form>
       <div class="container rounded bg-white">
         <div class="row">
-            <div class="col-md-8 border-right">
-                <div class="p-3">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Profile</h4>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Fisrt Name</label><input type="text" class="form-control" placeholder="first name" [value]="customer?.firstName" readonly></div>
-                        <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" [value]="customer?.lastName" placeholder="surname" readonly></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="enter email id" [value]="customer?.email"readonly></div>
-                        <div class="col-md-12"><label class="labels">Phone</label><input type="text" class="form-control" placeholder="enter address line 2" [value]="customer?.numberPhone" readonly></div>
-                        <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" placeholder="enter email id" [value]="customer?.gender | translateGender"readonly></div>
-                        <div class="col-md-12"><label class="labels">Street</label><input type="text" class="form-control" placeholder="enter address line 1" [value]="customer?.street" readonly></div>
-                        <div class="col-md-12"><label class="labels">Ward</label><input type="text" class="form-control" placeholder="enter address line 2" [value]="customer?.ward" readonly></div>
-                        <div class="col-md-12"><label class="labels">District</label><input type="text" class="form-control" placeholder="District" [value]="customer?.district" readonly></div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-md-6"><label class="labels">City</label><input type="text" class="form-control" [value]="customer?.city" placeholder="city" readonly></div>
-                        <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" [value]="customer?.country" readonly></div>
-                    </div>
+          <div class="col-md-8 border-right">
+            <div class="p-3">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <h4 class="text-right">Profile</h4>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-6">
+                  <label class="labels">Fisrt Name</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="first name"
+                    [value]="customer?.firstName"
+                    readonly
+                  />
                 </div>
+                <div class="col-md-6">
+                  <label class="labels">Last Name</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    [value]="customer?.lastName"
+                    placeholder="surname"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <label class="labels">Email</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="enter email id"
+                    [value]="customer?.email"
+                    readonly
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label class="labels">Phone</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="enter address line 2"
+                    [value]="customer?.numberPhone"
+                    readonly
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label class="labels">Gender</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="enter email id"
+                    [value]="customer?.gender | translateGender"
+                    readonly
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label class="labels">Street</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="enter address line 1"
+                    [value]="customer?.street"
+                    readonly
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label class="labels">Ward</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="enter address line 2"
+                    [value]="customer?.ward"
+                    readonly
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label class="labels">District</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="District"
+                    [value]="customer?.district"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <label class="labels">City</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    [value]="customer?.city"
+                    placeholder="city"
+                    readonly
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="labels">Country</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="country"
+                    [value]="customer?.country"
+                    readonly
+                  />
+                </div>
+              </div>
             </div>
-            <div class="col-md-4 border-right">
-              <div class="d-flex flex-column align-items-center text-center p-3">
-                <span class="font-weight-bold">Body measurements</span>
-                <div class="text-black-50">
-                  <div class="measurements-item">
-                    <label>Size: </label>
-                    <span>{{bodyCustomers?.size}}</span>
-                  </div>
-                  <div class="measurements-item">
-                    <label>Height: </label>
-                    <span>{{bodyCustomers?.height}}</span>
-                  </div>
-                  <div class="measurements-item">
-                    <label>Weight:</label>
-                    <span>{{bodyCustomers?.weight}}</span>
-                  </div>
-                  <div class="measurements-item">
-                    <label>Chest:</label>
-                    <span>{{bodyCustomers?.chest}}</span>
-                  </div>
-                  <div class="measurements-item">
-                    <label>Waist:</label>
-                    <span>{{bodyCustomers?.waist}}</span>
-                  </div>
-                  <div class="measurements-item">
-                    <label>Hips:</label>
-                    <span>{{bodyCustomers?.hips}}</span>
-                  </div>
-                </div><span> </span></div>
+          </div>
+          <div class="col-md-4 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3">
+              <span class="font-weight-bold">Body measurements</span>
+              <div class="text-black-50">
+                <div class="measurements-item">
+                  <label>Size: </label>
+                  <span>{{ bodyCustomers?.size }}</span>
+                </div>
+                <div class="measurements-item">
+                  <label>Height: </label>
+                  <span>{{ bodyCustomers?.height }}</span>
+                </div>
+                <div class="measurements-item">
+                  <label>Weight:</label>
+                  <span>{{ bodyCustomers?.weight }}</span>
+                </div>
+                <div class="measurements-item">
+                  <label>Chest:</label>
+                  <span>{{ bodyCustomers?.chest }}</span>
+                </div>
+                <div class="measurements-item">
+                  <label>Waist:</label>
+                  <span>{{ bodyCustomers?.waist }}</span>
+                </div>
+                <div class="measurements-item">
+                  <label>Hips:</label>
+                  <span>{{ bodyCustomers?.hips }}</span>
+                </div>
+              </div>
+              <span> </span>
+            </div>
           </div>
         </div>
       </div>

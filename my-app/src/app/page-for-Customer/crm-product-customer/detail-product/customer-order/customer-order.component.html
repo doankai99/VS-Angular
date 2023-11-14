@@ -1,7 +1,12 @@
 <div class="content-wrapper package-filter-wrapper">
   <div class="package-filter-button mt-2 mt-sm-0">
-    <button #filterButton class="filter-button" [ngClass]="{'open': isOpen}" (click)="isOpenOrder()">
-      <i class='bx bx-plus'></i>
+    <button
+      #filterButton
+      class="filter-button"
+      [ngClass]="{ open: isOpen }"
+      (click)="isOpenOrder()"
+    >
+      <i class="bx bx-plus"></i>
       <span> Add to Cart </span>
     </button>
   </div>
@@ -10,55 +15,59 @@
 <div class="filter-backdrop" *ngIf="isOpen"></div>
 <div class="laas-package-filter" *ngIf="isOpen" #filterPopup>
   <div class="filter-header-icon">
-    <div class="filter-text">
-      Add Company
-    </div>
+    <div class="filter-text">Add Company</div>
     <div class="close-icon cursor-pointer" (click)="isOpenOrder()">
-      <img src="../../assets/icons/icon_close.svg" alt="">
+      <img src="../../assets/icons/icon_close.svg" alt="" />
     </div>
   </div>
 
   <div class="pop-up-body">
-    <form [formGroup] = "form" (submit)="createNewOrder()">
+    <form [formGroup]="form" (submit)="createNewOrder()">
       <figure class="snip1195">
         <div class="image w-50">
           <h4>Casual Top</h4>
-          <img [src]="product.productId?.image" alt="sq-sample14"/>
-          <div class="rating">
-            5<i class='bx bxs-star'></i>
-          </div>
+          <img [src]="product.productId?.image" alt="sq-sample14" />
+          <div class="rating">5<i class="bx bxs-star"></i></div>
         </div>
         <div class="info-product w-50">
-          <h5>{{product.productId?.name}}</h5>
+          <h5>{{ product.productId?.name }}</h5>
           <div class="form-order w-50">
             <p>
               <label>quantity</label>
-              <input type="number" formControlName="quantity">
+              <input type="number" formControlName="quantity" />
             </p>
           </div>
           <div>
             <p>
               <label>Shipping Address</label>
-              <input type="text" formControlName="shippingAddress">
+              <input type="text" formControlName="shippingAddress" />
             </p>
           </div>
           <div class="payment-method">
             <p>
               <label>Direct Bank Transfer</label>
-              <input type="radio" formControlName="paymentMethod" value="0" checked>
+              <input
+                type="radio"
+                formControlName="paymentMethod"
+                value="0"
+                checked
+              />
             </p>
             <p>
               <label>Cash on Delivery</label>
-              <input type="radio" formControlName="paymentMethod" value="1">
+              <input type="radio" formControlName="paymentMethod" value="1" />
             </p>
             <p>
               <label>Paypal</label>
-              <input type="radio" formControlName="paymentMethod" value="2">
+              <input type="radio" formControlName="paymentMethod" value="2" />
             </p>
           </div>
           <div class="price">
             <label>Price: </label>
-            <s>{{product.price}}</s><span>{{product.price - product.price*product.discount/100}}</span>
+            <s>{{ product.price }}</s
+            ><span>{{
+              product.price - (product.price * product.discount) / 100
+            }}</span>
           </div>
         </div>
       </figure>

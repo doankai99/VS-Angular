@@ -1,29 +1,32 @@
 <div class="content-wrapper package-filter-wrapper">
   <div class="package-filter-button mt-2 mt-sm-0">
-      <span class="filter-button" [ngClass]="{'open': isOpenEdit}" (click)="popUpEdit()">Update</span>
+    <span
+      class="filter-button"
+      [ngClass]="{ open: isOpenEdit }"
+      (click)="popUpEdit()"
+      >Update</span
+    >
   </div>
 
   <div class="filter-backdrop" *ngIf="isOpenEdit"></div>
   <div class="pop-up-edit" *ngIf="isOpenEdit" #filterPopup>
     <div class="filter-header-icon">
-      <div class="filter-text">
-        Update status order
-      </div>
+      <div class="filter-text">Update status order</div>
       <div class="close-icon cursor-pointer" (click)="popUpEdit()">
-        <img src="../../assets/icons/icon_close.svg" alt="">
+        <img src="../../assets/icons/icon_close.svg" alt="" />
       </div>
     </div>
     <div class="pop-up-body">
       <form (submit)="updateOrder()">
-          <select formControlName="status">
-            <option [value]= 0>Close</option>
-            <option [value]= 1>Inactive</option>
-            <option [value]= 2>Active</option>
-            <option [value]= 3>Doing</option>
-            <option [value]= 4>Delivery</option>
-            <option [value]= 5>Done</option>
-          </select>
-          <button type="submit">Save</button>
+        <select formControlName="status">
+          <option [value]="0">Close</option>
+          <option [value]="1">Inactive</option>
+          <option [value]="2">Active</option>
+          <option [value]="3">Doing</option>
+          <option [value]="4">Delivery</option>
+          <option [value]="5">Done</option>
+        </select>
+        <button type="submit">Save</button>
       </form>
     </div>
   </div>

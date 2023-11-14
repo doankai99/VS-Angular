@@ -10,6 +10,8 @@ import { ProductService } from 'src/app/product-management/shared/product.servic
 export class CrmProductCustomerComponent {
   public viewProduct: any;
   public isWithinDateRange: boolean = false;
+  public startDates: any;
+  public endDates: any;
 
   constructor(private productService: ProductService, private toast: ToastrService) {
 
@@ -18,27 +20,24 @@ export class CrmProductCustomerComponent {
     this.getListProduct()
   }
 
-  public dateSale(startDate: Date, endDate: Date) {
+  public dateSale(startDate: Date, endDate: Date): boolean {
     const currentDate = new Date();
-    // console.log(currentDate);
-    // startDate = new Date(currentDate);
-    // endDate = new Date(currentDate)
-    if (currentDate >= startDate && currentDate <= endDate) {
-      this.isWithinDateRange = true;
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    if (currentDate >= start && currentDate <= end) {
+      return true;
     } else {
-      this.isWithinDateRange = false;
+      return false;
     }
-    console.log(this.isWithinDateRange);
-
   }
 
   public getListProduct() {
     this.productService.getAllPriceOfPriduct().subscribe((data) => {
       if (data) {
         this.viewProduct = data.priceOfProducts
-        const startDates = data.priceOfProducts.map((product: any) => product.startDate);
-        const endDates = data.priceOfProducts.map((product: any) => product.endDate);
-        this.dateSale(startDates, endDates);
+        this.startDates = data.priceOfProducts.map((product: any) => product.startDate);
+        this.endDates = data.priceOfProducts.map((product: any) => product.endDate);
+        // this.dateSale(this.startDates[0], this.endDates[0]);
       } else {
         alert("lỗi hiển thị product")
       }

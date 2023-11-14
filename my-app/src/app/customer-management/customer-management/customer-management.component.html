@@ -4,54 +4,69 @@
   </div>
   <div class="content">
     <app-header></app-header>
-      <div class="col-md-12">
-        <div class="handle-add-customer">
-          <app-create-new-customer></app-create-new-customer>
-        </div>
+    <div class="col-md-12">
+      <div class="handle-add-customer">
+        <app-create-new-customer></app-create-new-customer>
       </div>
-      <div class="filter-backdrop" *ngIf="isLoading">
-        <div *ngIf="isLoading" class="loading"></div>
-      </div>
-      <div class="table-users">
-        <table cellspacing="0">
-          <tr>
-            <td>Id</td>
-            <td>Image</td>
-            <td>Name customer</td>
-            <td>Gender</td>
-            <td>Number Phone</td>
-            <td>Email</td>
-            <td>Address</td>
-            <td>Country</td>
-            <td>Create On</td>
-            <td>Option</td>
-          </tr>
-          <tr *ngFor="let item of dataCustomer, let i = index">
-            <td>{{i + 1}}</td>
-            <td>
-              <img *ngIf="!item.image" src="../../../assets/images/defaultthumbnail.jpg" alt="">
-              <img *ngIf="item.image" [src]="item.image" alt="">
-            </td>
-            <td>{{item.firstName}} {{item.lastName}}</td>
-            <td>{{item.gender}}</td>
-            <td>{{item.numberPhone}}</td>
-            <td>{{item.email}}</td>
-            <td>{{item.street}}, {{item.ward}}, {{item.district}}, {{item.city}}</td>
-            <td>{{item.country}}</td>
-            <td>{{item.createdAt | date}}</td>
-            <td>
-              <span>
-                <app-edit-customer-information
+    </div>
+    <div class="filter-backdrop" *ngIf="isLoading">
+      <div *ngIf="isLoading" class="loading"></div>
+    </div>
+    <div class="table-users">
+      <table cellspacing="0">
+        <tr>
+          <td>Id</td>
+          <td>Image</td>
+          <td>Name customer</td>
+          <td>Gender</td>
+          <td>Number Phone</td>
+          <td>Email</td>
+          <td>Address</td>
+          <td>Country</td>
+          <td>Create On</td>
+          <td>Option</td>
+        </tr>
+        <tr *ngFor="let item of dataCustomer; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>
+            <img
+              *ngIf="!item.image"
+              src="../../../assets/images/defaultthumbnail.jpg"
+              alt=""
+            />
+            <img *ngIf="item.image" [src]="item.image" alt="" />
+          </td>
+          <td>{{ item.firstName }} {{ item.lastName }}</td>
+          <td>{{ item.gender }}</td>
+          <td>{{ item.numberPhone }}</td>
+          <td>{{ item.email }}</td>
+          <td>
+            {{ item.street }}, {{ item.ward }}, {{ item.district }},
+            {{ item.city }}
+          </td>
+          <td>{{ item.country }}</td>
+          <td>{{ item.createdAt | date }}</td>
+          <td>
+            <span>
+              <app-edit-customer-information
                 [userId]="item._id"
                 (fetchData)="handleLoadData()"
-                ></app-edit-customer-information></span>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="pagination">
-        <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
-        <button [disabled]="currentPage * pageSize >= dataCustomer?.length" (click)="nextPage()">Trang sau</button>
-      </div>
+              ></app-edit-customer-information
+            ></span>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="pagination">
+      <button [disabled]="currentPage === 1" (click)="previousPage()">
+        Trang trước
+      </button>
+      <button
+        [disabled]="currentPage * pageSize >= dataCustomer?.length"
+        (click)="nextPage()"
+      >
+        Trang sau
+      </button>
+    </div>
   </div>
 </body>

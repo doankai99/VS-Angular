@@ -7,7 +7,7 @@
     <div class="col-md-12" *ngIf="isAdmin">
       <app-add-material
         (fetchData)="handleAddMaterial($event)"
-        ></app-add-material>
+      ></app-add-material>
     </div>
     <div class="filter-backdrop" *ngIf="isLoading">
       <div *ngIf="isLoading" class="loading"></div>
@@ -28,31 +28,47 @@
           <td>createdAt</td>
           <td>Option</td>
         </tr>
-        <tr *ngFor= "let items of materials?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
-          <td>{{i + 1}}</td>
-            <td> <img [src] = "items.image" alt=""></td>
-            <td>{{items?.name}}</td>
-            <td>{{items?.material}}</td>
-            <td>{{items?.color}}</td>
-            <td>{{items?.size}}</td>
-            <td>{{items?.price}}</td>
-            <td>{{items?.currency}}</td>
-            <td>{{items?.companyId?.companyName}}</td>
-            <td>{{items?.companyId?.email}}</td>
-            <td>{{items?.createdAt | date}}</td>
-            <td *ngIf="isAdmin"><app-edit-material
-              [materialData]= "items"
-              [materialId] = "items._id"
-              (data) = "handledata()"
-              >
-            </app-edit-material></td>
+        <tr
+          *ngFor="
+            let items of materials?.slice(
+              (currentPage - 1) * pageSize,
+              currentPage * pageSize
+            );
+            let i = index
+          "
+        >
+          <td>{{ i + 1 }}</td>
+          <td><img [src]="items.image" alt="" /></td>
+          <td>{{ items?.name }}</td>
+          <td>{{ items?.material }}</td>
+          <td>{{ items?.color }}</td>
+          <td>{{ items?.size }}</td>
+          <td>{{ items?.price }}</td>
+          <td>{{ items?.currency }}</td>
+          <td>{{ items?.companyId?.companyName }}</td>
+          <td>{{ items?.companyId?.email }}</td>
+          <td>{{ items?.createdAt | date }}</td>
+          <td *ngIf="isAdmin">
+            <app-edit-material
+              [materialData]="items"
+              [materialId]="items._id"
+              (data)="handledata()"
+            >
+            </app-edit-material>
+          </td>
         </tr>
       </table>
     </div>
     <div class="pagination">
-      <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
-      <button [disabled]="currentPage * pageSize >= materials?.length" (click)="nextPage()">Trang sau</button>
+      <button [disabled]="currentPage === 1" (click)="previousPage()">
+        Trang trước
+      </button>
+      <button
+        [disabled]="currentPage * pageSize >= materials?.length"
+        (click)="nextPage()"
+      >
+        Trang sau
+      </button>
     </div>
   </div>
 </body>
-

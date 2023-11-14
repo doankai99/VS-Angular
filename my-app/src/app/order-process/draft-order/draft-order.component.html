@@ -26,20 +26,28 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let order of inactiveOrder?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
+          <tr
+            *ngFor="
+              let order of inactiveOrder?.slice(
+                (currentPage - 1) * pageSize,
+                currentPage * pageSize
+              );
+              let i = index
+            "
+          >
             <td>{{ order._id }}</td>
-            <td>{{ order.user?.firstname}} {{ order.user?.lastname}}</td>
-            <td>{{ order.customer?.firstName }} {{ order.customer?.lastName }}</td>
+            <td>{{ order.user?.firstname }} {{ order.user?.lastname }}</td>
+            <td>
+              {{ order.customer?.firstName }} {{ order.customer?.lastName }}
+            </td>
             <td>{{ order.customer?.numberPhone }}</td>
             <td>{{ order?.shippingAddress }}</td>
-            <td>{{ order?.status | translateStatus}}</td>
+            <td>{{ order?.status | translateStatus }}</td>
             <td>{{ order?.startTime | date }}</td>
             <td>{{ order?.endTime | date }}</td>
             <td>{{ order?.totalCount }}</td>
-            <td  *ngIf="isAdmin">
-              <app-edit-confirm-order-inactive
-              [orderId] = "order._id"
-              >
+            <td *ngIf="isAdmin">
+              <app-edit-confirm-order-inactive [orderId]="order._id">
               </app-edit-confirm-order-inactive>
             </td>
           </tr>

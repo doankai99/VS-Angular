@@ -7,12 +7,12 @@
     <div class="col-md-12 hendle-button-user">
       <div class="handle-filter">
         <app-filter-user
-        (fetchData)="handleFilterUser($event)"
+          (fetchData)="handleFilterUser($event)"
         ></app-filter-user>
       </div>
       <div class="handle-add-user">
         <app-add-new-user
-        (fetchData)="handleAddUser($event)"
+          (fetchData)="handleAddUser($event)"
         ></app-add-new-user>
       </div>
     </div>
@@ -32,22 +32,39 @@
           <th>isAdmin</th>
           <th>option</th>
         </tr>
-        <tr *ngFor= "let item of listUser?.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index">
-          <td>{{i + 1}}</td>
+        <tr
+          *ngFor="
+            let item of listUser?.slice(
+              (currentPage - 1) * pageSize,
+              currentPage * pageSize
+            );
+            let i = index
+          "
+        >
+          <td>{{ i + 1 }}</td>
           <td>
-            <img *ngIf="!item.image" src="../../../assets/images/defauthAvatar.jpg" alt="">
-            <img *ngIf="item.image" [src]="item.image" alt="">
+            <img
+              *ngIf="!item.image"
+              src="../../../assets/images/defauthAvatar.jpg"
+              alt=""
+            />
+            <img *ngIf="item.image" [src]="item.image" alt="" />
           </td>
-          <td>{{item.firstname}}</td>
+          <td>{{ item.firstname }}</td>
           <td>
             <app-detail-user
-            [getDetailUser] = "item"
-            [userId] = "item?._id"
+              [getDetailUser]="item"
+              [userId]="item?._id"
             ></app-detail-user>
           </td>
-          <td>{{item.email}}</td>
-          <td>{{item.position}}</td>
-          <td><span>{{item?.street}},{{item?.ward}},{{item?.district}}, {{item?.city}}, {{item?.country}}</span></td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.position }}</td>
+          <td>
+            <span
+              >{{ item?.street }},{{ item?.ward }},{{ item?.district }},
+              {{ item?.city }}, {{ item?.country }}</span
+            >
+          </td>
           <td>
             <div class="form-check form-switch">
               <input
@@ -62,18 +79,26 @@
           <td>
             <span>
               <app-filter-management-account
-              [getDetailUser]= "item"
-              [userId]= "item._id"
-              (fetchData)="handleEditUser()"
+                [getDetailUser]="item"
+                [userId]="item._id"
+                (fetchData)="handleEditUser()"
               >
-              </app-filter-management-account></span>
+              </app-filter-management-account
+            ></span>
           </td>
         </tr>
       </table>
     </div>
     <div class="pagination">
-      <button [disabled]="currentPage === 1" (click)="previousPage()">Trang trước</button>
-      <button [disabled]="currentPage * pageSize >= listUser?.length" (click)="nextPage()">Trang sau</button>
+      <button [disabled]="currentPage === 1" (click)="previousPage()">
+        Trang trước
+      </button>
+      <button
+        [disabled]="currentPage * pageSize >= listUser?.length"
+        (click)="nextPage()"
+      >
+        Trang sau
+      </button>
     </div>
   </div>
 </body>
