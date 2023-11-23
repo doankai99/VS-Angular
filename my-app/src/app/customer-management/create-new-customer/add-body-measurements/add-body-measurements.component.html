@@ -1,82 +1,115 @@
 <body>
-  <div class="menu">
-    <app-menu></app-menu>
+<div class="menu">
+  <app-menu></app-menu>
+</div>
+<div class="content">
+  <div class="header-top">
+    <app-header></app-header>
   </div>
-  <div class="content">
-    <div class="header-top">
-      <app-header></app-header>
+  <h3 class="text-center">Body measurement</h3>
+  <div class="body-measurement-content">
+    <div class="">
+      <img src="../../../../assets/images/bodymeasurement.jpg" alt="" />
     </div>
-    <div class="body-measurement-content">
-      <div class="">
-        <img src="../../../../assets/images/bodymeasurement.jpg" alt="" />
-      </div>
-      <div class="content-form">
-        <form class="form-control">
-          <div class="row">
-            <div class="measurement-value">
-              <div class="w-100">
-                <label>Gender: </label>
-                <select>
-                  <option value="0">Male</option>
-                  <option value="1">Female</option>
-                </select>
-              </div>
+    <div class="content-form">
+      <form [formGroup]="form" (submit)="addBodyMeasurements()">
+        <div class="row">
+          <div class="measurement-value">
+            <div class="w-100">
+              <label>Gender: </label>
+              <select class="form-control" formControlName="gender">
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+              </select>
             </div>
           </div>
-          <div class="row">
-            <div class="measurement-value">
-              <div class="w-100">
-                <label>Height: </label>
-                <input
-                  type="number"
-                  name="name"
-                  class="form-control"
-                  placeholder="Enter height"
-                  required="required"
-                  data-error="Firstname is required."
-                />
-              </div>
-              <div class="w-100">
-                <label>Weight: </label>
-                <input
-                  type="number"
-                  name="name"
-                  class="form-control"
-                  placeholder="Enter weight"
-                  required="required"
-                  data-error="Firstname is required."
-                />
-              </div>
+        </div>
+        <div class="row">
+          <div class="measurement-value">
+            <div class="w-100">
+              <label>Height: </label>
+              <input
+                type="number"
+                name="name"
+                min="0"
+                class="form-control"
+                formControlName="height"
+                placeholder="Enter height"
+                required="required"
+                data-error="Height is required."
+              />
+            </div>
+            <div class="w-100">
+              <label>Weight: </label>
+              <input
+                type="number"
+                name="name"
+                min="0"
+                class="form-control"
+                formControlName="weight"
+                placeholder="Enter weight"
+                required="required"
+                data-error="Weight is required."
+              />
             </div>
           </div>
-          <div class="row">
-            <div class="measurement-value">
-              <div class="w-100">
-                <label>Height: </label>
-                <input
-                  type="number"
-                  name="name"
-                  class="form-control"
-                  placeholder="Enter height"
-                  required="required"
-                  data-error="Firstname is required."
-                />
-              </div>
-              <div class="w-100">
-                <label>Weight: </label>
-                <input
-                  type="number"
-                  name="name"
-                  class="form-control"
-                  placeholder="Enter weight"
-                  required="required"
-                  data-error="Firstname is required."
-                />
-              </div>
+        </div>
+        <div class="row">
+          <div class="measurement-value">
+            <div class="w-100">
+              <label>Chest: </label>
+              <input
+                type="number"
+                name="name"
+                min="0"
+                class="form-control"
+                formControlName="chest"
+                placeholder="Enter Chest"
+                required="required"
+                data-error="Chest is required."
+              />
+            </div>
+            <div class="w-100">
+              <label>Waist: </label>
+              <input
+                type="number"
+                name="name"
+                min="0"
+                class="form-control"
+                formControlName="waist"
+                placeholder="Enter Waist"
+                required="required"
+                data-error="Firstname is required."
+              />
             </div>
           </div>
-        </form>
-      </div>
+        </div>
+        <div class="row">
+          <div class="measurement-value">
+            <div class="w-100">
+              <label>Hips: </label>
+              <input
+                type="number"
+                name="name"
+                min="0"
+                class="form-control"
+                formControlName="hips"
+                placeholder="Enter hips"
+                required="required"
+                data-error="Firstname is required."
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="measurement-value">
+            <div class="w-100">
+              <button class="button_save" type="submit">Save</button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 </body>
