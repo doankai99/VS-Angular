@@ -47,11 +47,8 @@ export class PriceOfProductComponent {
 
   public dateSale(startDate: Date, endDate: Date): boolean {
     const currentDate = new Date();
-    console.log(currentDate);
     const start = new Date(startDate);
     const end = new Date(endDate);
-    console.log(startDate);
-    console.log(endDate);
     if (currentDate >= start && currentDate <= end) {
       return true;
     } else {
