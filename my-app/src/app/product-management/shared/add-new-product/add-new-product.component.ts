@@ -32,11 +32,9 @@ export class AddNewProductComponent {
       summary: new FormControl(''),
     })
   }
-
   public onFileChange(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      // Kiểm tra xem tệp đã chọn có phải là hình ảnh không
       if (file.type.match(/image\/*/) !== null) {
         this.form.patchValue({
           fileSource: file
@@ -48,7 +46,7 @@ export class AddNewProductComponent {
         };
         reader.readAsDataURL(file);
       } else {
-        console.error('Chọn một tệp hình ảnh.');
+        console.error('image not found.');
       }
     }
   }
