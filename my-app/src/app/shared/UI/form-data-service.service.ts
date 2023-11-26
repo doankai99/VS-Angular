@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class FormDataServiceService {
 
   constructor() { }
-
   appendIfValue(formData: FormData, fieldName: string, value: any) {
     if (value) {
       formData.append(fieldName, value);
